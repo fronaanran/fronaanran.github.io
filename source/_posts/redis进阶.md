@@ -9,9 +9,7 @@ categories:
 
 ### 发布订阅 publish/subscribe
 
-![publish](E:\folder\themes\next\source\images\publish.png)
-
-
+{% asset_img publish.png %}
 
 1发布一条消息，2开始订阅，此时不会收到刚刚发布的消息 3 再次发布消息 此时订阅端才会收到发布的消息。订阅后不能看到订阅之前发布的消息。
 
@@ -104,7 +102,7 @@ rdb只有一个dump.rdb文件，如需历史数据需要手动维护。
 
 推荐使用AOF和RDB两种方式，配置文件修改属性aof-usr-rdb-preamble yes表示开启AOF、RDB混合模式。这种模式只会生成一个aof文件，aof文件包含rdb及增量指令。只有触发BGREWRITEAOF 时aof才会包含rdb.如下：
 
-![aofrewite](E:\folder\themes\next\source\images\aofrewite.png)
+{% asset_img aofrewite.png %}
 
 ### 主从复制
 

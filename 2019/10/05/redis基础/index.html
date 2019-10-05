@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="redis,">
 
 
 
@@ -81,16 +81,22 @@
 
 
 
-<meta name="description" content="follow your heart">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="基本介绍Redis 是一个开源的内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件，支持多种类型的数据结构,是单进程，单实例。 memcache和redis对比： memcache &amp;lt;key,value&amp;gt; value没有类型的概念 redis &amp;lt;key,value&amp;gt; value支持多种类型的多种方法。 例：“person,{name:’小明’,age:18}”当客">
+<meta name="keywords" content="redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis基础">
+<meta property="og:url" content="http://yoursite.com/2019/10/05/redis基础/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="follow your heart">
+<meta property="og:description" content="基本介绍Redis 是一个开源的内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件，支持多种类型的数据结构,是单进程，单实例。 memcache和redis对比： memcache &amp;lt;key,value&amp;gt; value没有类型的概念 redis &amp;lt;key,value&amp;gt; value支持多种类型的多种方法。 例：“person,{name:’小明’,age:18}”当客">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/10/05/redis基础/skip_list.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/05/redis基础/send01.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/10/05/redis基础/send02.jpg">
+<meta property="og:updated_time" content="2019-10-05T06:44:26.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="follow your heart">
+<meta name="twitter:title" content="redis基础">
+<meta name="twitter:description" content="基本介绍Redis 是一个开源的内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件，支持多种类型的数据结构,是单进程，单实例。 memcache和redis对比： memcache &amp;lt;key,value&amp;gt; value没有类型的概念 redis &amp;lt;key,value&amp;gt; value支持多种类型的多种方法。 例：“person,{name:’小明’,age:18}”当客">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/05/redis基础/skip_list.png">
 
 
 
@@ -120,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/05/redis基础/">
 
 
 
@@ -140,7 +146,7 @@
     }
 </style>
 
-  <title>归档 | Hexo</title>
+  <title>redis基础 | Hexo</title>
   
 
 
@@ -170,7 +176,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,177 +302,338 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/05/redis基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">redis基础</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-05T14:26:00+08:00">
+                2019-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 4 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/05/redis基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/05/redis基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/10/05/redis基础/" itemprop="url">
-              
-                <span itemprop="name">redis基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-05T14:26:00+08:00" content="2019-10-05">
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
 
+          
 
-      
+          
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/10/05/redis进阶/" itemprop="url">
-              
-                <span itemprop="name">redis进阶</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-05T14:26:00+08:00" content="2019-10-05">
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
+		   
 
 
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/26/线程1/" itemprop="url">
-              
-                <span itemprop="name">线程1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-26T11:24:25+08:00" content="2019-09-26">
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Redis 是一个开源的内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件，支持多种类型的数据结构,是单进程，单实例。</p>
+<p>memcache和redis对比：</p>
+<p>memcache &lt;key,value&gt; value没有类型的概念</p>
+<p>redis &lt;key,value&gt; value支持多种类型的多种方法。</p>
+<p>例：“person,{name:’小明’,age:18}”当客户端需要获取value中的age时，memcache会返回所有value值，让客户端去遍历所需要的值 ，而redis会直接返回value相对应的age。本质上解耦，体现计算向数据移动。</p>
+<p>数据库排名网站 ：<a href="https://db-engines.com/en/" target="_blank" rel="noopener">https://db-engines.com/en/</a></p>
+<p>redis中文网站：<a href="http:redis.cn" target="_blank" rel="noopener">http:redis.cn</a></p>
+<p>redis官方网站: <a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a></p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>读取(范围/批量):get k1 / getrange k1 3 -1 / mget k1 k2</p>
+<p>赋值(范围/批量):set k1 hello / getrange k1 2 -1 / mset k2 222 k3 333</p>
+<pre><code>set key nx 不存在时赋值，在分步式锁时使用</code></pre><p>​                             set key xx 存在时赋值</p>
+<p>append,strlength等等字符串基本语法</p>
+<p>数值：递增)incr k1  / incrby k1 22 递减)decr k1 / decrby k1 2</p>
+<p>redis是二进制安全的，需要和客户端沟通好编码类型.</p>
+<p>bitmap(位图):setbit,getbit ,bitcount,bitop </p>
+<table>
+<thead>
+<tr>
+<th>0(第0个字节)</th>
+<th>1(第1个字节)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00000000（8位）</td>
+<td>00000000(8位)</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit k1 1 1 //第0个字节第2位设置为1 即01000000</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;@&quot;</span><br><span class="line">127.0.0.1:6379&gt; setbit k1 10 1  //第2个字节第3位设置为1 即01000000</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;@ &quot;</span><br><span class="line">127.0.0.1:6379&gt; bitcount k1 0 0 //k1第0个字节有几个1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bitcount k1 0 1 //k1第0至1个字节有几个1</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; setbit k2 1 1</span><br><span class="line">127.0.0.1:6379&gt; setbit k2 7 1</span><br><span class="line">127.0.0.1:6379&gt; get k2 //01000001</span><br><span class="line">&quot;A&quot;</span><br><span class="line">127.0.0.1:6379&gt; setbit k3 1 1</span><br><span class="line">127.0.0.1:6379&gt; setbit k3 6 1</span><br><span class="line">127.0.0.1:6379&gt; get k3 //01000010</span><br><span class="line">&quot;B&quot;</span><br><span class="line">127.0.0.1:6379&gt; bitop and destkey k2 k3 //按位与操作结果为01000000</span><br><span class="line">127.0.0.1:6379&gt; get destkey</span><br><span class="line">&quot;@&quot;</span><br></pre></td></tr></table></figure>
 
-        
-        
+<p>位图场景 1)不定期统计用户登录天数</p>
+<p>key为当前用户id,value为bitmap，每一位相当于天数，登录则为1，反之为0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setbit zs 1 1 //第2天登录设为1</span><br><span class="line">setbit zs 90 1 //第91天登录设为1</span><br><span class="line">setbit zs 364 1 //第365天登录设为1</span><br><span class="line">bitcount zs -7 -1 //统计最后一周登录天数</span><br></pre></td></tr></table></figure>
 
-        
+<p>2）不定期统计活跃用户数量</p>
+<p>key为时间，value为bitmap,每一位相当于一个用户id，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setbit 20191001 0 1 //2019年10月1号 张三登录</span><br><span class="line">setbit 20191002 0 1 //2019年10月2号 张三登录</span><br><span class="line">setbit 20191002 1 1 //2019年10月2号 李四登录</span><br><span class="line">bitop or destkey 20191001  20191002  //2019年10月1号至10月2号登录人数</span><br><span class="line">bitcount destkey 0 -1 //统计2019年10月1号至10月2号登录人数</span><br></pre></td></tr></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>常用命令:lpush、lrange、lpop、lindex、lset、lrem、linsert、llen、ltrim</p>
+<pre><code>rpush、range、rpop、blpop</code></pre><p>list是重复有序的，包含了栈、队列、数组、单播订阅的概念</p>
+<h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><p>常用命令:hset、hmset、hget、hmget、hvals、hgetall</p>
+<p>应用场景:点赞、收藏、详情页</p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>常用命令：sadd、smembers、sinter、sinterstore、sunion、sdiff、srandmember、spop</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sadd k9 1 2 3 4 5 </span><br><span class="line">srandmember k9 3 //随机取三个，不会重复</span><br><span class="line">srandmember k9 -3  //随机取三个，会重复</span><br><span class="line">srandmember k9 10 //只能取出5个</span><br><span class="line">srandmember k9 -10  //随机取10个，会重复</span><br><span class="line">spop k9 //随机取1个，并把这个值去除 可用于年会抽奖，一人一份的场景</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/24/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
+<p>  set是去重无序的.应用场景：随机抽奖</p>
+<h3 id="sorted-set"><a href="#sorted-set" class="headerlink" title="sorted_set"></a>sorted_set</h3><p>常用命令:zadd、zrange、zrevrange、zscore、zrank、zunionscore</p>
+<p>应用场景：排行榜</p>
+<p>排序之所以快是因为使用skip_list(跳跃表)实现的。skip_list是一个分层结构多级链表，最下层是原始链表，每个层级都是下一个层级的“高速跑道”.跳表具有如下性质：</p>
+<p>1)由很多层结构组成</p>
+<p>2)每一层都是一个有序链表</p>
+<p>3)最底层的链表包含所有元素</p>
+<p>4)如果一个元素出现在 i层，则它在i层之下的链表也都会出现</p>
+<p>5)每个节点包含两个指针，一个指向同一链表中的下一个元素，一个指向下面一层的元素。</p>
+<img src="/2019/10/05/redis基础/skip_list.png">
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-24T20:12:28+08:00" content="2019-09-24">
-          09-24
-        </time>
-      </div>
+<h2 id="IO模式及零拷贝"><a href="#IO模式及零拷贝" class="headerlink" title="IO模式及零拷贝"></a>IO模式及零拷贝</h2><p>bio 阻塞 </p>
+<p>nio 非阻塞 实现方式：select,poll,epoll 多路复用，同步非阻塞</p>
+<p>aio 异步非阻塞</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>进程连接数</th>
+<th>io效率</th>
+<th>消息传递</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>select</td>
+<td>有限</td>
+<td>采用轮询方式，遍历所有fd判断是否就绪</td>
+<td>用户态、内核态切换</td>
+</tr>
+<tr>
+<td>poll</td>
+<td>基于链表，没有限制</td>
+<td>采用轮询方式，遍历所有fd判断是否就绪</td>
+<td>用户态、内核态切换</td>
+</tr>
+<tr>
+<td>epoll</td>
+<td>有限，但是上限很大</td>
+<td>采用回调机制，返回就绪fd</td>
+<td>mmap内存共享空间</td>
+</tr>
+</tbody></table>
+<p>epoll详解：</p>
+<p>epoll的通俗解释是一种当文件描述符的内核缓冲区非空的时候，发出可读信号进行通知，当写缓冲区不满的时候，发出可写信号通知的机制。</p>
+<p>核心API:epoll_create,epoll_ctl,epoll_wait</p>
+<p>epoll_create生成epoll实例并返回一个文件描述符即epoll句柄，epoll_ctl,epoll_wait均以此为核心。</p>
+<p>epoll_ctl 将被监听的描述符添加到红黑树或从红黑树中删除或者对监听事件进行修改</p>
+<p>epoll_wait 向用户进程返回处于ready状态下的文件描述符列表</p>
+<p>采用回调机制，在执行add操作时，将文件描述符放到红黑树上，同时注册回调函数，内核在检测到某fd可读/写时会调用此回调函数，该回调函数将文件描述符放在就绪链表中。</p>
+<p>零拷贝sendfile</p>
+<p>零拷贝是指计算机在网络上发送文件时，不需要将文件内容拷贝到用户空间而直接在内核空间中传输到网络的方式，减少cpu的占用和内存带宽。</p>
+<img src="/2019/10/05/redis基础/send01.jpg">
 
-    </header>
-  </article>
+<p>1、发出sendfile系统调用，用户空间和内核空间上下文切换（第1次上下文切换）</p>
+<p>2、通过DMA将磁盘文件中的内容拷贝到内核空间缓冲区（第1次拷贝：hard driver-&gt;kernel buffer）</p>
+<p>3、DMA发出中断，CPU处理中断，将数据从内核缓冲区拷贝到socket缓冲区(第2次拷贝：kener buffer -&gt; socket buffer)</p>
+<p>4、sendfile系统调用返回，内核空间到用户空间上下文切换(第2次上下文切换)</p>
+<p>5、通过DMA将socket缓冲区中的数据传递到网卡(第3次拷贝：socket buffer -&gt;网卡)</p>
+<p>3次上下文切换，3次拷贝。</p>
+<img src="/2019/10/05/redis基础/send02.jpg">
 
-
+<p>1、调用read()，上下文切换到内核，DMA把磁盘数据复制到内核缓冲区</p>
+<p>2、read()返回，上下文切换到用户空间，CPU把数据复制到用户的缓存空间</p>
+<p>3、write()上下文切换到内核，CPU把数据复制到socket缓冲区</p>
+<p>4、write()返回，上下文切换到用户进程</p>
+<p>5、DMA把socket缓冲区数据复制到网卡</p>
+<p>4次上下文切换，4次拷贝。</p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-heart"></i>感谢阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>鼓励支持一下~~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="qar 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="qar 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/05/redis进阶/" rel="next" title="redis进阶">
+                <i class="fa fa-chevron-left"></i> redis进阶
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -474,6 +641,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -494,8 +668,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -564,6 +747,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本介绍"><span class="nav-text">基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string"><span class="nav-text">string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list"><span class="nav-text">list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash"><span class="nav-text">hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-text">set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted-set"><span class="nav-text">sorted_set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO模式及零拷贝"><span class="nav-text">IO模式及零拷贝</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -733,6 +932,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-18T02:29:23.675Z</updated>
+  <updated>2019-10-05T06:44:26.801Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,10 +17,94 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>redis基础</title>
+    <link href="http://yoursite.com/2019/10/05/redis%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2019/10/05/redis基础/</id>
+    <published>2019-10-05T06:26:00.000Z</published>
+    <updated>2019-10-05T06:44:26.801Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;基本介绍&quot;&gt;&lt;a href=&quot;#基本介绍&quot; class=&quot;headerlink&quot; title=&quot;基本介绍&quot;&gt;&lt;/a&gt;基本介绍&lt;/h2&gt;&lt;p&gt;Redis
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="redis" scheme="http://yoursite.com/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis进阶</title>
+    <link href="http://yoursite.com/2019/10/05/redis%E8%BF%9B%E9%98%B6/"/>
+    <id>http://yoursite.com/2019/10/05/redis进阶/</id>
+    <published>2019-10-05T06:26:00.000Z</published>
+    <updated>2019-10-05T06:50:00.908Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;发布订阅-publish-subscribe&quot;&gt;&lt;a href=&quot;#发布订阅-publish-subscribe&quot; class=&quot;headerlink&quot; title=&quot;发布订阅 publish/subscribe&quot;&gt;&lt;/a&gt;发布订阅
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="redis" scheme="http://yoursite.com/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程1</title>
+    <link href="http://yoursite.com/2019/09/26/%E7%BA%BF%E7%A8%8B1/"/>
+    <id>http://yoursite.com/2019/09/26/线程1/</id>
+    <published>2019-09-26T03:24:25.000Z</published>
+    <updated>2019-10-05T06:20:58.727Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;创建方式&quot;&gt;&lt;a href=&quot;#创建方式&quot; class=&quot;headerlink&quot; title=&quot;创建方式&quot;&gt;&lt;/a&gt;创建方式&lt;/h2&gt;&lt;p&gt; 1)继承Thread类   2)实现Runnable接口&lt;/p&gt;
+&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="线程" scheme="http://yoursite.com/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/09/17/hello-world/"/>
-    <id>http://yoursite.com/2019/09/17/hello-world/</id>
-    <published>2019-09-17T06:41:42.649Z</published>
+    <link href="http://yoursite.com/2019/09/24/hello-world/"/>
+    <id>http://yoursite.com/2019/09/24/hello-world/</id>
+    <published>2019-09-24T12:12:28.789Z</published>
     <updated>2019-09-18T02:29:23.675Z</updated>
     
     <summary type="html">

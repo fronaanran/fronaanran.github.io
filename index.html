@@ -466,6 +466,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/java8新特性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/31/java8新特性/" itemprop="url">java8新特性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-31T22:30:00+08:00">
+                2019-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/31/java8新特性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/31/java8新特性/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="lambda、stream"><a href="#lambda、stream" class="headerlink" title="lambda、stream"></a>lambda、stream</h3><p>lambda表达式可以替代只有一个抽象函数的接口实现，告别匿名内部类，代码看起来更简洁易懂</p>
+<p>lambda表达式同时还提升了对集合、框架的迭代、遍历、过滤数据的操作</p>
+<ul>
+<li><p>函数式接口</p>
+<p>有且仅有一个抽象方法的接口叫做函数式接口。lambda表达式应用于任何有函数式接口的地方</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Runnable runnable = new Runnable() &#123;</span><br><span class="line">@Override</span><br><span class="line">public void run() &#123;System.out.println(&quot;running...&quot;);&#125;</span><br><span class="line">&#125;;</span><br><span class="line">runnable.run();</span><br><span class="line">Runnable runnable1 = ()-&gt; System.out.println(&quot;running2&quot;);</span><br><span class="line">runnable1.run();</span><br><span class="line">//lambda用例</span><br><span class="line">()-&gt;&#123;&#125;</span><br><span class="line">()-&gt;&#123;return 100;&#125;</span><br><span class="line">()-&gt;100</span><br><span class="line">()-&gt;null</span><br><span class="line">(int x)-&gt;x+1</span><br><span class="line">x-&gt;x+1</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>方法引用 </p>
+<p>类名::方法名,实例对象::方法名</p>
+<p>例:System.out::println</p>
+</li>
+<li><p>stream之流操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 4, 5);</span><br><span class="line">list.stream().filter(x-&gt;x%2==0).forEach(System.out::println);</span><br><span class="line">System.out.println(list.stream().filter(x -&gt; x % 2 == 1).mapToInt(x -&gt; x).sum());</span><br><span class="line">2 4 9</span><br><span class="line">//不会缓存中间结果，即返回值为Stream时的语句不会执行，只有执行终止语句才会执行stream</span><br><span class="line">Stream&lt;Integer&gt; integerStream = list.stream().filter((x) -&gt; &#123;</span><br><span class="line">System.out.println(&quot;运行。。。&quot;);</span><br><span class="line">return x % 2 == 0;</span><br><span class="line">&#125;);</span><br><span class="line">System.out.println(integerStream);//不会执行filter中的语句，因为此语句的返回结果是stream属于中间操作，不会被缓存，只有对stream进行操作后返回非stream值时才会执行相应语句。</span><br><span class="line">System.out.println(integerStream.findFirst().get());//会执行filter的语句，因为.get()最后的返回值是一个int值.</span><br><span class="line">//把满足条件的值放到一个集合中</span><br><span class="line">List&lt;Integer&gt; collect = list.stream().filter(x -&gt; x % 2 == 0).collect(Collectors.toList());</span><br><span class="line">collect.forEach(System.out::println);</span><br><span class="line">//求数值相加和</span><br><span class="line">String str=&quot;11,22,33,44,55&quot;;</span><br><span class="line">System.out.println(Arrays.stream(str.split(&quot;,&quot;)).mapToInt(Integer::valueOf).sum());</span><br><span class="line">System.out.println(Arrays.stream(str.split(&quot;,&quot;)).map(Integer::valueOf).mapToInt(x -&gt; x).sum());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自定义注解</p>
+<p>使用@interface 来定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Documented</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Target(value=&#123;CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE&#125;)</span><br><span class="line">public @interface Deprecated &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>元注解的作用是负责注解其他注解，java中定义了四个标准的元注解:</p>
+<ol>
+<li><p>@Target:用来描述注解的使用范围(注解可以用在什么地方)</p>
+</li>
+<li><p>@Retention:表示需要在什么级别保存该注释信息，描述注解的生命周期</p>
+<p>Source&lt;Class&lt;Runtime</p>
+</li>
+<li><p>@Document:说明该注解将被包含在javadoc中</p>
+</li>
+<li><p>@Inherited:说明子类可以继承父类中的该注解</p>
+</li>
+</ol>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/js士兵行走案例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1702,7 +1899,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

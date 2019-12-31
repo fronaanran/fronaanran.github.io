@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-31T12:22:27.939Z</updated>
+  <updated>2019-12-31T14:30:11.963Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java8新特性</title>
+    <link href="http://yoursite.com/2019/12/31/java8%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <id>http://yoursite.com/2019/12/31/java8新特性/</id>
+    <published>2019-12-31T14:30:00.000Z</published>
+    <updated>2019-12-31T14:30:11.963Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;lambda、stream&quot;&gt;&lt;a href=&quot;#lambda、stream&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>js士兵行走案例</title>

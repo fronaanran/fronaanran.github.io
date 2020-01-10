@@ -89,13 +89,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5CSimpleNested-LoopJoin.png">
-<meta property="og:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png">
-<meta property="og:updated_time" content="2020-01-10T12:54:21.335Z">
+<meta property="og:image" content="e:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5CSimpleNested-LoopJoin.png">
+<meta property="og:image" content="e:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png">
+<meta property="og:updated_time" content="2020-01-10T13:13:42.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql优化">
 <meta name="twitter:description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
-<meta name="twitter:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5CSimpleNested-LoopJoin.png">
+<meta name="twitter:image" content="e:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5CSimpleNested-LoopJoin.png">
 
 
 
@@ -474,12 +474,12 @@
 <p>详情可参考:<a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-types.html" target="_blank" rel="noopener">mysql官网</a></p>
 </li>
 <li><p>join算法</p>
-<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5CSimpleNested-LoopJoin.png" alt></p>
+<p><img src="E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5CSimpleNested-LoopJoin.png" alt></p>
 </li>
 </ol>
-<pre><code>![](E:\folder\source\_posts\数据库\IndexNested-LoopJoin.png)
+<pre><code>![](E:\folder\source\_posts\mysql调优\IndexNested-LoopJoin.png)
 
-![](E:\folder\source\_posts\数据库\BlockNested-LoopJoin.png)</code></pre><ol start="12">
+![](E:\folder\source\_posts\mysql调优\BlockNested-LoopJoin.png)</code></pre><ol start="12">
 <li><p>前缀索引</p>
 <p>当索引列为很长的字符，会使索引查询效率又大又慢，这时可以使用字符串的前几个字符作为索引(即前缀索引)。</p>
 <p>前缀索引需选择足够长的前缀以保证较高的选择性，同时又不能太长(造成空间浪费)</p>
@@ -491,7 +491,7 @@
 <p>mysql中无法使用前缀索引进行order by 和group by ,也无法用于覆盖索引</p>
 </li>
 <li><p>联合索引的B+树形式</p>
-<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt="联合索引"></p>
+<p><img src="E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt="联合索引"></p>
 <p>非叶子节点存储的是联合索引key的键值对，叶子节点存储的是联合索引key的键值对+主键索引</p>
 </li>
 </ol>
@@ -654,7 +654,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5CSimpleNested-LoopJoin.png">
 <meta property="og:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png">
-<meta property="og:updated_time" content="2020-01-10T12:37:33.502Z">
+<meta property="og:updated_time" content="2020-01-10T12:54:21.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql优化">
 <meta name="twitter:description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
@@ -491,7 +491,7 @@
 <p>mysql中无法使用前缀索引进行order by 和group by ,也无法用于覆盖索引</p>
 </li>
 <li><p>联合索引的B+树形式</p>
-<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt></p>
+<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt="联合索引"></p>
 <p>非叶子节点存储的是联合索引key的键值对，叶子节点存储的是联合索引key的键值对+主键索引</p>
 </li>
 </ol>

@@ -81,21 +81,21 @@
 
 
 
-<meta name="description" content="[TOC] mysql架构图 mysql执行顺序 select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段  1) 表1和表2 按照on关联条件筛选值 2) left join 添加外部行，把左表在第二步中过滤的条件添加进来 3) where 对上面的结果进行where 筛选 4) group by">
+<meta name="description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql之索引、事务、执行计划、日志、锁">
-<meta property="og:url" content="http://yoursite.com/2020/01/05/数据库之索引、事务、执行计划/index.html">
+<meta property="og:title" content="mysql优化">
+<meta property="og:url" content="http://yoursite.com/2020/01/10/mysql调优/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="[TOC] mysql架构图 mysql执行顺序 select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段  1) 表1和表2 按照on关联条件筛选值 2) left join 添加外部行，把左表在第二步中过滤的条件添加进来 3) where 对上面的结果进行where 筛选 4) group by">
+<meta property="og:description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5Cmysql.png">
-<meta property="og:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E.png">
-<meta property="og:updated_time" content="2020-01-10T09:45:03.235Z">
+<meta property="og:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5CSimpleNested-LoopJoin.png">
+<meta property="og:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png">
+<meta property="og:updated_time" content="2020-01-10T12:37:33.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql之索引、事务、执行计划、日志、锁">
-<meta name="twitter:description" content="[TOC] mysql架构图 mysql执行顺序 select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段  1) 表1和表2 按照on关联条件筛选值 2) left join 添加外部行，把左表在第二步中过滤的条件添加进来 3) where 对上面的结果进行where 筛选 4) group by">
-<meta name="twitter:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5Cmysql.png">
+<meta name="twitter:title" content="mysql优化">
+<meta name="twitter:description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
+<meta name="twitter:image" content="e:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5CSimpleNested-LoopJoin.png">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/05/数据库之索引、事务、执行计划/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/10/mysql调优/">
 
 
 
@@ -145,7 +145,7 @@
     }
 </style>
 
-  <title>mysql之索引、事务、执行计划、日志、锁 | Hexo</title>
+  <title>mysql优化 | Hexo</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/05/数据库之索引、事务、执行计划/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/10/mysql调优/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qar">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysql之索引、事务、执行计划、日志、锁</h1>
+          <h1 class="post-title" itemprop="name headline">mysql优化</h1>
         
 
         <div class="post-meta">
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-05T09:18:00+08:00">
-                2020-01-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-10T17:24:00+08:00">
+                2020-01-10
               </time>
             
 
@@ -385,8 +385,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/05/数据库之索引、事务、执行计划/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/05/数据库之索引、事务、执行计划/" itemprop="commentCount"></span>
+                <a href="/2020/01/10/mysql调优/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/10/mysql调优/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,431 +425,76 @@
 
       
         <p>[TOC]</p>
-<h2 id="mysql架构图"><a href="#mysql架构图" class="headerlink" title="mysql架构图"></a>mysql架构图</h2><p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5Cmysql.png" alt></p>
-<h2 id="mysql执行顺序"><a href="#mysql执行顺序" class="headerlink" title="mysql执行顺序"></a>mysql执行顺序</h2><ol>
-<li><p>select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段 </p>
-<p>1) 表1和表2 按照on关联条件筛选值</p>
-<p>2) left join 添加外部行，把左表在第二步中过滤的条件添加进来</p>
-<p>3) where 对上面的结果进行where 筛选</p>
-<p>4) group by 对上一步的结果进行分组</p>
-<p>5) select 对上一步的结果筛选出所需要的列</p>
-<p>6) order by  按照指定顺序排列</p>
+<h3 id="mysql调优"><a href="#mysql调优" class="headerlink" title="mysql调优"></a>mysql调优</h3><h4 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set profiling =1;</span><br><span class="line">show PROFILES;//列出所有语句的执行时间，包含query_id,duration,query</span><br><span class="line">show profile all;//默认显示最后一条语句的各个阶段的执行时间</span><br><span class="line">show profile for query query_id;//显示指定语句的各个阶段的执行时间</span><br></pre></td></tr></table></figure>
+
+<p>也使用explain执行计划来查看</p>
+<h4 id="数据类型优化"><a href="#数据类型优化" class="headerlink" title="数据类型优化"></a>数据类型优化</h4><ol>
+<li>更小的字节数更好 ，如能用tinyint便不用int</li>
+<li>选用适当的数据类型，比如能存整型便不用字符串，地址存放可以使用整型替换字符串，Inet_ATON(“”)</li>
+<li>使用日期类型来存储日期不要使用字符串</li>
+</ol>
+<h4 id="优化细节"><a href="#优化细节" class="headerlink" title="优化细节"></a>优化细节</h4><ol>
+<li>尽量在where,order by,grouby 之后使用索引</li>
+<li>select的字段值只包含需要显示的值，不能写*</li>
+</ol>
+<h4 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h4><ol>
+<li><p>char类型查询时会自动删除末尾空格，最大长度为255，是定长的，而varchar是变长的。</p>
 </li>
-<li><p>select 列名 from 表1 left join 表2 on 关联条件 group by 分组字段 having 筛选条件 order by 排序字段</p>
-<p>1)  表1和表2 按照on关联条件筛选值</p>
-<p>2) left join 添加外部行，把左表在第二步中过滤的条件添加进来</p>
-<p>3) group by 对上一步的结果进行分组</p>
-<p>4) having 对上面的结果按条件筛选</p>
-<p>5) select 对上一步的结果筛选出所需要的列</p>
-<p>6) order by  按照指定顺序排列</p>
+<li><p>整型(TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT)分别使用(8,16,24,32,64)位存储空间。例int(5)存储长度是按int类型来存储的即占4个字节，存储范围为(-2^31-2^31-1)与指定的长度无关。</p>
+</li>
+<li><p>utf8只能存储两个字节，因为有的中文不止两个字节，所以会出现乱码情况，推荐使用utfmb4</p>
+</li>
+<li><p>数据库拆分分为水平拆分(按数据)、垂直拆分(按业务)，垂直拆分是根据业务把不同的表拆分到不同的数据库，而水平拆分是把同一张表不同的数据拆分到不同的数据库</p>
+</li>
+<li><p>最左前缀与where后面的条件顺序无关，只与定义的字段值有关，因为优化器在优化的时候会进行匹配</p>
+<p>比如:idx_name_age_sex，姓名、年龄、性别做为一个组合索引，查询时使用</p>
+<p>where name=’’ and sex=”” and age=””，依旧会使用组合索引查询，</p>
+<p>where name=”” and sex=””,此时sex不满足最左匹配原则，所以sex使用普通列查询</p>
+<p>where name=”” and age&gt;10 and sex=””，此时只有name和age作为组合索引，而sex做为普通列查询，因为age是范围查找，范围查找之后的条件如果有索引，索引会被当做普通列，但是当范围结果值过小的时候依旧会使用索引值</p>
+<p>where name=”” and age&gt;80 and sex=“”,当age范围的结果值过小时可能依旧会使用索引值</p>
+</li>
+<li><p>最左前缀是和组合索引相关联的。</p>
+<p>order by使用哪种排序方式是与where 条件相关的，如果where 使用索引等值查询，order by字段只包含索引字段，则使用索引排序，如果orderby字段包含非索引字段则使用filesort。如果where使用索引范围查询，order by的值可能会使用filesort.</p>
+</li>
+<li><p>select * from t1 group by id,当按id分组时,select 字段可以不用分组</p>
+</li>
+<li><p>使用大数据量查找时尽量使用limit，如果是单一张表那么会一行一行扫描数据到指定limit值，第二种使用覆盖索引方式快。</p>
+<p>1）select * from rental limit 10000,5<br>2）select * from rental a join (select rental_id from rental order by rental_id limit 10000,5) b on a.rental_id=b.rental_id</p>
+</li>
+<li><p>自定义变量,定义set @变量名:=值 例:set @temp:=2</p>
+<p>set @min_actor :=(select min(actor_id) from actor) </p>
+<p>//查询10条数据并按1-10排列，可以使用自定义变量来完成</p>
+<p>set @rownum:=0;select actor_id,@rownum:=@rownum+1 from actor limit 10;</p>
+</li>
+<li><p>分区表</p>
+<p>按分区类型可分为:范围分区、列表分区、列分区、hash分区、key分区和子分区。</p>
+<p>列表分区定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PARTITION BY LIST(store_id) (</span><br><span class="line">    PARTITION pNorth VALUES IN (3,5,6,9,17),</span><br><span class="line">    PARTITION pEast VALUES IN (1,2,10,11,19,20),</span><br><span class="line">    PARTITION pWest VALUES IN (4,12,13,14,18),</span><br><span class="line">    PARTITION pCentral VALUES IN (7,8,15,16)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>详情可参考:<a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-types.html" target="_blank" rel="noopener">mysql官网</a></p>
+</li>
+<li><p>join算法</p>
+<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5CSimpleNested-LoopJoin.png" alt></p>
 </li>
 </ol>
-<h2 id="数据库三范式"><a href="#数据库三范式" class="headerlink" title="数据库三范式"></a>数据库三范式</h2><p>三范式最终的目的是解决数据冗余</p>
-<p>第一范式：所有字段值都是不可分解的原子值即列不可分。例：地址字段可以拆分为省、市、县，拆分之后即满足第一范式</p>
-<p>第二范式：确保表中的每列都和主键相关。例：学生表字段包含教师编号、教师姓名，此处教师姓名跟学生表主键没有依赖关系，所以不满足第二范式。可以把学生编号及教师编号组成一个中间表</p>
-<p>第三范式：要求一个数据库表中不包含已在其它表中已包含的非主关键字信息。第三范式是第二范式的子集，即满足第三范式，必须满足第二范式。</p>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="四个特性：原子性、一致性、隔离性、持久性"><a href="#四个特性：原子性、一致性、隔离性、持久性" class="headerlink" title="四个特性：原子性、一致性、隔离性、持久性"></a>四个特性：原子性、一致性、隔离性、持久性</h3><p>原子性：表示不可分割，要么全部成功，要么全部失败</p>
-<p>一致性：保证数据的一致性，当经过N个操作之后，数据的状态不会改变。保证数据不会发生错乱。</p>
-<p>隔离性：各个事务之间操作不会产生影响。</p>
-<p>持久性：数据会持久化到存储介质中，不会因为程序的关闭而导致数据丢失。</p>
-<p>所的有特性 都是为了保证数据的一致性。事务一致性是通过原子性、隔离性、持久化来保证的。</p>
-<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><p>隔离级别包含读未提交、读已提交、可重复读、序列化</p>
-<p>读未提交,在未commit之前，其他窗口能读取到修改的数据，会产生脏读。</p>
-<p>读已提交，在未commit之前，其他窗口不能读取到修改的数据，此时commit，其他窗口可以读取到修改的数据。其他窗口在同一事务之间，前后做同样的操作会查询出不同的结果，即产生不可重复读。</p>
-<p>可重复读，插入一条数据，未commit,其他窗口不能查询到此数据。commit,其他窗口同时插入此条数据会提示主键重复等异常，此时即产生幻读。</p>
-<table>
-<thead>
-<tr>
-<th>隔离级别</th>
-<th>异常</th>
-<th>异常</th>
-<th>异常</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>read uncommit(读未提交)</td>
-<td>脏读</td>
-<td>不可重复读</td>
-<td>幻读</td>
-</tr>
-<tr>
-<td>read commit(读已提交)</td>
-<td></td>
-<td>不可重复读</td>
-<td>幻读</td>
-</tr>
-<tr>
-<td>repeatable commit(可重复读)默认隔离级别</td>
-<td></td>
-<td></td>
-<td>幻读</td>
-</tr>
-<tr>
-<td>serialize(序列化)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>不可重复读是在查询时产生的，幻读是在插入或删除时产生的。</p>
-<p>查看当前数据库是否设置自动提交命令:select @@autocommit; 1代表开启自动提交2未开启</p>
-<p>set autocommit=0;//设置未开启</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ol>
-<li><p>局部性原理</p>
-<p>当一个数据被用到，其附件的数据通常也会被马上使用。</p>
-<p>时间局部性：如果某个数据被访问到，那么这个数据可能会被多次访问</p>
-<p>空间局部性：如果某个位置的数据被访问，那么它相邻的数据很有可能被访问。</p>
+<pre><code>![](E:\folder\source\_posts\数据库\IndexNested-LoopJoin.png)
+
+![](E:\folder\source\_posts\数据库\BlockNested-LoopJoin.png)</code></pre><ol start="12">
+<li><p>前缀索引</p>
+<p>当索引列为很长的字符，会使索引查询效率又大又慢，这时可以使用字符串的前几个字符作为索引(即前缀索引)。</p>
+<p>前缀索引需选择足够长的前缀以保证较高的选择性，同时又不能太长(造成空间浪费)</p>
+<p>索引的选择性</p>
+<p>索引的选择性是指不重复的索引值（也称为基数，cardinality)和数据表的记录总数的比值。索引的选择性越高则查询效率越高，因为选择性高的索引可以让MySQL在查找时过滤掉更多的行。唯一索引的选择性是1，这是最好的索引选择性，性能也是最好的。</p>
+<p>count(distinct left(content,7))/count(*)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table article add index idx_content( content(7) )//设置前缀索引</span><br></pre></td></tr></table></figure>
+
+<p>mysql中无法使用前缀索引进行order by 和group by ,也无法用于覆盖索引</p>
 </li>
-<li><p>磁盘预读</p>
-<p>预读的长度一般为页(page)的整倍数。页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，每个存储块称为一页(在许多操作系统中，页得大小通常为4k) </p>
-<p>例：要查找一个字节的数据，磁盘会把这个字节对应的页预读出来。即现在不需要的数据也读取了，这样以后用时就不用再读取，当一个数据用到时，大多数情况下，它周围的数据也会被用到。</p>
-</li>
-<li><p>索引采用的数据结构是B+树(以下是针对InnoDB来阐述)</p>
-<h4 id="B树和B-树对比"><a href="#B树和B-树对比" class="headerlink" title="B树和B+树对比:"></a>B树和B+树对比:</h4><p>B树：1)每个节点都有key和data,而每个页存储的空间是有限的，如果data比较大会导致每个节点存储的key数量变少</p>
-<p>​          2)当存储的数据量很大的时候会导致深度较大，增大查询时磁盘的IO次数，影响查询性能</p>
-<p>B+树:1)非叶子节点存储key,叶子节点存储key和数据。降低了树的高度，数据范围变为多个区间，区间越多，数据检索越快。</p>
-<p>​          2)B+树有两个头指针，一个指向根节点，一个指向叶子节点。叶子节点之间是一种链式环结构。因此可以对B+树进行两种查找运算:一种是对于主键范围查找和分页查找，另一种是从根节点开始，进行随机查找。</p>
-<p>主键索引，非叶子节点存储key和数据</p>
-<p>非主键索引，叶子节点存储key和主键,查找时需要先查找非主键索引再通过主键索引查找对应记录。此时称为回表，会遍历两次B+树</p>
-<p>MyISAM，非叶子节点存储key和地址值，然后通过地址值去数据文件查找相应数据。</p>
-<h3 id="索引的分类"><a href="#索引的分类" class="headerlink" title="索引的分类"></a>索引的分类</h3><ul>
-<li><h4 id="主键索引"><a href="#主键索引" class="headerlink" title="主键索引"></a>主键索引</h4><p>主键最好设置成递增，因为这样索引文件会直接从尾部追加数据，防止产生页分裂和页合并的情况。进而防止出现IO性能低下，磁盘空间浪费的情况。</p>
-</li>
-<li><h4 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h4></li>
-<li><h4 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a>普通索引</h4><p>普通索引会遍历两次B+树，出现回表。当使用普通索引查询主键的时候只会遍历一次B+树，此时称为覆盖索引。</p>
-<p>例:select id from emp where ename=’’;</p>
-</li>
-<li><h4 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h4></li>
-<li><h4 id="组合索引"><a href="#组合索引" class="headerlink" title="组合索引"></a>组合索引</h4><p>多个字段组成一个索引，查询时根据最左匹配原则，</p>
-<p>例:有name_age索引，条件如果是根据age查，不符合最左匹配原则，不使用这个索引</p>
-<p>例:有name，age两个字段，会根据name,age条件查询也会根据age查询,还会根据name查询，此时需要建立name_age索引及age索引</p>
-<h5 id="索引下推"><a href="#索引下推" class="headerlink" title="索引下推"></a>索引下推</h5><p>执行 select * from emp where name like ‘张%’ and age &gt; 10 语句会有两种情况</p>
-<ol>
-<li>根据(name_age)组合索引查询所有满足以”张”开头的索引，然后回表查询出相应的全行数据，再筛选出年龄&gt;10的数据</li>
-<li>根据(name_age)组合索引查询所有满足以”张”开头的索引，然后筛选年龄&gt;10的数据，再回表查询全行数据</li>
-</ol>
-<p>第2种方式需要回表查询的全行数据比较少，这就是mysql的索引下推</p>
-</li>
-</ul>
+<li><p>联合索引的B+树形式</p>
+<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt></p>
+<p>非叶子节点存储的是联合索引key的键值对，叶子节点存储的是联合索引key的键值对+主键索引</p>
 </li>
 </ol>
-<h2 id="存储引擎-MyISAM、InnoDB"><a href="#存储引擎-MyISAM、InnoDB" class="headerlink" title="存储引擎(MyISAM、InnoDB)"></a>存储引擎(MyISAM、InnoDB)</h2><p>聚簇索引:数据和索引存放在同一个文件。InnoDB</p>
-<p>.frm 存放表结构 .ibd:存放数据和索引信息</p>
-<p>非聚簇索引:数据和索引存放在不同的文件。MyISAM</p>
-<p>.frm:存放表结构 .myi存放索引信息 .myd存放数据信息</p>
-<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E.png" alt></p>
-<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>bin log:服务端级别的日志</p>
-<p>bin log记录语句的原始逻辑，并采用追加写的方式不会覆盖之前的日志信息</p>
-<p>redo log:存储引擎级别的日志</p>
-<p>redo log是为了实现事务的持久性。当数据修改时，会将记录写到redolog中并更新内存同时会在合适的时机将记录操作到磁盘中，redolog是固定大小的，是循环写的过程。即使数据库发生异常重启，之前的记录也不会丢失。</p>
-<p>undo log:存储引擎级别的日志</p>
-<p>undo log是为了实现事务的原子性。在操作数据之前，先将数据备份到一个地方(undolog)，然后进行数据的修改。如果出现错误或执行回滚语句，系统可以利用undo log中的备份将数据恢复到事务开始之前的状态</p>
-<h2 id="mysql的锁机制"><a href="#mysql的锁机制" class="headerlink" title="mysql的锁机制"></a>mysql的锁机制</h2><p>MyISAM只支持表级锁，InnoDB运行表级锁及行级锁，默认行级锁。</p>
-<p>表级锁:开销小，加锁快，不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。</p>
-<p>行级锁:开销大，加锁慢，会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。</p>
-<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>MyISAM的表级锁有两种模式：表共享读锁、表独占写锁</p>
-<table>
-<thead>
-<tr>
-<th align="left">session1</th>
-<th align="left">session2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">lock table mylock read //获得表的read锁</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">select * from mylock //可以查出数据 <br>select * from test //不能查出其他表的数据</td>
-<td align="left">select * from mylock //可以查出数据 <br>select * from test //可以查出数据</td>
-</tr>
-<tr>
-<td align="left">insert into mylock (id,value) values(6,”e”)<br>//报错不能插入数据</td>
-<td align="left">insert into mylock (id,value) values(6,”e”)<br>//阻塞，等待表锁释放后才能插入数据</td>
-</tr>
-<tr>
-<td align="left">unlock tables;//释放锁</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">数据插入成功</td>
-</tr>
-</tbody></table>
-<p>对表加读锁，本窗口只能对本表进行读操作，不能进行其他操作。其他窗口可以对本表及其他表进行读操作，可以进行更新操作，但是需要等待锁释放后才能操作成功。</p>
-<p>MyISAM的并发插入问题：MyISAM表的读和写是串行的，这是就总体而言的，在一定条件下，MyISAM也支持查询和插入操作的并发执行</p>
-<table>
-<thead>
-<tr>
-<th>session1</th>
-<th>session2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>lock table mylock read local //获得表的read锁</td>
-<td></td>
-</tr>
-<tr>
-<td>只能对本表进行查询操作，不能做更新操作<br>不能对其他表对操作；</td>
-<td>insert into mylock(8,”g”) //可以对本表进行任何操作<br>可以对其他表进行任何操作</td>
-</tr>
-<tr>
-<td>select * from mylock //此时session2插入的8是查不出来的即其他窗口对本表做更新操作，本表是查不出来的，只会显示加锁时的那些数据</td>
-<td></td>
-</tr>
-<tr>
-<td>unlock tables;</td>
-<td></td>
-</tr>
-<tr>
-<td>会查出最新的数据</td>
-<td></td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>session1</th>
-<th>session2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>lock table mylock write;//获得表的写锁</td>
-<td></td>
-</tr>
-<tr>
-<td>select * from myloc;<br>insert into mylock values(7,”f”);//可以对表进行任何操作</td>
-<td>select * from myloc;<br>等待锁释放,对本表进行任何操作都会阻塞，其他表可以进行操作。</td>
-</tr>
-<tr>
-<td>unlock tables;//释放锁</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>数据被执行</td>
-</tr>
-</tbody></table>
-<p>对表加写锁，本窗口可以进行任何操作，其他窗口对本表做任何操作都会造成阻塞，直到锁释放后才会执行。</p>
-<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>共享锁和排他锁</p>
-<p>共享锁又称读锁，多个事务对于同一数据可以共享一把锁，都能访问到数据，但是只能读不能修改。设置共享锁：SELECT … LOCK IN SHARE MODE;<br>排他锁又称写锁，一个事务获取了一个数据行的排他锁，其他事务就不能再获取该行的其他锁，包括共享锁和排他锁，但是获取排他锁的事务是可以对数据就行读取和修改。设置排他锁：SELECT … FOR UPDATE;</p>
-<p>update,delete,insert都会自动给涉及到的数据加上排他锁</p>
-<p>InnoDB行锁是通过给索引上的索引项加锁而不是针对行记录加锁来实现的,只有通过索引条件检索数据，InnoDB才使用行级锁。使用主键索引、唯一索引条件时会使用行索，但当使用普通索引时，需要看此索引项的列值重复率，如果重复率高那么会使用表锁。</p>
-<p><a href="https://www.jianshu.com/p/bf862c37c4c9" target="_blank" rel="noopener">关于行级锁、间隙锁可参考此链接</a></p>
-<h2 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h2><p>使用 explain关键字来查询，explain select * from emp;</p>
-<h3 id="执行计划包含的信息"><a href="#执行计划包含的信息" class="headerlink" title="执行计划包含的信息"></a>执行计划包含的信息</h3><table>
-<thead>
-<tr>
-<th>Column</th>
-<th>Meaning</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>the select identifier(选择标识符)</td>
-<td></td>
-</tr>
-<tr>
-<td>select_type</td>
-<td>the select type(表示查询的类型)</td>
-<td></td>
-</tr>
-<tr>
-<td>table</td>
-<td>the table for the output row(输出结果集的表)</td>
-<td></td>
-</tr>
-<tr>
-<td>partitions</td>
-<td>the matching partitions(匹配的分区)</td>
-<td></td>
-</tr>
-<tr>
-<td>type</td>
-<td>the join type(表示表的连接类型)</td>
-<td></td>
-</tr>
-<tr>
-<td>possible_keys</td>
-<td>the possible indexes to choose(表示查询时，可能使用的索引)</td>
-<td></td>
-</tr>
-<tr>
-<td>key</td>
-<td>the index actually chosen(表示实际使用的索引)</td>
-<td></td>
-</tr>
-<tr>
-<td>key_len</td>
-<td>the length of the chosen key(索引字段的长度)</td>
-<td></td>
-</tr>
-<tr>
-<td>ref</td>
-<td>the columns compared to the index(列与索引的比较)</td>
-<td></td>
-</tr>
-<tr>
-<td>rows</td>
-<td>estimate of rows to be examined(扫描出的行数(估算的行数))</td>
-<td></td>
-</tr>
-<tr>
-<td>filtered</td>
-<td>percentage of rows filtered by table condition(按表条件过滤的行百分比)</td>
-<td></td>
-</tr>
-<tr>
-<td>extra</td>
-<td>additional information(执行情况的描述和说明)</td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>select查询的序列号，包含一组数字，表示查询中执行select子句或者操作表的顺序</p>
-<p>分三种情况:</p>
-<ol>
-<li>id相同，执行顺序从上到下</li>
-<li>id不同，id越大越先被执行</li>
-<li>id相同和id不同的值同时存在，id越大越先执行,id相同从上往下顺序执行</li>
-</ol>
-<h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p>主要用来分辨查询的类型，是普通查询还是联合查询还是子查询</p>
-<table>
-<thead>
-<tr>
-<th>select_type</th>
-<th>meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>simple</td>
-<td>简单的查询，不包含子查询和union</td>
-</tr>
-<tr>
-<td>primary</td>
-<td>查询中包含任何复杂的子查询，最外层查询被标记为primary</td>
-</tr>
-<tr>
-<td>union</td>
-<td>Second or later SELECT statement in a UNION(UNION中的第二个或后面的SELECT语句)</td>
-</tr>
-<tr>
-<td>dependent union</td>
-<td>Second or later SELECT statement in a UNION, dependent on outer query</td>
-</tr>
-<tr>
-<td>union result</td>
-<td>Result of a UNION(UNION的结果)</td>
-</tr>
-<tr>
-<td>subquery</td>
-<td>First SELECT in subquery(子查询中的第一个SELECT，结果不依赖于外部查询)</td>
-</tr>
-<tr>
-<td>dependent subquery</td>
-<td>First SELECT in subquery, dependent on outer query(子查询中的第一个SELECT，依赖于外部查询)</td>
-</tr>
-<tr>
-<td>derived</td>
-<td>Derived table(衍生表)</td>
-</tr>
-<tr>
-<td>uncacheable subquery</td>
-<td>表示使用子查询的结果不能被缓存</td>
-</tr>
-<tr>
-<td>uncacheable union</td>
-<td>表示union的查询结果不能被缓存</td>
-</tr>
-</tbody></table>
-<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>表示访问的是哪一张表，可能是临时表或结果集。</p>
-<p>derivedN，表示查询产生的衍生表</p>
-<p>union result 表名是union n1,n2形式，表示n1,n2的结果集</p>
-<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>表示的是访问类型，是以何种方式去访问我们的数据。效率从高到低依次是:</p>
-<p>system&gt;const&gt;eq_ref&gt;ref&gt;fulltext&gt;ref_or_null&gt;index_merge&gt;unique_subquery&gt;index_subquery&gt;range &gt;index&gt;all</p>
-<p>一般情况下，保证查询至少达到range级别，最好能达到ref</p>
-<table>
-<thead>
-<tr>
-<th>type</th>
-<th>meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>system</td>
-<td>表只有一行记录（等于系统表），这是const类型的特例，平时不会出现</td>
-</tr>
-<tr>
-<td>const</td>
-<td>这个表至多有一个匹配行，<br>例:explain select * from emp where empno = 7369;</td>
-</tr>
-<tr>
-<td>eq_ref</td>
-<td>使用唯一性索引进行数据查找</td>
-</tr>
-<tr>
-<td>ref</td>
-<td>使用了非唯一性索引进行数据的查找</td>
-</tr>
-<tr>
-<td>fulltext</td>
-<td>全文检索</td>
-</tr>
-<tr>
-<td>ref_or_null</td>
-<td>类似REF，只是搜索条件连接字段的值可以为NULL</td>
-</tr>
-<tr>
-<td>index_merge</td>
-<td>在查询过程中需要多个索引组合使用</td>
-</tr>
-<tr>
-<td>unique_subquery</td>
-<td>使用的是唯一索引关联子查询</td>
-</tr>
-<tr>
-<td>index_subquery</td>
-<td>使用索引关联子查询</td>
-</tr>
-<tr>
-<td>range</td>
-<td>查询的时候限制了范围，使用=, &lt;&gt;, &gt;, &gt;=, &lt;, &lt;=, IS NULL, BETWEEN, LIKE, or IN() 等操作符</td>
-</tr>
-<tr>
-<td>index</td>
-<td>全索引扫描主要有两种情况，一种是当前的查询时覆盖索引，explain  select empno from emp;，或者是使用了索引进行排序，这样就避免数据的重排序</td>
-</tr>
-<tr>
-<td>all</td>
-<td>全表扫描，一般情况下出现这样的sql语句而且数据量比较大的话那么就需要进行优化。</td>
-</tr>
-</tbody></table>
-<h4 id="posible-keys"><a href="#posible-keys" class="headerlink" title="posible_keys"></a>posible_keys</h4><p>表示可能被使用的索引，但不一定被查询实际使用</p>
-<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>实际使用的索引</p>
-<h4 id="key-len"><a href="#key-len" class="headerlink" title="key_len"></a>key_len</h4><p>表示索引占用的字节数，可以通过key_len计算查询中使用的索引长度，在不损失精度的情况下长度越短越好。</p>
-<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>列与索引的比较，表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值</p>
-<h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>根据表的统计信息及索引使用情况，大致估算出找出所需记录需要读取的行数，此参数很重要，直接反应的sql找了多少数据，在完成目的的情况下越少越好</p>
-<h4 id="extra"><a href="#extra" class="headerlink" title="extra"></a>extra</h4><p>包含额外的信息</p>
-<table>
-<thead>
-<tr>
-<th>extra</th>
-<th>meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>using filesort</td>
-<td>说明mysql无法利用索引进行排序，只能利用排序算法进行排序</td>
-</tr>
-<tr>
-<td>using index</td>
-<td>使用了覆盖索引</td>
-</tr>
-<tr>
-<td>using where</td>
-<td>使用where条件</td>
-</tr>
-</tbody></table>
 
       
     </div>
@@ -919,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/02/数据库/" rel="next" title="数据库行转列案例">
-                <i class="fa fa-chevron-left"></i> 数据库行转列案例
+              <a href="/2020/01/06/数据结构与算法/" rel="next" title="数据结构与算法">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法
               </a>
             
           </div>
@@ -928,10 +573,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/06/数据结构与算法/" rel="prev" title="数据结构与算法">
-                数据结构与算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1075,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql架构图"><span class="nav-text">mysql架构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql执行顺序"><span class="nav-text">mysql执行顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库三范式"><span class="nav-text">数据库三范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#四个特性：原子性、一致性、隔离性、持久性"><span class="nav-text">四个特性：原子性、一致性、隔离性、持久性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离级别"><span class="nav-text">隔离级别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#B树和B-树对比"><span class="nav-text">B树和B+树对比:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引的分类"><span class="nav-text">索引的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主键索引"><span class="nav-text">主键索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#唯一索引"><span class="nav-text">唯一索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#普通索引"><span class="nav-text">普通索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全文索引"><span class="nav-text">全文索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合索引"><span class="nav-text">组合索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#索引下推"><span class="nav-text">索引下推</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-MyISAM、InnoDB"><span class="nav-text">存储引擎(MyISAM、InnoDB)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志"><span class="nav-text">日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql的锁机制"><span class="nav-text">mysql的锁机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM"><span class="nav-text">MyISAM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InnoDB"><span class="nav-text">InnoDB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行计划"><span class="nav-text">执行计划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行计划包含的信息"><span class="nav-text">执行计划包含的信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id"><span class="nav-text">id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select-type"><span class="nav-text">select_type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#table"><span class="nav-text">table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type"><span class="nav-text">type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#posible-keys"><span class="nav-text">posible_keys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key"><span class="nav-text">key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key-len"><span class="nav-text">key_len</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref"><span class="nav-text">ref</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rows"><span class="nav-text">rows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra"><span class="nav-text">extra</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql调优"><span class="nav-text">mysql调优</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#监控"><span class="nav-text">监控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型优化"><span class="nav-text">数据类型优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化细节"><span class="nav-text">优化细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小知识点"><span class="nav-text">小知识点</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,线程,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -81,18 +81,16 @@
 
 
 
-<meta name="description" content="创建方式 1)继承Thread类   2)实现Runnable接口 12345678910111213141516171819202122232425public class TestThread &amp;#123;    public static void main(String[] args) &amp;#123;        T1 t1 = new T1();        t1.setName(&amp;q">
-<meta name="keywords" content="java,线程">
-<meta property="og:type" content="article">
-<meta property="og:title" content="线程1">
-<meta property="og:url" content="http://yoursite.com/2019/09/26/线程1/index.html">
+<meta name="description" content="follow your heart">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="创建方式 1)继承Thread类   2)实现Runnable接口 12345678910111213141516171819202122232425public class TestThread &amp;#123;    public static void main(String[] args) &amp;#123;        T1 t1 = new T1();        t1.setName(&amp;q">
+<meta property="og:description" content="follow your heart">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-05T06:20:58.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线程1">
-<meta name="twitter:description" content="创建方式 1)继承Thread类   2)实现Runnable接口 12345678910111213141516171819202122232425public class TestThread &amp;#123;    public static void main(String[] args) &amp;#123;        T1 t1 = new T1();        t1.setName(&amp;q">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="follow your heart">
 
 
 
@@ -122,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/26/线程1/">
+  <link rel="canonical" href="http://yoursite.com/page/2/">
 
 
 
@@ -142,7 +140,7 @@
     }
 </style>
 
-  <title>线程1 | Hexo</title>
+  <title>Hexo</title>
   
 
 
@@ -172,7 +170,8 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-right 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,9 +296,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -329,7 +328,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">线程1</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/26/线程1/" itemprop="url">线程1</a></h1>
         
 
         <div class="post-meta">
@@ -393,11 +394,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
 
           
@@ -421,7 +417,9 @@
       
 
       
-        <h2 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h2><p> 1)继承Thread类   2)实现Runnable接口</p>
+        
+          
+            <h2 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h2><p> 1)继承Thread类   2)实现Runnable接口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class TestThread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        T1 t1 = new T1();</span><br><span class="line">        t1.setName(&quot;t1,继承Thread类&quot;);</span><br><span class="line">        t1.start();//启动线程1</span><br><span class="line">        T2 t2 = new T2();</span><br><span class="line">        Thread thread = new Thread(t2);</span><br><span class="line">        t1.setName(&quot;t2,实现Runnable接口&quot;);</span><br><span class="line">        thread.start();//启动线程2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class T1 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        System.out.println(&quot;当前线程名称:&quot;+Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class T2 implements Runnable&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(&quot;当前线程名称:&quot;+Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><ol>
@@ -448,6 +446,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">public class TestSync &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Basket b = new Basket();</span><br><span class="line">        new Thread(new Producer(b)).start();</span><br><span class="line">        new Thread(new Consumer(b)).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//牛奶</span><br><span class="line">class Milk&#123;</span><br><span class="line">    int id;</span><br><span class="line">    Milk(int id)&#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Milk:&quot;+id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> *  篮子，篮子存放8盒牛奶，有放入和取出方法</span><br><span class="line"> *  涉及到同步，等待，唤醒,</span><br><span class="line"> *  第1，2处使用while不使用if是因为会反复确认条件是否成立再向下执行</span><br><span class="line"> */</span><br><span class="line">class Basket&#123;</span><br><span class="line">    Milk[] milks = new Milk[8];</span><br><span class="line">    int index = 0;</span><br><span class="line">    public synchronized void push(Milk m)&#123;</span><br><span class="line">        while(index == milks.length)&#123;  //第1处</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.notify();</span><br><span class="line">        System.out.println(&quot;生产了:&quot;+index);</span><br><span class="line">        milks[index] = m;</span><br><span class="line">        index++;</span><br><span class="line">    &#125;</span><br><span class="line">    public synchronized Milk pop()&#123;</span><br><span class="line">        while(index == 0)&#123; //第2处</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.notify();</span><br><span class="line">        index--;</span><br><span class="line">        System.out.println(&quot;消费了:&quot;+index);</span><br><span class="line">         return milks[index];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//生产者，生产牛奶放入篮子</span><br><span class="line">class Producer implements Runnable&#123;</span><br><span class="line">    Basket b = new Basket();</span><br><span class="line">    Producer(Basket basket)&#123;</span><br><span class="line">        this.b = basket;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">            b.push(new Milk(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//消费者，从篮子里拿出牛奶</span><br><span class="line">class Consumer implements Runnable&#123;</span><br><span class="line">    Basket b = new Basket();</span><br><span class="line">    Consumer(Basket basket)&#123;</span><br><span class="line">        this.b = basket;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">            b.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+          
+        
       
     </div>
     
@@ -458,85 +458,22 @@
 
 	<div>
   
-    <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-heart"></i>感谢阅读-------------</div>
-    
-</div>
-  
 </div>
 
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>鼓励支持一下~~</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="qar 微信支付">
-        <p>微信支付</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="qar 支付宝">
-        <p>支付宝</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
     
 
     
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
-            <a href="/tags/线程/" rel="tag"><i class="fa fa-tag"></i> 线程</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/09/24/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/05/redis进阶/" rel="prev" title="redis进阶">
-                redis进阶 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -546,11 +483,208 @@
   </article>
 
 
+    
+      
 
-    <div class="post-spread">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/07/轮播图案例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/07/轮播图案例/" itemprop="url">轮播图案例</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-07T19:14:00+08:00">
+                2019-01-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/07/轮播图案例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/07/轮播图案例/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="E:%5Cfolder%5Csource_posts%5Cjs%5Ccarousel.png" alt></p>
+<ul>
+<li><p>部局：外层div，内层分为三部分分别是:</p>
+<ol>
+<li>ul部局<ul><li><img src></li></ul> 存放要轮播的图片</li>
+<li>按钮部局，存放向左、向右的按钮</li>
+<li>分页器部局<ol><li></li></ol></li>
+</ol>
+</li>
+<li><p>样式</p>
+<ol>
+<li>div设为相对定位，调整整体高度，宽度</li>
+<li>ul、li设为绝对定位，调整整体宽高，去除list样式，设置left值，使所有ul li均放在一个位置上重叠。</li>
+<li>左右按钮设为绝对定位，调整宽高、向左(右)、向上的距离</li>
+<li>分页器设为绝对定位，调整宽高、向左、向下的距离，ol li float向左对齐调整背景、颜色、透明度,设置当前选中页的背景、放大样式</li>
+</ol>
+</li>
+<li><p>js</p>
+<ol>
+<li><p>向右点击事件，当前页及下一页向左滑动，分页器值跟着变动</p>
+</li>
+<li><p>向左点击事件，当前页及上一页向右滑动，分页器值跟着变动</p>
+</li>
+<li><p>自动轮播及鼠标移入(暂停轮播)、移出事件(轮播)</p>
+</li>
+<li><p>分页器点击具体分页跳转到相关图片，当前页向左滑动，选中的页向左滑动</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;link rel="stylesheet" href="../</span>../resources/css/<span class="keyword">default</span>.css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;script type="</span>text/javascript<span class="string">" src="</span>../../resources/js/jquery<span class="number">-3.4</span><span class="number">.1</span>.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">        &lt;li class="</span>current<span class="string">"&gt;&lt;img src="</span><span class="number">1.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;&lt;img src="</span><span class="number">2.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;&lt;img src="</span><span class="number">3.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;&lt;img src="</span><span class="number">4.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;&lt;img src="</span><span class="number">5.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;button class="</span>lbtn<span class="string">"&gt;&amp;lt;&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;button class="</span>rbtn<span class="string">"&gt;&amp;gt;&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;ol&gt;</span></span><br><span class="line"><span class="string">        &lt;li class="</span>cur<span class="string">"&gt;1&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;2&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;3&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;4&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;5&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ol&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">    //右侧按钮单击事件</span></span><br><span class="line"><span class="string">    //信号量</span></span><br><span class="line"><span class="string">    var idx =0;</span></span><br><span class="line"><span class="string">    $("</span>.rbtn<span class="string">").click(function()&#123;</span></span><br><span class="line"><span class="string">        rhandle();</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string">    //开启定时器，自动轮播</span></span><br><span class="line"><span class="string">    var timer=setInterval(rhandle,10000)</span></span><br><span class="line"><span class="string">    function rhandle()&#123;</span></span><br><span class="line"><span class="string">        //当前显示的这张图片从left为0位置运动到-500</span></span><br><span class="line"><span class="string">        $("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":0&#125;).stop(true).animate(&#123;</span></span><br><span class="line"><span class="string">            "</span>left<span class="string">":-500</span></span><br><span class="line"><span class="string">        &#125;,200)</span></span><br><span class="line"><span class="string">        //下一张图片从容器右侧动画进入</span></span><br><span class="line"><span class="string">        idx++;</span></span><br><span class="line"><span class="string">        idx=idx&gt;4?0:idx;</span></span><br><span class="line"><span class="string">        $("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":500&#125;).stop(true).animate(&#123;"</span>left<span class="string">":0&#125;,200);</span></span><br><span class="line"><span class="string">        $("</span>ol li<span class="string">").eq(idx).addClass("</span>cur<span class="string">").siblings().removeClass("</span>cur<span class="string">");</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function lhandle()&#123;</span></span><br><span class="line"><span class="string">        //当前显示的这张图片从left为0位置运动到500</span></span><br><span class="line"><span class="string">        $("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":0&#125;).stop(true).animate(&#123;</span></span><br><span class="line"><span class="string">            "</span>left<span class="string">":500</span></span><br><span class="line"><span class="string">        &#125;,200)</span></span><br><span class="line"><span class="string">        //下一张图片从容器右侧动画进入</span></span><br><span class="line"><span class="string">        idx--;</span></span><br><span class="line"><span class="string">        idx=idx&lt;0?4:idx;</span></span><br><span class="line"><span class="string">        $("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":-500&#125;).stop(true).animate(&#123;"</span>left<span class="string">":0&#125;,200);</span></span><br><span class="line"><span class="string">        $("</span>ol li<span class="string">").eq(idx).addClass("</span>cur<span class="string">").siblings().removeClass("</span>cur<span class="string">");</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    //鼠标移上事件</span></span><br><span class="line"><span class="string">    $("</span>div<span class="string">").mouseenter(function()&#123;</span></span><br><span class="line"><span class="string">        clearInterval(timer);</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string">    //鼠标移出事件</span></span><br><span class="line"><span class="string">    $("</span>div<span class="string">").mouseleave(function()&#123;</span></span><br><span class="line"><span class="string">        timer=setInterval(rhandle,10000)</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string">    //左侧按钮单击事件</span></span><br><span class="line"><span class="string">    $("</span>.lbtn<span class="string">").click(function()&#123;</span></span><br><span class="line"><span class="string">        lhandle();</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    //分页器业务</span></span><br><span class="line"><span class="string">    $("</span>ol li<span class="string">").click(function()&#123;</span></span><br><span class="line"><span class="string">        //获取单击的那个分页器的li的索引值</span></span><br><span class="line"><span class="string">var index=$(this).index();</span></span><br><span class="line"><span class="string">$("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":0&#125;).stop(true).animate(&#123;"</span>left<span class="string">":-500&#125;,200);</span></span><br><span class="line"><span class="string">$("</span>ul li<span class="string">").eq(index).css(&#123;"</span>left<span class="string">":500&#125;).stop(true).animate(&#123;"</span>left<span class="string">":0&#125;,200);</span></span><br><span class="line"><span class="string">idx=index;</span></span><br><span class="line"><span class="string">$("</span>ol li<span class="string">").eq(idx).addClass("</span>cur<span class="string">").siblings().removeClass("</span>cur<span class="string">");</span></span><br><span class="line"><span class="string">&#125;)</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ul>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid black;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">50px</span> auto;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">400px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.current</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.lbtn</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">40%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.rbtn</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">40%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ol</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">35%</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ol</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">background</span>:black;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">color</span>:white;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.cur</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>: green;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
+          
+        
       
     </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -558,13 +692,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
@@ -585,17 +712,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -664,22 +782,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建方式"><span class="nav-text">创建方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程状态"><span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法"><span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步"><span class="nav-text">同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生产者消费者案例"><span class="nav-text">生产者消费者案例</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -849,10 +951,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

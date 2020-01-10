@@ -466,6 +466,405 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/10/mysql调优/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/10/mysql调优/" itemprop="url">mysql优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-10T17:24:00+08:00">
+                2020-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/10/mysql调优/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/10/mysql调优/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h3 id="mysql调优"><a href="#mysql调优" class="headerlink" title="mysql调优"></a>mysql调优</h3><h4 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set profiling =1;</span><br><span class="line">show PROFILES;//列出所有语句的执行时间，包含query_id,duration,query</span><br><span class="line">show profile all;//默认显示最后一条语句的各个阶段的执行时间</span><br><span class="line">show profile for query query_id;//显示指定语句的各个阶段的执行时间</span><br></pre></td></tr></table></figure>
+
+<p>也使用explain执行计划来查看</p>
+<h4 id="数据类型优化"><a href="#数据类型优化" class="headerlink" title="数据类型优化"></a>数据类型优化</h4><ol>
+<li>更小的字节数更好 ，如能用tinyint便不用int</li>
+<li>选用适当的数据类型，比如能存整型便不用字符串，地址存放可以使用整型替换字符串，Inet_ATON(“”)</li>
+<li>使用日期类型来存储日期不要使用字符串</li>
+</ol>
+<h4 id="优化细节"><a href="#优化细节" class="headerlink" title="优化细节"></a>优化细节</h4><ol>
+<li>尽量在where,order by,grouby 之后使用索引</li>
+<li>select的字段值只包含需要显示的值，不能写*</li>
+</ol>
+<h4 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h4><ol>
+<li><p>char类型查询时会自动删除末尾空格，最大长度为255，是定长的，而varchar是变长的。</p>
+</li>
+<li><p>整型(TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT)分别使用(8,16,24,32,64)位存储空间。例int(5)存储长度是按int类型来存储的即占4个字节，存储范围为(-2^31-2^31-1)与指定的长度无关。</p>
+</li>
+<li><p>utf8只能存储两个字节，因为有的中文不止两个字节，所以会出现乱码情况，推荐使用utfmb4</p>
+</li>
+<li><p>数据库拆分分为水平拆分(按数据)、垂直拆分(按业务)，垂直拆分是根据业务把不同的表拆分到不同的数据库，而水平拆分是把同一张表不同的数据拆分到不同的数据库</p>
+</li>
+<li><p>最左前缀与where后面的条件顺序无关，只与定义的字段值有关，因为优化器在优化的时候会进行匹配</p>
+<p>比如:idx_name_age_sex，姓名、年龄、性别做为一个组合索引，查询时使用</p>
+<p>where name=’’ and sex=”” and age=””，依旧会使用组合索引查询，</p>
+<p>where name=”” and sex=””,此时sex不满足最左匹配原则，所以sex使用普通列查询</p>
+<p>where name=”” and age&gt;10 and sex=””，此时只有name和age作为组合索引，而sex做为普通列查询，因为age是范围查找，范围查找之后的条件如果有索引，索引会被当做普通列，但是当范围结果值过小的时候依旧会使用索引值</p>
+<p>where name=”” and age&gt;80 and sex=“”,当age范围的结果值过小时可能依旧会使用索引值</p>
+</li>
+<li><p>最左前缀是和组合索引相关联的。</p>
+<p>order by使用哪种排序方式是与where 条件相关的，如果where 使用索引等值查询，order by字段只包含索引字段，则使用索引排序，如果orderby字段包含非索引字段则使用filesort。如果where使用索引范围查询，order by的值可能会使用filesort.</p>
+</li>
+<li><p>select * from t1 group by id,当按id分组时,select 字段可以不用分组</p>
+</li>
+<li><p>使用大数据量查找时尽量使用limit，如果是单一张表那么会一行一行扫描数据到指定limit值，第二种使用覆盖索引方式快。</p>
+<p>1）select * from rental limit 10000,5<br>2）select * from rental a join (select rental_id from rental order by rental_id limit 10000,5) b on a.rental_id=b.rental_id</p>
+</li>
+<li><p>自定义变量,定义set @变量名:=值 例:set @temp:=2</p>
+<p>set @min_actor :=(select min(actor_id) from actor) </p>
+<p>//查询10条数据并按1-10排列，可以使用自定义变量来完成</p>
+<p>set @rownum:=0;select actor_id,@rownum:=@rownum+1 from actor limit 10;</p>
+</li>
+<li><p>分区表</p>
+<p>按分区类型可分为:范围分区、列表分区、列分区、hash分区、key分区和子分区。</p>
+<p>列表分区定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PARTITION BY LIST(store_id) (</span><br><span class="line">    PARTITION pNorth VALUES IN (3,5,6,9,17),</span><br><span class="line">    PARTITION pEast VALUES IN (1,2,10,11,19,20),</span><br><span class="line">    PARTITION pWest VALUES IN (4,12,13,14,18),</span><br><span class="line">    PARTITION pCentral VALUES IN (7,8,15,16)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>详情可参考:<a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-types.html" target="_blank" rel="noopener">mysql官网</a></p>
+</li>
+<li><p>join算法</p>
+<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5CSimpleNested-LoopJoin.png" alt></p>
+</li>
+</ol>
+<pre><code>![](E:\folder\source\_posts\数据库\IndexNested-LoopJoin.png)
+
+![](E:\folder\source\_posts\数据库\BlockNested-LoopJoin.png)</code></pre><ol start="12">
+<li><p>前缀索引</p>
+<p>当索引列为很长的字符，会使索引查询效率又大又慢，这时可以使用字符串的前几个字符作为索引(即前缀索引)。</p>
+<p>前缀索引需选择足够长的前缀以保证较高的选择性，同时又不能太长(造成空间浪费)</p>
+<p>索引的选择性</p>
+<p>索引的选择性是指不重复的索引值（也称为基数，cardinality)和数据表的记录总数的比值。索引的选择性越高则查询效率越高，因为选择性高的索引可以让MySQL在查找时过滤掉更多的行。唯一索引的选择性是1，这是最好的索引选择性，性能也是最好的。</p>
+<p>count(distinct left(content,7))/count(*)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table article add index idx_content( content(7) )//设置前缀索引</span><br></pre></td></tr></table></figure>
+
+<p>mysql中无法使用前缀索引进行order by 和group by ,也无法用于覆盖索引</p>
+</li>
+<li><p>联合索引的B+树形式</p>
+<p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt></p>
+<p>非叶子节点存储的是联合索引key的键值对，叶子节点存储的是联合索引key的键值对+主键索引</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/06/数据结构与算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/06/数据结构与算法/" itemprop="url">数据结构与算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-06T16:20:00+08:00">
+                2020-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/06/数据结构与算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/06/数据结构与算法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       sort(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">8</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">1</span>&#125;);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</span><br><span class="line">       <span class="keyword">int</span>[] arr=array;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">           <span class="keyword">int</span> minPosition =i;  <span class="comment">//默认第i个位置是最小值</span></span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;arr.length;j++)&#123;</span><br><span class="line">               minPosition=arr[j]&lt;arr[minPosition]?j:minPosition;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//每一轮循环后，得出最小值，跟i交换</span></span><br><span class="line">           swap(arr,i,minPosition);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//输出排序后的数组</span></span><br><span class="line">       Stream.of(arr).forEach(x-&gt; System.out.print(Arrays.toString(x)));</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">       <span class="keyword">int</span> temp=arr[i];</span><br><span class="line">       arr[i]=arr[j];</span><br><span class="line">       arr[j]=temp;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span>[] arr =&#123;<span class="number">4</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">11</span>&#125;;</span><br><span class="line">       sort(arr);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=arr.length-<span class="number">1</span>;i&gt;<span class="number">0</span>;i--)</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">                   <span class="keyword">int</span> temp=arr[j];</span><br><span class="line">                   arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">                   arr[j+<span class="number">1</span>]=temp;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">           System.out.print(arr[i]+<span class="string">" "</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        sort();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr=&#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&gt;<span class="number">0</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[j]&lt;arr[j-<span class="number">1</span>])&#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = arr[j];</span><br><span class="line">                    arr[j]=arr[j-<span class="number">1</span>];</span><br><span class="line">                    arr[j-<span class="number">1</span>]=temp;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">            System.out.print(arr[i]+<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="各种排序算法总结"><a href="#各种排序算法总结" class="headerlink" title="各种排序算法总结"></a>各种排序算法总结</h3><p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%5Clist.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/05/数据库之索引、事务、执行计划/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -578,22 +977,20 @@
 <h2 id="mysql架构图"><a href="#mysql架构图" class="headerlink" title="mysql架构图"></a>mysql架构图</h2><p><img src="E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5Cmysql.png" alt></p>
 <h2 id="mysql执行顺序"><a href="#mysql执行顺序" class="headerlink" title="mysql执行顺序"></a>mysql执行顺序</h2><ol>
 <li><p>select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段 </p>
-<p>1) from 两个表进行迪卡尔积，此处建议数据少的表作为基表</p>
-<p>2) on 按照关联条件进行筛选</p>
-<p>3) left join 添加外部行，把左表在第二步中过滤的条件添加进来</p>
-<p>4) where 对上面的结果进行where 筛选</p>
-<p>5) group by 对上一步的结果进行分组</p>
-<p>6) select 对上一步的结果筛选出所需要的列</p>
-<p>7) order by  按照指定顺序排列</p>
+<p>1) 表1和表2 按照on关联条件筛选值</p>
+<p>2) left join 添加外部行，把左表在第二步中过滤的条件添加进来</p>
+<p>3) where 对上面的结果进行where 筛选</p>
+<p>4) group by 对上一步的结果进行分组</p>
+<p>5) select 对上一步的结果筛选出所需要的列</p>
+<p>6) order by  按照指定顺序排列</p>
 </li>
 <li><p>select 列名 from 表1 left join 表2 on 关联条件 group by 分组字段 having 筛选条件 order by 排序字段</p>
-<p>1) from 两个表进行迪卡尔积，此处建议数据少的表作为基表</p>
-<p>2) on 按照关联条件进行筛选</p>
-<p>3) left join 添加外部行，把左表在第二步中过滤的条件添加进来</p>
-<p>4) group by 对上一步的结果进行分组</p>
-<p>5) having 对上面的结果按条件筛选</p>
-<p>6) select 对上一步的结果筛选出所需要的列</p>
-<p>7) order by  按照指定顺序排列</p>
+<p>1)  表1和表2 按照on关联条件筛选值</p>
+<p>2) left join 添加外部行，把左表在第二步中过滤的条件添加进来</p>
+<p>3) group by 对上一步的结果进行分组</p>
+<p>4) having 对上面的结果按条件筛选</p>
+<p>5) select 对上一步的结果筛选出所需要的列</p>
+<p>6) order by  按照指定顺序排列</p>
 </li>
 </ol>
 <h2 id="数据库三范式"><a href="#数据库三范式" class="headerlink" title="数据库三范式"></a>数据库三范式</h2><p>三范式最终的目的是解决数据冗余</p>
@@ -786,7 +1183,7 @@
 <h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>共享锁和排他锁</p>
 <p>共享锁又称读锁，多个事务对于同一数据可以共享一把锁，都能访问到数据，但是只能读不能修改。设置共享锁：SELECT … LOCK IN SHARE MODE;<br>排他锁又称写锁，一个事务获取了一个数据行的排他锁，其他事务就不能再获取该行的其他锁，包括共享锁和排他锁，但是获取排他锁的事务是可以对数据就行读取和修改。设置排他锁：SELECT … FOR UPDATE;</p>
 <p>update,delete,insert都会自动给涉及到的数据加上排他锁</p>
-<p>InnoDB行锁是通过给索引上的索引项加锁来实现的,只有通过索引条件检索数据，InnoDB才使用行级锁。</p>
+<p>InnoDB行锁是通过给索引上的索引项加锁而不是针对行记录加锁来实现的,只有通过索引条件检索数据，InnoDB才使用行级锁。使用主键索引、唯一索引条件时会使用行索，但当使用普通索引时，需要看此索引项的列值重复率，如果重复率高那么会使用表锁。</p>
 <p><a href="https://www.jianshu.com/p/bf862c37c4c9" target="_blank" rel="noopener">关于行级锁、间隙锁可参考此链接</a></p>
 <h2 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h2><p>使用 explain关键字来查询，explain select * from emp;</p>
 <h3 id="执行计划包含的信息"><a href="#执行计划包含的信息" class="headerlink" title="执行计划包含的信息"></a>执行计划包含的信息</h3><table>
@@ -982,6 +1379,26 @@
 <h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>列与索引的比较，表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值</p>
 <h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>根据表的统计信息及索引使用情况，大致估算出找出所需记录需要读取的行数，此参数很重要，直接反应的sql找了多少数据，在完成目的的情况下越少越好</p>
 <h4 id="extra"><a href="#extra" class="headerlink" title="extra"></a>extra</h4><p>包含额外的信息</p>
+<table>
+<thead>
+<tr>
+<th>extra</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>using filesort</td>
+<td>说明mysql无法利用索引进行排序，只能利用排序算法进行排序</td>
+</tr>
+<tr>
+<td>using index</td>
+<td>使用了覆盖索引</td>
+</tr>
+<tr>
+<td>using where</td>
+<td>使用where条件</td>
+</tr>
+</tbody></table>
 
           
         
@@ -2412,195 +2829,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/线程1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/26/线程1/" itemprop="url">线程1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T11:24:25+08:00">
-                2019-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/09/26/线程1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/26/线程1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-
-          
-
-          
-
-		   
-
-
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h2><p> 1)继承Thread类   2)实现Runnable接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class TestThread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        T1 t1 = new T1();</span><br><span class="line">        t1.setName(&quot;t1,继承Thread类&quot;);</span><br><span class="line">        t1.start();//启动线程1</span><br><span class="line">        T2 t2 = new T2();</span><br><span class="line">        Thread thread = new Thread(t2);</span><br><span class="line">        t1.setName(&quot;t2,实现Runnable接口&quot;);</span><br><span class="line">        thread.start();//启动线程2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class T1 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        System.out.println(&quot;当前线程名称:&quot;+Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class T2 implements Runnable&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(&quot;当前线程名称:&quot;+Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><ol>
-<li>New</li>
-<li>Runnable,细分为ready和running,调用start()方法进入ready,获得使用权后进入running</li>
-<li>Block,分为等待阻塞，超时等待阻塞及其他阻塞。调用sleep,wait等方法会造成阻塞</li>
-<li>Teminated</li>
-</ol>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>join:暂停当前线程，执行join线程，等join线程执行完毕继续执行当前线程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class TestJoinThread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Thread t1 = new T1();</span><br><span class="line">        t1.start();</span><br><span class="line">        try &#123;</span><br><span class="line">            t1.join();</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;主线程执行&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class T1 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        for (int i=0;i&lt;100;i++)&#123;</span><br><span class="line">            System.out.println(&quot;t1,第&quot;+i+&quot;次开始执行&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    //执行结果t1执行100次之后输出主线程执行，主线程要等到t1线程执行结束再执行</span><br></pre></td></tr></table></figure>
-
-<p>join方法可以使线程按自己定义的顺序执行</p>
-<p>sleep和wait方法的区别：</p>
-<ul>
-<li>sleep属于Thread类的静态方法；wait属于Object类的方法 </li>
-<li>sleep不释放锁，使用interrupt方法打断；wait释放锁，会造成阻塞，使用notify方法唤醒</li>
-</ul>
-<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>多个线程抢占同一资源需要加锁即synchronized，保证原子性。</p>
-<p>锁升级：偏向锁、轻量级锁、重量级锁</p>
-<p>有一个线程时会使用偏向锁，有线程竞争后会升级为轻量级锁，未获得锁的线程会自旋，当达到设定的自旋次数后依旧没有获得锁，会升级为重量级锁。</p>
-<p>线程少、方法执行时间短的时候会使用轻量级锁，会占用cpu资源</p>
-<p>线程多，执行时间长会使用重量级锁，不占用cpu资源，但会增加用户态和内核态的切换次数，系统开销比较大</p>
-<h2 id="生产者消费者案例"><a href="#生产者消费者案例" class="headerlink" title="生产者消费者案例"></a>生产者消费者案例</h2><p>篮子存放牛奶，生产者把牛奶放入篮子，消费者从篮子取出牛奶</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">public class TestSync &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Basket b = new Basket();</span><br><span class="line">        new Thread(new Producer(b)).start();</span><br><span class="line">        new Thread(new Consumer(b)).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//牛奶</span><br><span class="line">class Milk&#123;</span><br><span class="line">    int id;</span><br><span class="line">    Milk(int id)&#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Milk:&quot;+id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> *  篮子，篮子存放8盒牛奶，有放入和取出方法</span><br><span class="line"> *  涉及到同步，等待，唤醒,</span><br><span class="line"> *  第1，2处使用while不使用if是因为会反复确认条件是否成立再向下执行</span><br><span class="line"> */</span><br><span class="line">class Basket&#123;</span><br><span class="line">    Milk[] milks = new Milk[8];</span><br><span class="line">    int index = 0;</span><br><span class="line">    public synchronized void push(Milk m)&#123;</span><br><span class="line">        while(index == milks.length)&#123;  //第1处</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.notify();</span><br><span class="line">        System.out.println(&quot;生产了:&quot;+index);</span><br><span class="line">        milks[index] = m;</span><br><span class="line">        index++;</span><br><span class="line">    &#125;</span><br><span class="line">    public synchronized Milk pop()&#123;</span><br><span class="line">        while(index == 0)&#123; //第2处</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.notify();</span><br><span class="line">        index--;</span><br><span class="line">        System.out.println(&quot;消费了:&quot;+index);</span><br><span class="line">         return milks[index];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//生产者，生产牛奶放入篮子</span><br><span class="line">class Producer implements Runnable&#123;</span><br><span class="line">    Basket b = new Basket();</span><br><span class="line">    Producer(Basket basket)&#123;</span><br><span class="line">        this.b = basket;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">            b.push(new Milk(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//消费者，从篮子里拿出牛奶</span><br><span class="line">class Consumer implements Runnable&#123;</span><br><span class="line">    Basket b = new Basket();</span><br><span class="line">    Consumer(Basket basket)&#123;</span><br><span class="line">        this.b = basket;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">            b.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-	<div>
-  
-</div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2646,7 +2881,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2668,7 +2903,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据库,">
 
 
 
@@ -81,16 +81,21 @@
 
 
 
-<meta name="description" content="follow your heart">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/算法/index.html">
+<meta name="description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql优化">
+<meta property="og:url" content="http://yoursite.com/2020/01/10/mysql优化/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="follow your heart">
+<meta property="og:description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/.com//E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5CSimpleNested-LoopJoin.png">
+<meta property="og:image" content="http://yoursite.com/.com//E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png">
+<meta property="og:updated_time" content="2020-01-11T11:14:23.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="follow your heart">
+<meta name="twitter:title" content="mysql优化">
+<meta name="twitter:description" content="[TOC] mysql调优监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
+<meta name="twitter:image" content="http://yoursite.com/.com//E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5CSimpleNested-LoopJoin.png">
 
 
 
@@ -120,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/算法/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/10/mysql优化/">
 
 
 
@@ -140,7 +145,7 @@
     }
 </style>
 
-  <title>标签: 算法 | Hexo</title>
+  <title>mysql优化 | Hexo</title>
   
 
 
@@ -170,7 +175,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,52 +301,303 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>算法<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/10/mysql优化/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/01/06/数据结构与算法/" itemprop="url">
-              
-                <span itemprop="name">数据结构与算法</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">mysql优化</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-06T16:20:00+08:00" content="2020-01-06">
-          01-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-10T17:24:00+08:00">
+                2020-01-10
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/10/mysql优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/10/mysql优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h3 id="mysql调优"><a href="#mysql调优" class="headerlink" title="mysql调优"></a>mysql调优</h3><h4 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set profiling =1;</span><br><span class="line">show PROFILES;//列出所有语句的执行时间，包含query_id,duration,query</span><br><span class="line">show profile all;//默认显示最后一条语句的各个阶段的执行时间</span><br><span class="line">show profile for query query_id;//显示指定语句的各个阶段的执行时间</span><br></pre></td></tr></table></figure>
+
+<p>也使用explain执行计划来查看</p>
+<h4 id="数据类型优化"><a href="#数据类型优化" class="headerlink" title="数据类型优化"></a>数据类型优化</h4><ol>
+<li>更小的字节数更好 ，如能用tinyint便不用int</li>
+<li>选用适当的数据类型，比如能存整型便不用字符串，地址存放可以使用整型替换字符串，Inet_ATON(“”)</li>
+<li>使用日期类型来存储日期不要使用字符串</li>
+</ol>
+<h4 id="优化细节"><a href="#优化细节" class="headerlink" title="优化细节"></a>优化细节</h4><ol>
+<li>尽量在where,order by,grouby 之后使用索引</li>
+<li>select的字段值只包含需要显示的值，不能写*</li>
+</ol>
+<h4 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h4><ol>
+<li><p>char类型查询时会自动删除末尾空格，最大长度为255，是定长的，而varchar是变长的。</p>
+</li>
+<li><p>整型(TINYINT,SMALLINT,MEDIUMINT,INT,BIGINT)分别使用(8,16,24,32,64)位存储空间。例int(5)存储长度是按int类型来存储的即占4个字节，存储范围为(-2^31-2^31-1)与指定的长度无关。</p>
+</li>
+<li><p>utf8只能存储两个字节，因为有的中文不止两个字节，所以会出现乱码情况，推荐使用utfmb4</p>
+</li>
+<li><p>数据库拆分分为水平拆分(按数据)、垂直拆分(按业务)，垂直拆分是根据业务把不同的表拆分到不同的数据库，而水平拆分是把同一张表不同的数据拆分到不同的数据库</p>
+</li>
+<li><p>最左前缀与where后面的条件顺序无关，只与定义的字段值有关，因为优化器在优化的时候会进行匹配</p>
+<p>比如:idx_name_age_sex，姓名、年龄、性别做为一个组合索引，查询时使用</p>
+<p>where name=’’ and sex=”” and age=””，依旧会使用组合索引查询，</p>
+<p>where name=”” and sex=””,此时sex不满足最左匹配原则，所以sex使用普通列查询</p>
+<p>where name=”” and age&gt;10 and sex=””，此时只有name和age作为组合索引，而sex做为普通列查询，因为age是范围查找，范围查找之后的条件如果有索引，索引会被当做普通列，但是当范围结果值过小的时候依旧会使用索引值</p>
+<p>where name=”” and age&gt;80 and sex=“”,当age范围的结果值过小时可能依旧会使用索引值</p>
+</li>
+<li><p>最左前缀是和组合索引相关联的。</p>
+<p>order by使用哪种排序方式是与where 条件相关的，如果where 使用索引等值查询，order by字段只包含索引字段，则使用索引排序，如果orderby字段包含非索引字段则使用filesort。如果where使用索引范围查询，order by的值可能会使用filesort.</p>
+</li>
+<li><p>select * from t1 group by id,当按id分组时,select 字段可以不用分组</p>
+</li>
+<li><p>使用大数据量查找时尽量使用limit，如果是单一张表那么会一行一行扫描数据到指定limit值，第二种使用覆盖索引方式快。</p>
+<p>1）select * from rental limit 10000,5<br>2）select * from rental a join (select rental_id from rental order by rental_id limit 10000,5) b on a.rental_id=b.rental_id</p>
+</li>
+<li><p>自定义变量,定义set @变量名:=值 例:set @temp:=2</p>
+<p>set @min_actor :=(select min(actor_id) from actor) </p>
+<p>//查询10条数据并按1-10排列，可以使用自定义变量来完成</p>
+<p>set @rownum:=0;select actor_id,@rownum:=@rownum+1 from actor limit 10;</p>
+</li>
+<li><p>分区表</p>
+<p>按分区类型可分为:范围分区、列表分区、列分区、hash分区、key分区和子分区。</p>
+<p>列表分区定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PARTITION BY LIST(store_id) (</span><br><span class="line">    PARTITION pNorth VALUES IN (3,5,6,9,17),</span><br><span class="line">    PARTITION pEast VALUES IN (1,2,10,11,19,20),</span><br><span class="line">    PARTITION pWest VALUES IN (4,12,13,14,18),</span><br><span class="line">    PARTITION pCentral VALUES IN (7,8,15,16)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>详情可参考:<a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-types.html" target="_blank" rel="noopener">mysql官网</a></p>
+</li>
+<li><p>join算法</p>
+</li>
+<li><p><img src="/.com//E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5CSimpleNested-LoopJoin.png" alt></p>
+</li>
+</ol>
+<pre><code>![](E:\folder\source\_posts\mysql调优\IndexNested-LoopJoin.png)
+
+![](E:\folder\source\_posts\mysql调优\BlockNested-LoopJoin.png)</code></pre><ol start="14">
+<li><p>前缀索引</p>
+<p>当索引列为很长的字符，会使索引查询效率又大又慢，这时可以使用字符串的前几个字符作为索引(即前缀索引)。</p>
+<p>前缀索引需选择足够长的前缀以保证较高的选择性，同时又不能太长(造成空间浪费)</p>
+<p>索引的选择性</p>
+<p>索引的选择性是指不重复的索引值（也称为基数，cardinality)和数据表的记录总数的比值。索引的选择性越高则查询效率越高，因为选择性高的索引可以让MySQL在查找时过滤掉更多的行。唯一索引的选择性是1，这是最好的索引选择性，性能也是最好的。</p>
+<p>count(distinct left(content,7))/count(*)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table article add index idx_content( content(7) )//设置前缀索引</span><br></pre></td></tr></table></figure>
+
+<p>mysql中无法使用前缀索引进行order by 和group by ,也无法用于覆盖索引</p>
+</li>
+<li><p>联合索引的B+树形式</p>
+<p><img src="/.com//E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt="联合索引"></p>
+<p>非叶子节点存储的是联合索引key的键值对，叶子节点存储的是联合索引key的键值对+主键索引</p>
+</li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-heart"></i>感谢阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>鼓励支持一下~~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="qar 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="qar 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/06/数据结构与算法/" rel="next" title="数据结构与算法">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/11/测试test/" rel="prev" title="测试test">
+                测试test <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -349,6 +605,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -369,8 +632,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +711,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql调优"><span class="nav-text">mysql调优</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#监控"><span class="nav-text">监控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型优化"><span class="nav-text">数据类型优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化细节"><span class="nav-text">优化细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小知识点"><span class="nav-text">小知识点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -608,6 +896,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

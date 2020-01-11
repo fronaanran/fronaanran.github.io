@@ -186,6 +186,35 @@
   </entry>
   
   <entry>
+    <title>javase知识点总结(杂)</title>
+    <link href="https://fronaanran.github.io/2019/12/31/javase%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93(%E6%9D%82)/"/>
+    <id>https://fronaanran.github.io/2019/12/31/javase知识点总结(杂)/</id>
+    <published>2019-12-31T10:11:00.000Z</published>
+    <updated>2020-01-11T13:00:44.539Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;二进制，数据进行计算时是以二进制来计算的，确切来说负数是根据反码来计算的，正数的补码、原码、反码是同一个，负数的原码最高位为1其他位和正数一样，反码为原码取反(不包含最高位)，补码为反码+1。&lt;/p&gt;
+&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://fronaanran.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="java" scheme="https://fronaanran.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>redis基础</title>
     <link href="https://fronaanran.github.io/2019/10/05/redis%E5%9F%BA%E7%A1%80/"/>
     <id>https://fronaanran.github.io/2019/10/05/redis基础/</id>

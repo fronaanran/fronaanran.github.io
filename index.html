@@ -1839,6 +1839,326 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/12/31/javase知识点总结(杂)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/31/javase知识点总结(杂)/" itemprop="url">javase知识点总结(杂)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-31T18:11:00+08:00">
+                2019-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/31/javase知识点总结(杂)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/31/javase知识点总结(杂)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>二进制，数据进行计算时是以二进制来计算的，确切来说负数是根据反码来计算的，正数的补码、原码、反码是同一个，负数的原码最高位为1其他位和正数一样，反码为原码取反(不包含最高位)，补码为反码+1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0010 0011 //35的原码、反码、补码</span><br><span class="line">1010 0011 //-35的原码</span><br><span class="line">1101 1100 //-35的反码</span><br><span class="line">1101 1101 //-35的补码</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>n&gt;&gt;2 相当于n/4,n&lt;&lt;2相当于n*4</p>
+</li>
+<li><p>面向对象的主要目标：可维护性、可重用性、可扩展性 封装(维护性)继承(复用性)多态(扩展性)</p>
+<p>外部类与内部类class文件使用$符号分隔</p>
+<p>组合 强调整体 头是身体组合的一部分，不可分，具有相同的生命周期</p>
+<p>聚合 小狗和狗绳，狗绳可复用于另一条小狗</p>
+<p>数据对象转换为二进制流的过程称为对象的序列化</p>
+<p>二进制流恢复为对象称之为反序列化</p>
+<p>成员变量默认有初始值，局部变量需要自定义初始值</p>
+</li>
+<li><p>冒泡排序及选择排序(伪代码)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//冒泡排序，相邻两数进行比较，最大的放在后边</span><br><span class="line">for(int i=0;i&lt;str.length;i++)&#123; //外层控制循环次数</span><br><span class="line">	for(int j=0;j&lt;str.length-1-i;j++)&#123;//内层控制每次的比较次数</span><br><span class="line">		if(a[j]&gt;a[j+1])&#123;</span><br><span class="line">			int tmp = a[j];</span><br><span class="line">			a[j]=a[j+1];</span><br><span class="line">			a[j+1]=tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//选择排序，第一次会跟后面的每一个值进行比较，找到最小值，依此类推。。。</span><br><span class="line">for(int i=0;i&lt;str.length-1;i++)&#123;</span><br><span class="line">	for(int j=i+1;j&lt;str.length;j++)&#123;</span><br><span class="line">		if(a[i]&gt;a[j])&#123;</span><br><span class="line">			int tmp=a[i];</span><br><span class="line">			a[i]=a[j];</span><br><span class="line">			a[j]=tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//a=1,b=2 不借助第三方变量交换ab值的方法</span><br><span class="line">a=a+b;</span><br><span class="line">b=a-b;</span><br><span class="line">a=a-b;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重载是当1)参数个数不同2)参数类型不同3)参数顺序不同时成立 </p>
+<p>重载是编译期确定方法调用，重写在运行期由JVM进行动态绑定</p>
+<p>多态：同一指令不同对象有不同反应。实现方式：父类引用子类对象。1)父类作为方法的参数2）父类作为方法的返回值类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Pet dog = new Dog();//父类引用子类对象</span><br><span class="line">public void feed(Pet pet)&#123;</span><br><span class="line">	if(pet instanceof Dog)&#123;//instanceof通常和强制类型转换结合使用</span><br><span class="line">		pet.feed();//1)父类作为方法的参数</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">public Pet buy()&#123;</span><br><span class="line">	return new Dog();//2)父类作为方法的返回值类型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口中的变量都是静态常量，方法都是抽象方法</p>
+<p>严格来讲java只有方法没有函数。方法即为类内的代码块，函数则是定义在类外(像python等可以直接定义函数，不需要创建类)</p>
+</li>
+<li><p>静态导包:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import static Java.lang.math.*</span><br><span class="line">System.out.println(sqr(12));//直接使用方法名即可，不需要再加Math.sqr()</span><br><span class="line">System.out.println(abs(-12));//适用于本类中多次使用Math类中的方法</span><br></pre></td></tr></table></figure>
+
+<p>构造代码块{} 会默认添加到构造方法第一句，如果构造方法第一句是this()，则此构造不添加代码块的值</p>
+<p>栈溢出：不断调用方法，不断压栈超出栈深度，如递归、死循环等 </p>
+<p>堆溢出：大量创建对象不回收、jvm设置不合理等 </p>
+</li>
+<li><p>高内聚，低耦合</p>
+<p>高内聚：模块的内聚反应模块内部联系的紧密程度，只负责一项任务，不要过分关心其他业务</p>
+<p>低耦合：对外部依赖尽可能的少，模块独立存在 </p>
+<p>初始化过程：父类静态、子类静态、父类属性、父类构造、子类属性、子类构造</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">byte b=10;</span><br><span class="line">b=b+1;//编译错误，b+1是int类型，需要强转为byte</span><br><span class="line">b+=1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>反射是动态运行时可以获得类的属性、方法等，反射破坏了封装</p>
+<p>生成Class对象的三种方式:Class.forName(“com.entity.Test”)、Test.class、new Test(). getClass()</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int a1=127</span><br><span class="line">int a2=128</span><br><span class="line">Integer a3 = new Integer(127)</span><br><span class="line">Integer a4 = new Integer(127)</span><br><span class="line">Integer a5 = new Integer(128)</span><br><span class="line">Integer a6=127</span><br><span class="line">Integer a7=127</span><br><span class="line">System.out.println(a1==a3)//true,a3会自动拆箱为int 127</span><br><span class="line">System.out.println(a2==a5)//false,Integer只缓存-128-127之间的数</span><br><span class="line">System.out.println(a3==a4)//false,new对象比较的是两个地址值</span><br><span class="line">System.out.println(a6==a7)//true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>String，StringBuilder,StringBuffer</p>
+<p>String是不可变字符串</p>
+<p>StringBuilder和StringBuffer是可变字符串。前者是线程不安全的，后者是线程安全的。</p>
+<p>StringBuilder、StringBuffer、ArrayList扩容时都是使用数组的拷贝,Array.copy完成的。</p>
+</li>
+<li><p>抽象类实现接口不必实现接口的方法。</p>
+<p>catch捕获异常后finally之后的代码依旧可以运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">//案例1</span><br><span class="line">private static int test()&#123;</span><br><span class="line">        int num = 10;</span><br><span class="line">        try&#123;</span><br><span class="line">            System.out.println(&quot;try&quot;);</span><br><span class="line">            return num += 80;//先执行return后面的表达式</span><br><span class="line">        &#125;catch(Exception e)&#123;</span><br><span class="line">            System.out.println(&quot;error&quot;);</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line">            if (num &gt; 20)&#123;</span><br><span class="line">                System.out.println(&quot;num&gt;20 : &quot; + num);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;finally&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return num;</span><br><span class="line">    &#125;</span><br><span class="line">    try</span><br><span class="line">    num&gt;20:90</span><br><span class="line">    finally</span><br><span class="line">    90</span><br><span class="line">//案例2</span><br><span class="line"> private static int test2()&#123;</span><br><span class="line">        int num = 10;</span><br><span class="line">        try&#123;</span><br><span class="line">            System.out.println(&quot;try&quot;);</span><br><span class="line">            return num;//返回的是try语句的num</span><br><span class="line">        &#125;catch(Exception e)&#123;</span><br><span class="line">            System.out.println(&quot;error&quot;);</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line">            if (num &gt; 20)&#123;</span><br><span class="line">                System.out.println(&quot;num&gt;20 : &quot; + num);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;finally&quot;);</span><br><span class="line">            num = 100;//此num为finally里的局部变量</span><br><span class="line">        &#125;</span><br><span class="line">        return num;</span><br><span class="line">    &#125;</span><br><span class="line">    try</span><br><span class="line">    finally</span><br><span class="line">    10</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>List、Set、Map</p>
+<p>List有序、可重复，Set无序，不可重复，Map key-value键值对形式，</p>
+<ul>
+<li>实现List的常用类包括ArrayList,LinkedList,Vector</li>
+</ul>
+<p>ArrayList数据结构是数组，查询快，添加、删除慢，线程不安全，效率高，默认10个大小，之后会1.5倍扩容</p>
+<p>Vector数据结构是数组，查询快，添加、删除慢，线程安全，效率低，默认2倍扩容</p>
+<p>LinkedList数据结构是链表，查询慢，添加、删除快，线程不安全，效率高</p>
+<ul>
+<li>实现Set的常用类包括HashSet,TreeSet</li>
+</ul>
+<p>HashSet是基于哈希表实现的，无序，可以存放null值</p>
+<p>TreeSet是基于红黑树实现的，有序，不能存放null值 ，底层对TreeMap做了一层封装</p>
+<p>hashCode相同equals不一定相同，equals相同，hashCode一定相同</p>
+<p>计算哈希值时会使用31进行计算，因为31二进制为11111,方便进行移位操作</p>
+<p>重写hashCode可能会导致内存泄漏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">person.age =10;//重写了hashcode方法</span><br><span class="line">set.add(person);//添加到set中</span><br><span class="line">person.age=30;</span><br><span class="line">set.remove(person);//此时person并没有被删除</span><br></pre></td></tr></table></figure>
+
+<p>set比较器:</p>
+<ol>
+<li><p>comparable内部比较器，需要定义在具体类中(Person)，且重写其compareTo方法</p>
+</li>
+<li><p>comparator外部比较器，需要定义在测试类中(TestComparator)，且重写其compare方法.comparator使用更加灵活，是策略模式的体现。</p>
+</li>
+</ol>
+<p>Collection集合继承Iteratable接口，实现其Iterator iterator()方法，Iterator中包含hasNext()、next()方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">       ArrayList list = new ArrayList();</span><br><span class="line">       list.add(1);</span><br><span class="line">       list.add(2);</span><br><span class="line">       list.add(3);</span><br><span class="line">       Iterator iterator = list.iterator();</span><br><span class="line">       while (iterator.hasNext())&#123;</span><br><span class="line">           Object o = iterator.next();</span><br><span class="line">           if(o.equals(1))&#123;</span><br><span class="line">               list.remove(o); //ConcurrentModificationException异常</span><br><span class="line">               //iterator.remove();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       for (Object o : list) &#123;</span><br><span class="line">           System.out.println(o);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/12/31/javase知识点总结(杂)/arraylist-remove.png">
+
+
+
+<ul>
+<li><p>实现Map的常用类包括HashMap,HashTable,TreeMap</p>
+<p>HashMap无序，线程不安全，允许null值 ,默认大小16，扩容方式2倍 </p>
+<p>HashTable无序，线程安全，不允许null值,默认大小11，扩容2n+1</p>
+<p>TreeMap有序</p>
+<p>hashmap1.7中数据结构是链表，插入数据时为头插法，容易造成死循环</p>
+<p>hashmap1.8中数据结构是链表+红黑树，插入数据时为尾插法</p>
+<p>hashmap在new的时候不会初始化容量，在put时才会初始化容量。put方法(1.8)步骤:</p>
+<img src="/2019/12/31/javase知识点总结(杂)/hashmap-put-1.7.png">
+
+<img src="/2019/12/31/javase知识点总结(杂)/hashmap-put-1.8.png">
+
+<ul>
+<li><p>hashmap</p>
+<p>默认初始长度为16，扩容时按照2的n次幂扩容。</p>
+<p>长度为2的n次幂的原因:1)方便进行与运算操作提高效率以快速获取索引值，与运算比取模操作效率高。2）在扩容之后涉及元素迁移过程，迁移的时候只需要判断二进的前一位是0还是1即可。如果是0则下标不变，如果是1，则旧下标值+旧数组的长度即为新下标值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h&amp;(n-1) //hashmap数组寻址时通过hash值和长度-1进行与运算，</span><br><span class="line">hash&amp;(n-1) == hash%n //与运算比取模效率高，与运算直接对内存数据进行操作，模运算需转成十进制</span><br><span class="line">例:13&amp;15=1101=13，13%15=13</span><br><span class="line">运算时n-1得到二进制位均为1，例15:1111,31:11111，这样方便进行与运算操作</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>线程池</p>
+<ul>
+<li><p>为什么要使用线程池</p>
+<p>1)使用线程池可以重复利用已有的线程继续执行任务，避免内存消耗</p>
+<p>2)由于没有线程创建和销毁时的消耗，可以提高系统响应速度</p>
+<p>3)通过线程可以对线程进行合理的管理，根据系统的承受能力调整可运行数量的大小等 </p>
+</li>
+<li><p>工作原理及分类</p>
+<img src="/2019/12/31/javase知识点总结(杂)/threadpool-theory.png">
+
+<img src="/2019/12/31/javase知识点总结(杂)/threadpool-sort.png">
+</li>
+<li><p>线程池的生命周期</p>
+</li>
+</ul>
+<p>​    <img src="/2019/12/31/javase知识点总结(杂)/threadpool-life.png"></p>
+<p>shutdown关闭状态不接受新任务，但会继续处理阻塞队列中已保存的任务</p>
+<p>stop 不接受新任务，不处理阻塞队列中的任务，会中断当前执行的线程</p>
+<ul>
+<li><p>常用队列</p>
+<p>ArrayBlockingQueue、LinkedBlockingQueue、SynchronizedQueue、DelayQueue</p>
+<p>ArrayBlockingQueue:队列中的锁是共享的，即生产者和消费者共用一把锁，且必须指定队列大小</p>
+<p>LinkedBlockingQueue:队列中的锁是分享的，生产者和消费者各用一把锁，不需要指定队列大小</p>
+<p>SynchronizedQueue：无缓冲队列</p>
+</li>
+<li><p>execute和submit区别</p>
+<p>void execute(Runnable),execute参数只能是Runnable类型，且没有返回值</p>
+<p>Future&lt;&gt; submit(Callable),submit参数可以是Runnable,Callable,且返回值是Future类型,能得到返回值</p>
+</li>
+</ul>
+</li>
+<li><p>java中方法传递是值传递</p>
+<p>基本类型传递时，形参做改变，实参依旧原值</p>
+<p>引用类型传递时：1)形参保持和实参同一地址引用，形参修改，实参值也会跟着改变</p>
+<p>2)形参重新赋值，指向新的引用，实参值不变。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void test(StringBuffer str)&#123;</span><br><span class="line">	str= new StringBuffer(&quot;java&quot;);//1 指向新的引用，实参值无变化</span><br><span class="line">	//str.append(&quot;java&quot;);//2指向同一引用，实参值有变化</span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">	StringBuffer str=new StringBuffer(&quot;hello&quot;);</span><br><span class="line">	test(str);</span><br><span class="line">	System.out.println(str);</span><br><span class="line">&#125;</span><br><span class="line">hello</span><br><span class="line">hello java</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="16">
+<li><p>多线程技术和并发更多依赖操作系统的调配。并行依赖于cpu多核技术。</p>
+<p>tcp建立连接需要三次握手，断开连接需要四次挥手，</p>
+<p>三次握手目的是确保信息对等，防止超时，防止脏连接</p>
+<p>四次挥手目的是确保被动方能顺利关闭，防止失效请求。连接都是通过文件描述符(fd)完成的。</p>
+<p>(常见端口)HTTP 80 HTTPS 443 SSH 22 FTP 21</p>
+</li>
+<li><p>信息安全CIA原则 保密性(confidentiality)完整性(integnity)可用性(availability)</p>
+<p>跨站脚本攻击 XSS 信息窃取破坏，在HTML页面执行提供的恶意代码</p>
+<p>跨站请求伪造 CSRF 直接盗用用户浏览器的登录信息</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/10/05/redis基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2547,204 +2867,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/01/07/轮播图案例/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/07/轮播图案例/" itemprop="url">轮播图案例</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-07T19:14:00+08:00">
-                2019-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/07/轮播图案例/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/07/轮播图案例/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-
-          
-
-          
-
-		   
-
-
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <img src="/2019/01/07/轮播图案例/carousel.png">
-
-<ul>
-<li><p>部局：外层div，内层分为三部分分别是:</p>
-<ol>
-<li>ul部局<ul><li><img src></li></ul> 存放要轮播的图片</li>
-<li>按钮部局，存放向左、向右的按钮</li>
-<li>分页器部局<ol><li></li></ol></li>
-</ol>
-</li>
-<li><p>样式</p>
-<ol>
-<li>div设为相对定位，调整整体高度，宽度</li>
-<li>ul、li设为绝对定位，调整整体宽高，去除list样式，设置left值，使所有ul li均放在一个位置上重叠。</li>
-<li>左右按钮设为绝对定位，调整宽高、向左(右)、向上的距离</li>
-<li>分页器设为绝对定位，调整宽高、向左、向下的距离，ol li float向左对齐调整背景、颜色、透明度,设置当前选中页的背景、放大样式</li>
-</ol>
-</li>
-<li><p>js</p>
-<ol>
-<li><p>向右点击事件，当前页及下一页向左滑动，分页器值跟着变动</p>
-</li>
-<li><p>向左点击事件，当前页及上一页向右滑动，分页器值跟着变动</p>
-</li>
-<li><p>自动轮播及鼠标移入(暂停轮播)、移出事件(轮播)</p>
-</li>
-<li><p>分页器点击具体分页跳转到相关图片，当前页向左滑动，选中的页向左滑动</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;link rel="stylesheet" href="../</span>../resources/css/<span class="keyword">default</span>.css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;script type="</span>text/javascript<span class="string">" src="</span>../../resources/js/jquery<span class="number">-3.4</span><span class="number">.1</span>.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">        &lt;li class="</span>current<span class="string">"&gt;&lt;img src="</span><span class="number">1.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;&lt;img src="</span><span class="number">2.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;&lt;img src="</span><span class="number">3.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;&lt;img src="</span><span class="number">4.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;&lt;img src="</span><span class="number">5.</span>jpg<span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;button class="</span>lbtn<span class="string">"&gt;&amp;lt;&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;button class="</span>rbtn<span class="string">"&gt;&amp;gt;&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;ol&gt;</span></span><br><span class="line"><span class="string">        &lt;li class="</span>cur<span class="string">"&gt;1&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;2&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;3&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;4&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;5&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ol&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">    //右侧按钮单击事件</span></span><br><span class="line"><span class="string">    //信号量</span></span><br><span class="line"><span class="string">    var idx =0;</span></span><br><span class="line"><span class="string">    $("</span>.rbtn<span class="string">").click(function()&#123;</span></span><br><span class="line"><span class="string">        rhandle();</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string">    //开启定时器，自动轮播</span></span><br><span class="line"><span class="string">    var timer=setInterval(rhandle,10000)</span></span><br><span class="line"><span class="string">    function rhandle()&#123;</span></span><br><span class="line"><span class="string">        //当前显示的这张图片从left为0位置运动到-500</span></span><br><span class="line"><span class="string">        $("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":0&#125;).stop(true).animate(&#123;</span></span><br><span class="line"><span class="string">            "</span>left<span class="string">":-500</span></span><br><span class="line"><span class="string">        &#125;,200)</span></span><br><span class="line"><span class="string">        //下一张图片从容器右侧动画进入</span></span><br><span class="line"><span class="string">        idx++;</span></span><br><span class="line"><span class="string">        idx=idx&gt;4?0:idx;</span></span><br><span class="line"><span class="string">        $("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":500&#125;).stop(true).animate(&#123;"</span>left<span class="string">":0&#125;,200);</span></span><br><span class="line"><span class="string">        $("</span>ol li<span class="string">").eq(idx).addClass("</span>cur<span class="string">").siblings().removeClass("</span>cur<span class="string">");</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function lhandle()&#123;</span></span><br><span class="line"><span class="string">        //当前显示的这张图片从left为0位置运动到500</span></span><br><span class="line"><span class="string">        $("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":0&#125;).stop(true).animate(&#123;</span></span><br><span class="line"><span class="string">            "</span>left<span class="string">":500</span></span><br><span class="line"><span class="string">        &#125;,200)</span></span><br><span class="line"><span class="string">        //下一张图片从容器右侧动画进入</span></span><br><span class="line"><span class="string">        idx--;</span></span><br><span class="line"><span class="string">        idx=idx&lt;0?4:idx;</span></span><br><span class="line"><span class="string">        $("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":-500&#125;).stop(true).animate(&#123;"</span>left<span class="string">":0&#125;,200);</span></span><br><span class="line"><span class="string">        $("</span>ol li<span class="string">").eq(idx).addClass("</span>cur<span class="string">").siblings().removeClass("</span>cur<span class="string">");</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    //鼠标移上事件</span></span><br><span class="line"><span class="string">    $("</span>div<span class="string">").mouseenter(function()&#123;</span></span><br><span class="line"><span class="string">        clearInterval(timer);</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string">    //鼠标移出事件</span></span><br><span class="line"><span class="string">    $("</span>div<span class="string">").mouseleave(function()&#123;</span></span><br><span class="line"><span class="string">        timer=setInterval(rhandle,10000)</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string">    //左侧按钮单击事件</span></span><br><span class="line"><span class="string">    $("</span>.lbtn<span class="string">").click(function()&#123;</span></span><br><span class="line"><span class="string">        lhandle();</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    //分页器业务</span></span><br><span class="line"><span class="string">    $("</span>ol li<span class="string">").click(function()&#123;</span></span><br><span class="line"><span class="string">        //获取单击的那个分页器的li的索引值</span></span><br><span class="line"><span class="string">var index=$(this).index();</span></span><br><span class="line"><span class="string">$("</span>ul li<span class="string">").eq(idx).css(&#123;"</span>left<span class="string">":0&#125;).stop(true).animate(&#123;"</span>left<span class="string">":-500&#125;,200);</span></span><br><span class="line"><span class="string">$("</span>ul li<span class="string">").eq(index).css(&#123;"</span>left<span class="string">":500&#125;).stop(true).animate(&#123;"</span>left<span class="string">":0&#125;,200);</span></span><br><span class="line"><span class="string">idx=index;</span></span><br><span class="line"><span class="string">$("</span>ol li<span class="string">").eq(idx).addClass("</span>cur<span class="string">").siblings().removeClass("</span>cur<span class="string">");</span></span><br><span class="line"><span class="string">&#125;)</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-</li>
-</ul>
-<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid black;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">50px</span> auto;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">400px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.current</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.lbtn</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">40%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.rbtn</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">40%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ol</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">35%</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ol</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">background</span>:black;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">color</span>:white;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.cur</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>: green;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-	<div>
-  
-</div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2790,7 +2919,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

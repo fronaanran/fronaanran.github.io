@@ -85,16 +85,16 @@
 <meta name="keywords" content="数据结构,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构与算法">
-<meta property="og:url" content="http://yoursite.com/2020/01/06/数据结构与算法/index.html">
+<meta property="og:url" content="https://fronaanran.github.io/2020/01/06/数据结构与算法/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] 选择排序123456789101112131415161718192021public static void main(String[] args) &amp;#123;       sort(new int[]&amp;#123;8,6,4,2,9,3,1&amp;#125;);   &amp;#125;   static void sort(int[] array)&amp;#123;       int[] arr=">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2020/01/06/数据结构与算法/E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%5Clist.png">
+<meta property="og:image" content="https://fronaanran.github.io/2020/01/06/数据结构与算法/E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%5Clist.png">
 <meta property="og:updated_time" content="2020-01-08T14:23:31.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法">
 <meta name="twitter:description" content="[TOC] 选择排序123456789101112131415161718192021public static void main(String[] args) &amp;#123;       sort(new int[]&amp;#123;8,6,4,2,9,3,1&amp;#125;);   &amp;#125;   static void sort(int[] array)&amp;#123;       int[] arr=">
-<meta name="twitter:image" content="http://yoursite.com/2020/01/06/数据结构与算法/E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%5Clist.png">
+<meta name="twitter:image" content="https://fronaanran.github.io/2020/01/06/数据结构与算法/E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%5Clist.png">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/06/数据结构与算法/">
+  <link rel="canonical" href="https://fronaanran.github.io/2020/01/06/数据结构与算法/">
 
 
 
@@ -314,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/06/数据结构与算法/">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/06/数据结构与算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qar">
@@ -430,7 +430,7 @@
 
 <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        sort();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr=&#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&gt;<span class="number">0</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[j]&lt;arr[j-<span class="number">1</span>])&#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = arr[j];</span><br><span class="line">                    arr[j]=arr[j-<span class="number">1</span>];</span><br><span class="line">                    arr[j-<span class="number">1</span>]=temp;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">            System.out.print(arr[i]+<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="各种排序算法总结"><a href="#各种排序算法总结" class="headerlink" title="各种排序算法总结"></a>各种排序算法总结</h3><p><img src="//yoursite.com/2020/01/06/数据结构与算法/E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%5Clist.png" alt></p>
+<h3 id="各种排序算法总结"><a href="#各种排序算法总结" class="headerlink" title="各种排序算法总结"></a>各种排序算法总结</h3><p><img src="//fronaanran.github.io/2020/01/06/数据结构与算法/E:%5Cfolder%5Csource_posts%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%5Clist.png" alt></p>
 
       
     </div>

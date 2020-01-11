@@ -85,17 +85,17 @@
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis进阶">
-<meta property="og:url" content="http://yoursite.com/2019/10/05/redis进阶/index.html">
+<meta property="og:url" content="https://fronaanran.github.io/2019/10/05/redis进阶/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="发布订阅 publish/subscribe 1发布一条消息，2开始订阅，此时不会收到刚刚发布的消息 3 再次发布消息 此时订阅端才会收到发布的消息。订阅后不能看到订阅之前发布的消息。 事务123multi //开启事务set k1 123exec //执行事务  布隆过滤器布隆过滤器是一个bitmap,集合元素通过几种不同的哈希函数生成的哈希值映射到bit位设为1。只要有一个哈希值对应的bit位">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Cpublish.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Caofrewite.png">
+<meta property="og:image" content="https://fronaanran.github.io/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Cpublish.png">
+<meta property="og:image" content="https://fronaanran.github.io/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Caofrewite.png">
 <meta property="og:updated_time" content="2020-01-10T13:17:11.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis进阶">
 <meta name="twitter:description" content="发布订阅 publish/subscribe 1发布一条消息，2开始订阅，此时不会收到刚刚发布的消息 3 再次发布消息 此时订阅端才会收到发布的消息。订阅后不能看到订阅之前发布的消息。 事务123multi //开启事务set k1 123exec //执行事务  布隆过滤器布隆过滤器是一个bitmap,集合元素通过几种不同的哈希函数生成的哈希值映射到bit位设为1。只要有一个哈希值对应的bit位">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Cpublish.png">
+<meta name="twitter:image" content="https://fronaanran.github.io/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Cpublish.png">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/05/redis进阶/">
+  <link rel="canonical" href="https://fronaanran.github.io/2019/10/05/redis进阶/">
 
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/05/redis进阶/">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/10/05/redis进阶/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qar">
@@ -424,7 +424,7 @@
       
 
       
-        <h3 id="发布订阅-publish-subscribe"><a href="#发布订阅-publish-subscribe" class="headerlink" title="发布订阅 publish/subscribe"></a>发布订阅 publish/subscribe</h3><p><img src="//yoursite.com/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Cpublish.png" alt></p>
+        <h3 id="发布订阅-publish-subscribe"><a href="#发布订阅-publish-subscribe" class="headerlink" title="发布订阅 publish/subscribe"></a>发布订阅 publish/subscribe</h3><p><img src="//fronaanran.github.io/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Cpublish.png" alt></p>
 <p>1发布一条消息，2开始订阅，此时不会收到刚刚发布的消息 3 再次发布消息 此时订阅端才会收到发布的消息。订阅后不能看到订阅之前发布的消息。</p>
 <h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">multi //开启事务</span><br><span class="line">set k1 123</span><br><span class="line">exec //执行事务</span><br></pre></td></tr></table></figure>
 
@@ -496,7 +496,7 @@
 </tr>
 </tbody></table>
 <p>推荐使用AOF和RDB两种方式，配置文件修改属性aof-usr-rdb-preamble yes表示开启AOF、RDB混合模式。这种模式只会生成一个aof文件，aof文件包含rdb及增量指令。只有触发BGREWRITEAOF 时aof才会包含rdb.如下：</p>
-<p><img src="//yoursite.com/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Caofrewite.png" alt></p>
+<p><img src="//fronaanran.github.io/2019/10/05/redis进阶/E:%5Cfolder%5Csource_posts%5Credis%E8%BF%9B%E9%98%B6%5Caofrewite.png" alt></p>
 <h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><p>主备、主从、主主概念可参考<a href="https://www.cnblogs.com/tankblog/p/11190598.html" target="_blank" rel="noopener">https://www.cnblogs.com/tankblog/p/11190598.html</a></p>
 <p>主从和主备的区别是除了同步数据之外还得干活，对外提供读的操作。</p>
 <p>REPLICAOF  hostname port  当前服务器作为指定服务器的副本</p>

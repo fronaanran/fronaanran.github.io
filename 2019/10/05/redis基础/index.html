@@ -85,18 +85,18 @@
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis基础">
-<meta property="og:url" content="http://yoursite.com/2019/10/05/redis基础/index.html">
+<meta property="og:url" content="https://fronaanran.github.io/2019/10/05/redis基础/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="基本介绍Redis 是一个开源的内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件，支持多种类型的数据结构,是单进程，单实例。 memcache和redis对比： memcache &amp;lt;key,value&amp;gt; value没有类型的概念 redis &amp;lt;key,value&amp;gt; value支持多种类型的多种方法。 例：“person,{name:’小明’,age:18}”当客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Cskip_list.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Csend01.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Csend02.jpg">
+<meta property="og:image" content="https://fronaanran.github.io/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Cskip_list.png">
+<meta property="og:image" content="https://fronaanran.github.io/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Csend01.jpg">
+<meta property="og:image" content="https://fronaanran.github.io/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Csend02.jpg">
 <meta property="og:updated_time" content="2020-01-10T13:16:20.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis基础">
 <meta name="twitter:description" content="基本介绍Redis 是一个开源的内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件，支持多种类型的数据结构,是单进程，单实例。 memcache和redis对比： memcache &amp;lt;key,value&amp;gt; value没有类型的概念 redis &amp;lt;key,value&amp;gt; value支持多种类型的多种方法。 例：“person,{name:’小明’,age:18}”当客">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Cskip_list.png">
+<meta name="twitter:image" content="https://fronaanran.github.io/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Cskip_list.png">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/05/redis基础/">
+  <link rel="canonical" href="https://fronaanran.github.io/2019/10/05/redis基础/">
 
 
 
@@ -316,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/05/redis基础/">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/10/05/redis基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qar">
@@ -478,7 +478,7 @@
 <p>3)最底层的链表包含所有元素</p>
 <p>4)如果一个元素出现在 i层，则它在i层之下的链表也都会出现</p>
 <p>5)每个节点包含两个指针，一个指向同一链表中的下一个元素，一个指向下面一层的元素。</p>
-<p><img src="//yoursite.com/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Cskip_list.png" alt></p>
+<p><img src="//fronaanran.github.io/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Cskip_list.png" alt></p>
 <h2 id="IO模式及零拷贝"><a href="#IO模式及零拷贝" class="headerlink" title="IO模式及零拷贝"></a>IO模式及零拷贝</h2><p>bio 阻塞 </p>
 <p>nio 非阻塞 实现方式：select,poll,epoll 多路复用，同步非阻塞</p>
 <p>aio 异步非阻塞</p>
@@ -519,14 +519,14 @@
 <p>采用回调机制，在执行add操作时，将文件描述符放到红黑树上，同时注册回调函数，内核在检测到某fd可读/写时会调用此回调函数，该回调函数将文件描述符放在就绪链表中。</p>
 <p>零拷贝sendfile</p>
 <p>零拷贝是指计算机在网络上发送文件时，不需要将文件内容拷贝到用户空间而直接在内核空间中传输到网络的方式，减少cpu的占用和内存带宽。</p>
-<p><img src="//yoursite.com/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Csend01.jpg" alt></p>
+<p><img src="//fronaanran.github.io/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Csend01.jpg" alt></p>
 <p>1、发出sendfile系统调用，用户空间和内核空间上下文切换（第1次上下文切换）</p>
 <p>2、通过DMA将磁盘文件中的内容拷贝到内核空间缓冲区（第1次拷贝：hard driver-&gt;kernel buffer）</p>
 <p>3、DMA发出中断，CPU处理中断，将数据从内核缓冲区拷贝到socket缓冲区(第2次拷贝：kener buffer -&gt; socket buffer)</p>
 <p>4、sendfile系统调用返回，内核空间到用户空间上下文切换(第2次上下文切换)</p>
 <p>5、通过DMA将socket缓冲区中的数据传递到网卡(第3次拷贝：socket buffer -&gt;网卡)</p>
 <p>3次上下文切换，3次拷贝。</p>
-<p><img src="//yoursite.com/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Csend02.jpg" alt></p>
+<p><img src="//fronaanran.github.io/2019/10/05/redis基础/E:%5Cfolder%5Csource_posts%5Credis%E5%9F%BA%E7%A1%80%5Csend02.jpg" alt></p>
 <p>1、调用read()，上下文切换到内核，DMA把磁盘数据复制到内核缓冲区</p>
 <p>2、read()返回，上下文切换到用户空间，CPU把数据复制到用户的缓存空间</p>
 <p>3、write()上下文切换到内核，CPU把数据复制到socket缓冲区</p>

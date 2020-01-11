@@ -712,7 +712,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/05/数据库之索引、事务、执行计划/">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/05/mysql之索引、事务、执行计划、日志、锁/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qar">
@@ -731,7 +731,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/05/数据库之索引、事务、执行计划/" itemprop="url">mysql之索引、事务、执行计划、日志、锁</a></h1>
+                <a class="post-title-link" href="/2020/01/05/mysql之索引、事务、执行计划、日志、锁/" itemprop="url">mysql之索引、事务、执行计划、日志、锁</a></h1>
         
 
         <div class="post-meta">
@@ -784,8 +784,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/05/数据库之索引、事务、执行计划/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/05/数据库之索引、事务、执行计划/" itemprop="commentCount"></span>
+                <a href="/2020/01/05/mysql之索引、事务、执行计划、日志、锁/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/05/mysql之索引、事务、执行计划、日志、锁/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -821,7 +821,7 @@
         
           
             <p>[TOC]</p>
-<h2 id="mysql架构图"><a href="#mysql架构图" class="headerlink" title="mysql架构图"></a>mysql架构图</h2><img src="/2020/01/05/数据库之索引、事务、执行计划/mysql.png">
+<h2 id="mysql架构图"><a href="#mysql架构图" class="headerlink" title="mysql架构图"></a>mysql架构图</h2><img src="/2020/01/05/mysql之索引、事务、执行计划、日志、锁/mysql.png">
 
 <h2 id="mysql执行顺序"><a href="#mysql执行顺序" class="headerlink" title="mysql执行顺序"></a>mysql执行顺序</h2><ol>
 <li><p>select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段 </p>
@@ -934,7 +934,7 @@
 <p>.frm 存放表结构 .ibd:存放数据和索引信息</p>
 <p>非聚簇索引:数据和索引存放在不同的文件。MyISAM</p>
 <p>.frm:存放表结构 .myi存放索引信息 .myd存放数据信息</p>
-<img src="/2020/01/05/数据库之索引、事务、执行计划/存储引擎.png">
+<img src="/2020/01/05/mysql之索引、事务、执行计划、日志、锁/存储引擎.png">
 
 <h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>bin log:服务端级别的日志</p>
 <p>bin log记录语句的原始逻辑，并采用追加写的方式不会覆盖之前的日志信息</p>

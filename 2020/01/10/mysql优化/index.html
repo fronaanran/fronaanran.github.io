@@ -89,10 +89,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] mysql优化监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://fronaanran.github.io/2020/01/10/mysql优化/SimpleNested-LoopJoin.png">
+<meta property="og:image" content="https://fronaanran.github.io/2020/01/10/mysql优化/IndexNested-LoopJoin.png">
+<meta property="og:image" content="https://fronaanran.github.io/2020/01/10/mysql优化/BlockNested-LoopJoin.png">
+<meta property="og:image" content="https://fronaanran.github.io/2020/01/10/mysql优化/组合索引B树.png">
 <meta property="og:updated_time" content="2020-01-11T12:27:07.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql优化">
 <meta name="twitter:description" content="[TOC] mysql优化监控1234set profiling =1;show PROFILES;//列出所有语句的执行时间，包含query_id,duration,queryshow profile all;//默认显示最后一条语句的各个阶段的执行时间show profile for query query_id;//显示指定语句的各个阶段的执行时间  也使用explain执行计划来查看 数据">
+<meta name="twitter:image" content="https://fronaanran.github.io/2020/01/10/mysql优化/SimpleNested-LoopJoin.png">
 
 
 
@@ -471,11 +476,11 @@
 <p>详情可参考:<a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-types.html" target="_blank" rel="noopener">mysql官网</a></p>
 </li>
 <li><p>join算法</p>
+<img src="/2020/01/10/mysql优化/SimpleNested-LoopJoin.png">
 
+<img src="/2020/01/10/mysql优化/IndexNested-LoopJoin.png">
 
-
-
-
+<img src="/2020/01/10/mysql优化/BlockNested-LoopJoin.png">
 </li>
 <li><p>前缀索引</p>
 <p>当索引列为很长的字符，会使索引查询效率又大又慢，这时可以使用字符串的前几个字符作为索引(即前缀索引)。</p>
@@ -488,7 +493,7 @@
 <p>mysql中无法使用前缀索引进行order by 和group by ,也无法用于覆盖索引</p>
 </li>
 <li><p>联合索引的B+树形式</p>
-
+<img src="/2020/01/10/mysql优化/组合索引B树.png">
 
 <p>非叶子节点存储的是联合索引key的键值对，叶子节点存储的是联合索引key的键值对+主键索引</p>
 </li>

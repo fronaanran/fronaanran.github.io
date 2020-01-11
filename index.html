@@ -560,7 +560,7 @@
         
           
             <p>[TOC]</p>
-<h3 id="mysql调优"><a href="#mysql调优" class="headerlink" title="mysql调优"></a>mysql调优</h3><h4 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set profiling =1;</span><br><span class="line">show PROFILES;//列出所有语句的执行时间，包含query_id,duration,query</span><br><span class="line">show profile all;//默认显示最后一条语句的各个阶段的执行时间</span><br><span class="line">show profile for query query_id;//显示指定语句的各个阶段的执行时间</span><br></pre></td></tr></table></figure>
+<h3 id="mysql优化"><a href="#mysql优化" class="headerlink" title="mysql优化"></a>mysql优化</h3><h4 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set profiling =1;</span><br><span class="line">show PROFILES;//列出所有语句的执行时间，包含query_id,duration,query</span><br><span class="line">show profile all;//默认显示最后一条语句的各个阶段的执行时间</span><br><span class="line">show profile for query query_id;//显示指定语句的各个阶段的执行时间</span><br></pre></td></tr></table></figure>
 
 <p>也使用explain执行计划来查看</p>
 <h4 id="数据类型优化"><a href="#数据类型优化" class="headerlink" title="数据类型优化"></a>数据类型优化</h4><ol>
@@ -610,12 +610,12 @@
 </li>
 <li><p>join算法</p>
 </li>
-<li><p><img src="//yoursite.com/2020/01/10/mysql优化/E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5CSimpleNested-LoopJoin.png" alt></p>
+<li><p><img src="//yoursite.com/2020/01/10/mysql优化/E:%5Cfolder%5Csource_posts%5Cmysql%E4%BC%98%E5%8C%96%5CSimpleNested-LoopJoin.png" alt></p>
 </li>
 </ol>
-<pre><code>![](E:\folder\source\_posts\mysql调优\IndexNested-LoopJoin.png)
+<pre><code>![](E:\folder\source\_posts\mysql优化\IndexNested-LoopJoin.png)
 
-![](E:\folder\source\_posts\mysql调优\BlockNested-LoopJoin.png)</code></pre><ol start="14">
+![](E:\folder\source\_posts\mysql优化\BlockNested-LoopJoin.png)</code></pre><ol start="14">
 <li><p>前缀索引</p>
 <p>当索引列为很长的字符，会使索引查询效率又大又慢，这时可以使用字符串的前几个字符作为索引(即前缀索引)。</p>
 <p>前缀索引需选择足够长的前缀以保证较高的选择性，同时又不能太长(造成空间浪费)</p>
@@ -627,7 +627,7 @@
 <p>mysql中无法使用前缀索引进行order by 和group by ,也无法用于覆盖索引</p>
 </li>
 <li><p>联合索引的B+树形式</p>
-<p><img src="//yoursite.com/2020/01/10/mysql优化/E:%5Cfolder%5Csource_posts%5Cmysql%E8%B0%83%E4%BC%98%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt="联合索引"></p>
+<p><img src="//yoursite.com/2020/01/10/mysql优化/E:%5Cfolder%5Csource_posts%5Cmysql%E4%BC%98%E5%8C%96%5C%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95B%E6%A0%91.png" alt="联合索引"></p>
 <p>非叶子节点存储的是联合索引key的键值对，叶子节点存储的是联合索引key的键值对+主键索引</p>
 </li>
 </ol>

@@ -89,13 +89,10 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] mysql架构图  mysql执行顺序 select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段  1) 表1和表2 按照on关联条件筛选值 2) left join 添加外部行，把左表在第二步中过滤的条件添加进来 3) where 对上面的结果进行where 筛选 4) group by">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://fronaanran.github.io/2020/01/05/数据库之索引、事务、执行计划/mysql.png">
-<meta property="og:image" content="https://fronaanran.github.io/2020/01/05/数据库之索引、事务、执行计划/存储引擎.png">
 <meta property="og:updated_time" content="2020-01-11T12:32:09.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql之索引、事务、执行计划、日志、锁">
 <meta name="twitter:description" content="[TOC] mysql架构图  mysql执行顺序 select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段  1) 表1和表2 按照on关联条件筛选值 2) left join 添加外部行，把左表在第二步中过滤的条件添加进来 3) where 对上面的结果进行where 筛选 4) group by">
-<meta name="twitter:image" content="https://fronaanran.github.io/2020/01/05/数据库之索引、事务、执行计划/mysql.png">
 
 
 
@@ -425,7 +422,7 @@
 
       
         <p>[TOC]</p>
-<h2 id="mysql架构图"><a href="#mysql架构图" class="headerlink" title="mysql架构图"></a>mysql架构图</h2><img src="/2020/01/05/数据库之索引、事务、执行计划/mysql.png">
+<h2 id="mysql架构图"><a href="#mysql架构图" class="headerlink" title="mysql架构图"></a>mysql架构图</h2>
 
 <h2 id="mysql执行顺序"><a href="#mysql执行顺序" class="headerlink" title="mysql执行顺序"></a>mysql执行顺序</h2><ol>
 <li><p>select 列名 from 表1 left join 表2 on 关联条件 where 筛选条件 group by 分组字段 order by 排序字段 </p>
@@ -538,7 +535,7 @@
 <p>.frm 存放表结构 .ibd:存放数据和索引信息</p>
 <p>非聚簇索引:数据和索引存放在不同的文件。MyISAM</p>
 <p>.frm:存放表结构 .myi存放索引信息 .myd存放数据信息</p>
-<img src="/2020/01/05/数据库之索引、事务、执行计划/存储引擎.png">
+
 
 <h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>bin log:服务端级别的日志</p>
 <p>bin log记录语句的原始逻辑，并采用追加写的方式不会覆盖之前的日志信息</p>

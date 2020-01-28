@@ -311,6 +311,740 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/26/HDFS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/26/HDFS/" itemprop="url">HDFS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-26T14:19:01+08:00">
+                2020-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/26/HDFS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/26/HDFS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h3 id="HDFS-Hadoop-Distributed-File-System-介绍"><a href="#HDFS-Hadoop-Distributed-File-System-介绍" class="headerlink" title="HDFS(Hadoop Distributed File System)介绍"></a>HDFS(Hadoop Distributed File System)介绍</h3><p>存储模型:把大文件切换成小的块扔到集群里散开，支持分治。</p>
+<p>主从：master/slave，两者都是活动的，两者之间协作，hdfs属于主从</p>
+<p>主备：高可用备用不处理业务，</p>
+<p>NameNode:只有一台,存放在内存里快速对外提供服务</p>
+<p>DataNode:集群指的是DataNode有多少台</p>
+<p>内存：1不可靠2大小限制</p>
+<p>数据持久化的两种方式：1日志文件2快照</p>
+<p>日志文件：记录实时发生的增删改操作，数据完整性比较好，但加载恢复数据慢。文本文件存储</p>
+<p>快照：二进制文件存储，恢复速度快但是因为间隔存储所以会丢失一部分数据。序列化到磁盘会有IO瓶颈</p>
+<p>HDFS:日志EditsLog,快照FsImage</p>
+<p>HDFS采用最近时点的FsImage+增量的EditsLog相结合</p>
+<p>例，现在10点</p>
+<p>FsImage存储9点的快照数据，EditsLog存储9点到10点的增量数据</p>
+<p>1）加载FI 2)加载EL 就得到了全量数据</p>
+<h3 id="CAP原则"><a href="#CAP原则" class="headerlink" title="CAP原则"></a>CAP原则</h3><p>Consistentcy:一致性 Availablility:可用性 Partition tolerance:分区容忍性</p>
+<p>CA:RDBMS单机关系型数据库满足此原则</p>
+<p>CP:MongoDB,HBase,Redis</p>
+<p>AP:CouchDB,Cassandra,DynamoDB,Rlak</p>
+<p>分布式：强一制性破坏可用性</p>
+<p>paxos算法</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/21/springboot入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/21/springboot入门/" itemprop="url">springboot入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-21T10:57:59+08:00">
+                2020-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/21/springboot入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/21/springboot入门/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h2 id="springboot入门介绍"><a href="#springboot入门介绍" class="headerlink" title="springboot入门介绍"></a>springboot入门介绍</h2><h3 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SPI 全称为 (Service Provider Interface) ，是JDK内置的一种服务提供发现机制。SPI是一种动态替换发现的机制， 比如有个接口，想运行时动态的给它添加实现，你只需要添加一个实现。我们经常遇到的就是java.sql.Driver接口，其他不同厂商可以针对同一接口做出不同的实现，mysql和postgresql都有不同的实现提供给用户，而Java的SPI机制可以为某个接口寻找服务实现。面向接口编程。</span><br></pre></td></tr></table></figure>
+
+<h3 id="动态生成banner"><a href="#动态生成banner" class="headerlink" title="动态生成banner"></a>动态生成banner</h3><p>可以通过在 classpath 下添加一个 <code>banner.txt</code> 文件。以下两个网站可以在线生成。</p>
+<p>[patorjk][<a href="http://www.patorjk.com/software/taag]" target="_blank" rel="noopener">http://www.patorjk.com/software/taag]</a></p>
+<p>[bootschool][<a href="https://www.bootschool.net/ascii]" target="_blank" rel="noopener">https://www.bootschool.net/ascii]</a></p>
+<p>spring.profiles.active设置当前运行环境</p>
+<p>配置文件的优先级(application.yml)：./config&gt;./&gt;classpath:/config/&gt;classpath:/ </p>
+<p><img src="//fronaanran.github.io/2020/01/21/springboot入门/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%A1%BA%E5%BA%8F.png" alt></p>
+<img src="/2020/01/21/springboot入门/配置文件顺序.png">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//获取配置文件数据，相当于多个@Value,@Value注解格式：@Value(&quot;$&#123;person.name&#125;&quot;)</span><br><span class="line">@ConfigurationProperties(prefix = &quot;person&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>静态资源文件的优先级:</p>
+<p><img src="//fronaanran.github.io/2020/01/21/springboot入门/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E9%A1%BA%E5%BA%8F.png" alt></p>
+<img src="/2020/01/21/springboot入门/静态资源文件顺序.png">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/12/jvm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/12/jvm/" itemprop="url">jvm</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-12T15:23:48+08:00">
+                2020-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/12/jvm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/12/jvm/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h2 id="java内存模型-java-memory-model"><a href="#java内存模型-java-memory-model" class="headerlink" title="java内存模型(java memory model)"></a>java内存模型(java memory model)</h2><p>jmm：用来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让java程序在各平台下都能够达到一致的内存访问效果。</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/jmm.png" alt></p>
+<img src="/2020/01/12/jvm/jmm.png">
+
+<p>jmm定义了线程和主内存之间的抽象关系：线程之间的共享变量存储在主内存中，每个线程都有一个私有的本地内存，本地内存中存储了该线程以读/写共享变量的副本。</p>
+<h3 id="内存之间的交互操作"><a href="#内存之间的交互操作" class="headerlink" title="内存之间的交互操作"></a>内存之间的交互操作</h3><p>线程的工作内存保存了该线程使用到的主内存相关变量的副本，线程对变量的操作必须在工作内存中进行。不同的线程无法直接访问对方工作内存中的变量，线程间变量交互必需通过主内存来完成。</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/thread_communication.png" alt></p>
+<img src="/2020/01/12/jvm/thread_communication.png">
+
+<p>本地内存A和B共享主内存共享变量X的副本，初始值为0.线程A执行之后把x更新为1，存放在本地内存A中。当线程A和线程B需要通信时，线程A首先会把本地内存中x=1值刷新到主内存，随后，线程B到主内存中读取更新后的X值，线程B的本地内存x值也变为了1。</p>
+<h3 id="硬件架构"><a href="#硬件架构" class="headerlink" title="硬件架构"></a>硬件架构</h3><p><img src="//fronaanran.github.io/2020/01/12/jvm/hardware.png" alt></p>
+<img src="/2020/01/12/jvm/hardware.png">
+
+<p>每个处理器都有自己的高速缓存，同时又共同操作同一块主内存，当多个处理器同时操作主内存时，可能导致数据不一致，因此需要“缓存一致性协议”(MSI、MESI等)来保障。</p>
+<p><font color="red">可以使用synchronized和volatile保证可见性，同时volatile还可以防止指令重排</font></p>
+<h2 id="jvm内存结构"><a href="#jvm内存结构" class="headerlink" title="jvm内存结构"></a>jvm内存结构</h2><h3 id="class文件格式"><a href="#class文件格式" class="headerlink" title="class文件格式"></a>class文件格式</h3><p><img src="//fronaanran.github.io/2020/01/12/jvm/class_structure.png" alt></p>
+<img src="/2020/01/12/jvm/class_structure.png">
+
+<p>magic(cafe babe)4个字节，minor version2个字节，major version2个字节，constant_pool_count2个字节</p>
+<h3 id="jvm内存"><a href="#jvm内存" class="headerlink" title="jvm内存"></a>jvm内存</h3><p><img src="//fronaanran.github.io/2020/01/12/jvm/jvm_structure1.png" alt></p>
+<img src="/2020/01/12/jvm/jvm_structure1.png">
+
+<p>注：(1.7方法区为永久代，存储在虚拟机内部,1.8之后方法区为元数据区，存储在本地内存.1.7可以设置方法区占用内存大小但不能被更改，而1.8后方法区分配空间为物理内存可用空间)</p>
+<p>jvm分为五个区域：虚拟机栈、本地方法醋、程序计数器是线程私有的，堆、方法区是共享的</p>
+<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p><img src="//fronaanran.github.io/2020/01/12/jvm/heap.png" alt></p>
+<img src="/2020/01/12/jvm/heap.png">
+
+<p>堆目的是存放对象，占用内存空间最大。分为新生代和老年代。新生代包括eden、s0、s1三个区。</p>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p><img src="//fronaanran.github.io/2020/01/12/jvm/method_area.png" alt></p>
+<img src="/2020/01/12/jvm/method_area.png">
+
+<p>方法区存储的是已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等</p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>程序计数器的作用可以看做是当前线程所执行的字节码的行号指示器，字节码解释器工作时就是通过改变计数器的值来选取下一条字节码指令。其中分支、循环、跳转等功能都依赖计数器完成。</p>
+<p>java的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，一个处理器(对于多核处理器来说是一个内核)只会执行一条线程中的指令。</p>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p><img src="//fronaanran.github.io/2020/01/12/jvm/jvm_stack.png" alt></p>
+<img src="/2020/01/12/jvm/jvm_stack.png">
+
+<p>栈帧是用于支持虚拟机进行方法调用和方法执行的数据结构。栈帧存储了方法的局部变量表、操作数栈、动态链接和方法返回地址。每一个方法从调用到执行完成的过程，都对应着一个栈帧在机栈里从入栈到出栈的过程。</p>
+<ol>
+<li><p>局部变量表:是一组变量值存储空间，用于存放方法参数和方法内定义的局部变量。</p>
+</li>
+<li><p>操作数栈:后入先出栈。</p>
+</li>
+<li><p>动态链接:每个栈帧都包含一个指向运行时常量池中该栈所属方法的符号引用，持有这个引用的目的是为了支持方法调用过程中的动态链接。</p>
+</li>
+<li><p>本地方法栈:为虚拟机使用到的Native方法服务</p>
+</li>
+</ol>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/jvm_structure2.png" alt></p>
+<img src="/2020/01/12/jvm/jvm_structure2.png">
+
+<h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><p>store(出栈)、load(入栈)、invoke(调用 )包含以下几个指令</p>
+<ol>
+<li><p>InvokeStatic 静态方法 </p>
+</li>
+<li><p>InvokeVirtual 非静态方法 </p>
+</li>
+<li><p>InvokeInterface 接口</p>
+</li>
+<li><p>InvokeSpecial 可能直接定位，不需要多态的方法，例:private方法，构造方法</p>
+</li>
+<li><p>InvokeDynamic lambda表达式、反射或动态产生的class</p>
+</li>
+</ol>
+<h3 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h3><p><img src="//fronaanran.github.io/2020/01/12/jvm/class_circle.png" alt></p>
+<img src="/2020/01/12/jvm/class_circle.png">
+
+<h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p><img src="//fronaanran.github.io/2020/01/12/jvm/classloader.png" alt></p>
+<img src="/2020/01/12/jvm/classloader.png">
+
+<ul>
+<li><p>使用双亲委派机制，主要出于安全来考虑即对于java核心库的类的加载工作由启动类加载器来统一完成，而非自定义类加载器完成，保证了java应用所使用的都是同一个版本的java核心库的类，是兼容的。</p>
+<p>双亲委派：使用类的时候逐层向父加载器找看是否有加载，如果找到直接返回，没找到则父加载器确认自己是否能加载，不能加载则逐层委托给子加载器加载，加载成功返回否则返回classnotfound.</p>
+</li>
+<li><p>懒加载的五种情况</p>
+<ol>
+<li>遇到new,getstatic,putstatic,invokestatic这些字节码指令时，如果类没有进行初始化，则需要先触发其初始化，被final修饰除外</li>
+<li>进行反射调用的时候</li>
+<li>初始化子类的时候父类必须先被初始化</li>
+<li>虚拟机启动时，要执行的主类必须初始化</li>
+<li>动态语言支持，最后的解析结果为REF_getstatic,REF_putstatic,REF_invokeStatic的⽅方法句句柄，并<br>且这个方法句柄所对应的类没有进行初始化，则需要先出触发其初始化。 </li>
+</ol>
+</li>
+<li><p>classloader源码</p>
+<p>loadClass-&gt;findClass</p>
+<p>classloader使用的是模板方法</p>
+</li>
+<li><p>自定义类加载器</p>
+<p>继承ClassLoader，重写findClass方法。</p>
+<p>重写loadClass会打破双亲委派机制</p>
+<p>使用场景：OSGI、热部署等 使用自定义类加载器。</p>
+</li>
+</ul>
+<h4 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h4><h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p>校验class文件是否符合虚拟机要求</p>
+<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>为类变量分配内存空间至方法区，并赋默认值</p>
+<h5 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h5><p>将类、方法、属性等符号引用解析为直接引用(基于指针、偏移量等内存地址的引用)</p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>调用类初始化代码<clinit>，给静态成员变量赋初始值</clinit></p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p>final类型的值不需要加载整个类，如一个值str被定义为final类型，直接访问T.str此时会直接返回此值，类里的其他属性不会被加载初始化。</p>
+<img src="/2020/01/12/jvm/final_unload_class.png">
+
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/final_unload_class.png" alt></p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="垃圾定义及定位"><a href="#垃圾定义及定位" class="headerlink" title="垃圾定义及定位"></a>垃圾定义及定位</h3><p>没有任何引用指向的对象(包括循环引用)称为垃圾</p>
+<p>定位:1. 引用计数(ReferenceCount)</p>
+<p>给对象添加一个引用计数器，每有一个地方引用它的时候计数加1引用释放计数减1，当计数为0时回收。此种方法无法解决对象相互循环引用问题。</p>
+<pre><code>2. 根可达算法</code></pre><p>通过一系列称为“GC Root”的对象(如系统类加载器、栈中的对象、处于激活状态的线程等)作为起点，基于对象引用关系，开始向下搜索，所走过的路径称为引用链，当一个对象到GCRoot没有任何引用链相连证明对象是不可用的。</p>
+<h3 id="回收算法"><a href="#回收算法" class="headerlink" title="回收算法"></a>回收算法</h3><h4 id="标记清除算法-Mark-Sweep"><a href="#标记清除算法-Mark-Sweep" class="headerlink" title="标记清除算法(Mark-Sweep)"></a>标记清除算法(Mark-Sweep)</h4><p>此算法包含“标记”、“清除”两个阶段，首先标记出所有需要回收的对象，标记完成后统一回收掉所有被标记的对象。位置不连续 产生碎片 效率偏低（两遍扫描）</p>
+<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>此算法将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当一块内存用完了，就将存活的对象复制到另外一块上，然后清理掉前一块。没有碎片，浪费空间</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/copy.png" alt></p>
+<img src="/2020/01/12/jvm/copy.png">
+
+<p>jvm堆中新生代采用复制算法。</p>
+<p>在GC回收过程中，当Eden区满时，存活的对象会被复制到其中一个survivor区，当回收时，会将Eden和使用的Survivor区还存活的对象复制到另外一个Survivor区，然后对Eden和用过的Survivor区进行清理。如果另外一个Survivor区没有足够的内存存储，则会进入到老年代。</p>
+<p>对象进入老年代机制：对象每经历一次复制，年龄加1，达到晋升年龄阈值后，转移到老年代</p>
+<p>Eden区和Survivor区是按8:1:1来分配的。</p>
+<h4 id="标记整理算法-Mark-Compact"><a href="#标记整理算法-Mark-Compact" class="headerlink" title="标记整理算法(Mark-Compact)"></a>标记整理算法(Mark-Compact)</h4><p>标记过程与”标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉边界以外的内存。 没有碎片，效率偏低（两遍扫描，指针需要调整）</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/mark_compact.png" alt></p>
+<img src="/2020/01/12/jvm/mark_compact.png">
+
+<p><font color="red">新生代大多数对象是瞬间对象，只有少量对象存活，复制较少对象即可完成清理，因此采用复制算法。老年代中的对象存活率高，又没有额外的担保内存，因此采用标记整理算法</font></p>
+<p>YGC=MinorGC(新生代) FGC=MajorGC(老年代) </p>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><p><img src="//fronaanran.github.io/2020/01/12/jvm/garbage_collector.png" alt></p>
+<img src="/2020/01/12/jvm/garbage_collector.png">
+
+<p>java7、java8默认采用Parallel，Java9、Java10默认采用G1</p>
+<h3 id="Serial"><a href="#Serial" class="headerlink" title="Serial"></a>Serial</h3><p>最基本、历史最久的收集器，是一个单线程的收集器。在进行垃圾回收时，必须暂停其他所有工作的线程，直到收集结束即Stop The World.</p>
+<h3 id="ParNew"><a href="#ParNew" class="headerlink" title="ParNew"></a>ParNew</h3><p>parNew是Serial收集器的多线程版本</p>
+<p>Parallel Scavenge</p>
+<p>与ParNew类似，但关注点与其他搜集器不同，目标是达到一个可控的吞吐量。</p>
+<h3 id="Serial-Old"><a href="#Serial-Old" class="headerlink" title="Serial Old"></a>Serial Old</h3><p>是Serial收集器的老年代版本，同样是单线程收集器，使用标记-整理算法</p>
+<h3 id="Parallel-Old"><a href="#Parallel-Old" class="headerlink" title="Parallel Old"></a>Parallel Old</h3><p>是Parallel Scavenge收集器的老年代版本，使用多线程和”标记-整理”算法</p>
+<h3 id="CMS-Concurrent-Mark-and-Sweep-并发-标记-清除"><a href="#CMS-Concurrent-Mark-and-Sweep-并发-标记-清除" class="headerlink" title="CMS(Concurrent Mark and Sweep 并发-标记-清除)"></a>CMS(Concurrent Mark and Sweep 并发-标记-清除)</h3><p>CMS是一种以获取最短回收停顿时间为目标的收集器，基于并发-标记-清除算法，针对老年代进行垃圾回收。</p>
+<p>CMS工作时尽可能让GC线程和用户线程并发执行，以达到降低STW的目的</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/cms.png" alt></p>
+<img src="/2020/01/12/jvm/cms.png">
+
+<p>初始标记和重新标记都会触发“Stop The World”。<br>初始标记仅仅只是标记一下GC Roots能直接关联到的对象，速度很快，在Java7中是单线程，在Java8以后采用多线程。<br>并发标记阶段GC线程和应用线程并发执行，初始标记出来的存活对象，然后继续递归标记这些对象可达的对象。<br>重新标记阶段则是为了修正并发标记期间，因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段稍长一些，但远比并发标记的时间短。<br>优点：并发收集、低停顿。<br>缺点：对CPU资源非常敏感、无法处理浮动垃圾、标记-清除算法导致的空间碎片</p>
+<h3 id="G1-Grabage-First"><a href="#G1-Grabage-First" class="headerlink" title="G1(Grabage First)"></a>G1(Grabage First)</h3><p>支持新生代和老年代的收集器</p>
+<p>该收集器可充分利用CPU和硬件缩短STW的时间，还具有“整合空间”、“可预测停顿”等特点。比如，可建立可预测的停顿时间模型，能让使用者明确指定在一个长度为N毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒。<br>使用G1收集器时， Java堆的内存布局与其他收集器有很大差别，它将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但新生代和老年代不再是物理隔阂了，它们都是一部分（可以不连续） Region的集合。</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/g1_1.png" alt></p>
+<img src="/2020/01/12/jvm/g1_1.png">
+
+<p>G1会跟踪各个Region里面的垃圾堆积的价值大小（回收所获得的空间大小以及回收所需时间的经验值），在后台维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的Region（这也就是Garbage-First名称的来由）。<br>G1收集器的运作大致可划分为以下几个步骤：初始标记（Initial Marking）、并发标记（Concurrent Marking）、最终标记（Final Marking）、筛选回收（Live DataCounting and Evacuation）。<br>整个流程来看，前几个步骤与CMS的流程很相似。同样的在初始标记和最终标记的过程中都会触发“Stop The World”。</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/g1_collector.png" alt></p>
+<img src="/2020/01/12/jvm/g1_collector.png">
+
+<p>其中，筛选回收阶段其实也可以做到与用户程序一起并发执行，但是因为只回收一部分Region，时间是用户可控制的，而且停顿用户线程将⼤大幅度提⾼高收集效率。</p>
+<h3 id="ZGC-Z-Garbage-Collector"><a href="#ZGC-Z-Garbage-Collector" class="headerlink" title="ZGC(Z Garbage Collector)"></a>ZGC(Z Garbage Collector)</h3><p>ZGC（Z Garbage Collector），是一款可伸缩、低延迟、并发垃圾回收器。在Java11中引入，应用Linux64位系统。其旨在实现以下几个目标：停顿时间不超过10ms、停顿时间不随heap大小或存活对象大小增大而增大、可以处理从几百兆到几T的内存大小。<br>ZGC将内存划分为多个区域，也称为ZPage。 ZPages可以动态创建和销毁。它们也可以动态调整大小（与G1 GC不不同），是2MB的倍数。以下是堆区域的大小组：Small (2 MB)、 Medium (32 MB)、 Large (N * 2 MB)。<br>ZGC堆可以多次出现这些堆区域。中型和大型区域是连续分配的</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/zgc_1.png" alt></p>
+<img src="/2020/01/12/jvm/zgc_1.png">
+
+<p>与其他GC不同， ZGC的物理堆区域可以映射到更大的堆地址空间（其中可以包括虚拟内存）。</p>
+<p><img src="//fronaanran.github.io/2020/01/12/jvm/zgc_collector.png" alt></p>
+<img src="/2020/01/12/jvm/zgc_collector.png">
+
+<p>ZGC的执行过程包括：标记（初始标记、并发标记、边缘情况处理）、重新定位（查找重新定位块、根引用重新定位并更新、并发定位其他对象并存储新旧地址映射）、重新映射。<br>与其他GC不同， ZGC的物理堆区域可以映射到更大的堆地址空间（其中可以包括虚拟内存）。<br>其中标记中的初始标记和边缘情况处理理会引发“Stop The World”，重新定位中的“根引用重新定位并更新”也会引发“Stop The World”。  </p>
+<h2 id="jvm调优"><a href="#jvm调优" class="headerlink" title="jvm调优"></a>jvm调优</h2><p>当遇到以下情况，就需要考虑进行JVM调优了</p>
+<ul>
+<li>堆内存持续上涨达到设置的最大内存值</li>
+<li>FGC次数频繁</li>
+<li>出现OutOfMenory等 内存异常</li>
+<li>系统吞吐量与响应性能不高或下降</li>
+</ul>
+<h3 id="内存泄漏、内存溢出、吞吐量、响应时间"><a href="#内存泄漏、内存溢出、吞吐量、响应时间" class="headerlink" title="内存泄漏、内存溢出、吞吐量、响应时间"></a>内存泄漏、内存溢出、吞吐量、响应时间</h3><p>内存泄漏：无法释放已申请的内存空间</p>
+<p>内存溢出：没有足够的内存被使用</p>
+<p>吞吐量：指应用程序线程用时占程序总用时的比例。用户代码时间 /（用户代码执行时间 + 垃圾回收时间）</p>
+<p>响应时间 ：指一个时间段内应用程序线程让与GC线程执行而完全暂停。STW越短，响应时间越好</p>
+<p>考虑到低暂停时间，最好频繁地运行GC以便更快速地完成，而通过尽可能少运行GC来最大化吞吐量，所以吞吐量和响应时间是相悖的。因此使用算法时要明确目标是吞吐量优先还是响应时间优先</p>
+<h3 id="错误日志"><a href="#错误日志" class="headerlink" title="错误日志"></a>错误日志</h3><p><img src="//fronaanran.github.io/2020/01/12/jvm/gclog.png" alt></p>
+<h3 id="可调优参数"><a href="#可调优参数" class="headerlink" title="可调优参数"></a>可调优参数</h3><p>Xms：初始化堆内存大小，默认为物理内存的1/64(小于1GB)。<br>-Xmx：堆内存最大值。默认(MaxHeapFreeRatio参数可以调整)空余堆内存大于70%时， JVM会减少堆直到-Xms的最小限制。<br>-Xmn：新生代大小，包括Eden区与2个Survivor区。<br>-XX:SurvivorRatio=1： Eden区与一个Survivor区比值为1:1。<br>-XX:MaxDirectMemorySize=1G：直接内存。报java.lang.OutOfMemoryError:Direct buffer memory异常可以上调这个值。<br>-XX:+DisableExplicitGC：禁止运行期显式地调用System.gc()来触发fulll GC。<br>注意: Java RMI的定时GC触发机制可通过配置-Dsun.rmi.dgc.server.gcInterval=86400来控制触发的时间。<br>-XX:CMSInitiatingOccupancyFraction=60：老年代内存回收阈值，默认值为68。<br>-XX:ConcGCThreads=4： CMS垃圾回收器并行线程，推荐值为CPU核心数。<br>-XX:ParallelGCThreads=8：新生代并行收集器的线程数。<br>-XX:MaxTenuringThreshold=10：设置垃圾最大年龄。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入老年代。对于年老代比较多的应用，可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象再年轻代的存活时间，增加年轻代即被回收的概论。<br>-XX:CMSFullGCsBeforeCompaction=4：指定进行多少次fullGC之后，进行tenured区 内存空间压缩。</p>
+<p>-XX:+HeapDumpOnOutOfMemoryError  内存溢出自动导出<br>-XX:+HeapDumpPath=./ 导出堆转储文件路径<br>//设置日志参数<br>-Xloggc:/opt/xxx/logs/xxx-xxx-gc-%t.log<br>-XX:+UseGCLogFileRotation<br>-XX:NumberOfGCLogFiles=5<br>-XX:GCLogFileSize=20M<br>-XX:+PrintGCDetails<br>-XX:+PrintGCDateStamps<br>-XX:+PrintGCCause</p>
+<h3 id="调优工具"><a href="#调优工具" class="headerlink" title="调优工具"></a>调优工具</h3><h3 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h3><p>javap -c file 查看编译器生成的字节码文件</p>
+<p>jps：显示所有java进程</p>
+<p>top：显示占用CPU、内存资源等情况 </p>
+<p>top -Hp pid 找出此进程下的所有线程</p>
+<p>jinfo pid 显示虚拟机参数及启动配置参数等 </p>
+<p>jstat -gc pid 显示当前java进程的gc信息</p>
+<p>jmap -histo | head -20 查看多少对象产生，显示前20条</p>
+<p>jmap -dump:format=b,file=heap.hprof  pid 转堆转储文件</p>
+<h3 id="界面工具"><a href="#界面工具" class="headerlink" title="界面工具"></a>界面工具</h3><p>使用远程工具连接时需要添加启动参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -Djava.rmi.server.hostname=192.168.247.71 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=11111 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false </span><br><span class="line">-Xms20M -Xmx20M -XX:+PrintGC</span><br></pre></td></tr></table></figure>
+
+<p>如出现Local host name XXunknow：XXX的错误，需要修改/etc/hosts文件，添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.247.71 XXX</span><br></pre></td></tr></table></figure>
+
+<p>jconsole</p>
+<p>jvisualvm</p>
+<p>jhat -J-mx200M dump.hprof 使用jhat会启动一个server，访问此server会显示具体信息</p>
+<p>arthas</p>
+<ul>
+<li><p>jad 反编译 </p>
+<p>动态代理生成类的问题定位<br>第三方的类（观察代码）<br>版本问题（确定自己最新提交的版本是不是被使用）</p>
+</li>
+<li><p>redefine 热替换</p>
+<p>在不重启应用的前提下更改代码使更改代码生效。解决线上遇到bug不能重启的情况下的场景可以使用</p>
+</li>
+</ul>
+<p>并发、并行</p>
+<p>cms碎片化浮动垃圾</p>
+<p>分而治之 、分层，架构两大重要思想</p>
+<p>CMS、G1三色标记</p>
+<p>黑色-自身及属性相关都已被标记</p>
+<p>灰色-自身标记，引用还未标记</p>
+<p>白色-没有被标记</p>
+<p>漏标：本来应该被标记的，结果未被标记，被当作垃圾回收</p>
+<p>产生漏标的情况：黑色标记引用指向白色标记且灰色标记去除对这个白色标记的引用</p>
+<p>解决漏标两种情况：1黑色标记变为灰色标记(CMS算法使用)增量更新，此代价比较大，需要重新扫描黑色对象</p>
+<p>2.查看灰色标记指向的白色引用的情况(G1)，STAB,灰色标记指向白色引用会被放到栈空间(类似)，remark时遍历此栈空间即可。STAB配合RSet使用。</p>
+<p>漏标是发生在remark阶段，remark阶段使用的是copy算法</p>
+<p>RememberSet,region区有空间记录指向此region区的其他region的引用，如此区间没有记录，那说明此region是垃圾</p>
+<p>YGC–&gt;MixGC–&gt;FGC</p>
+<p>MixGC会回收新生代及老年代的垃圾，以最大垃圾收先回收</p>
+<p>CMS调优三种方法：</p>
+<ol>
+<li>增大内存2.换CPU3，调阈值，使回收提前发生</li>
+</ol>
+<p>ZGC颜色指针</p>
+<p>springboot,注解，配置文件级别及注解，</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/10/mysql优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2146,727 +2880,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/10/05/redis基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/05/redis基础/" itemprop="url">redis基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-05T14:26:00+08:00">
-                2019-10-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/05/redis基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/05/redis基础/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-
-          
-
-          
-
-		   
-
-
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Redis 是一个开源的内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件，支持多种类型的数据结构,是单进程，单实例。</p>
-<p>memcache和redis对比：</p>
-<p>memcache &lt;key,value&gt; value没有类型的概念</p>
-<p>redis &lt;key,value&gt; value支持多种类型的多种方法。</p>
-<p>例：“person,{name:’小明’,age:18}”当客户端需要获取value中的age时，memcache会返回所有value值，让客户端去遍历所需要的值 ，而redis会直接返回value相对应的age。本质上解耦，体现计算向数据移动。</p>
-<p>数据库排名网站 ：<a href="https://db-engines.com/en/" target="_blank" rel="noopener">https://db-engines.com/en/</a></p>
-<p>redis中文网站：<a href="http:redis.cn" target="_blank" rel="noopener">http:redis.cn</a></p>
-<p>redis官方网站: <a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a></p>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>读取(范围/批量):get k1 / getrange k1 3 -1 / mget k1 k2</p>
-<p>赋值(范围/批量):set k1 hello / getrange k1 2 -1 / mset k2 222 k3 333</p>
-<pre><code>set key nx 不存在时赋值，在分步式锁时使用</code></pre><p>​                             set key xx 存在时赋值</p>
-<p>append,strlength等等字符串基本语法</p>
-<p>数值：递增)incr k1  / incrby k1 22 递减)decr k1 / decrby k1 2</p>
-<p>redis是二进制安全的，需要和客户端沟通好编码类型.</p>
-<p>bitmap(位图):setbit,getbit ,bitcount,bitop </p>
-<table>
-<thead>
-<tr>
-<th>0(第0个字节)</th>
-<th>1(第1个字节)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>00000000（8位）</td>
-<td>00000000(8位)</td>
-</tr>
-</tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit k1 1 1 //第0个字节第2位设置为1 即01000000</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;@&quot;</span><br><span class="line">127.0.0.1:6379&gt; setbit k1 10 1  //第2个字节第3位设置为1 即01000000</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;@ &quot;</span><br><span class="line">127.0.0.1:6379&gt; bitcount k1 0 0 //k1第0个字节有几个1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bitcount k1 0 1 //k1第0至1个字节有几个1</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; setbit k2 1 1</span><br><span class="line">127.0.0.1:6379&gt; setbit k2 7 1</span><br><span class="line">127.0.0.1:6379&gt; get k2 //01000001</span><br><span class="line">&quot;A&quot;</span><br><span class="line">127.0.0.1:6379&gt; setbit k3 1 1</span><br><span class="line">127.0.0.1:6379&gt; setbit k3 6 1</span><br><span class="line">127.0.0.1:6379&gt; get k3 //01000010</span><br><span class="line">&quot;B&quot;</span><br><span class="line">127.0.0.1:6379&gt; bitop and destkey k2 k3 //按位与操作结果为01000000</span><br><span class="line">127.0.0.1:6379&gt; get destkey</span><br><span class="line">&quot;@&quot;</span><br></pre></td></tr></table></figure>
-
-<p>位图场景 1)不定期统计用户登录天数</p>
-<p>key为当前用户id,value为bitmap，每一位相当于天数，登录则为1，反之为0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setbit zs 1 1 //第2天登录设为1</span><br><span class="line">setbit zs 90 1 //第91天登录设为1</span><br><span class="line">setbit zs 364 1 //第365天登录设为1</span><br><span class="line">bitcount zs -7 -1 //统计最后一周登录天数</span><br></pre></td></tr></table></figure>
-
-<p>2）不定期统计活跃用户数量</p>
-<p>key为时间，value为bitmap,每一位相当于一个用户id，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setbit 20191001 0 1 //2019年10月1号 张三登录</span><br><span class="line">setbit 20191002 0 1 //2019年10月2号 张三登录</span><br><span class="line">setbit 20191002 1 1 //2019年10月2号 李四登录</span><br><span class="line">bitop or destkey 20191001  20191002  //2019年10月1号至10月2号登录人数</span><br><span class="line">bitcount destkey 0 -1 //统计2019年10月1号至10月2号登录人数</span><br></pre></td></tr></table></figure>
-
-<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>常用命令:lpush、lrange、lpop、lindex、lset、lrem、linsert、llen、ltrim</p>
-<pre><code>rpush、range、rpop、blpop</code></pre><p>list是重复有序的，包含了栈、队列、数组、单播订阅的概念</p>
-<h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><p>常用命令:hset、hmset、hget、hmget、hvals、hgetall</p>
-<p>应用场景:点赞、收藏、详情页</p>
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>常用命令：sadd、smembers、sinter、sinterstore、sunion、sdiff、srandmember、spop</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sadd k9 1 2 3 4 5 </span><br><span class="line">srandmember k9 3 //随机取三个，不会重复</span><br><span class="line">srandmember k9 -3  //随机取三个，会重复</span><br><span class="line">srandmember k9 10 //只能取出5个</span><br><span class="line">srandmember k9 -10  //随机取10个，会重复</span><br><span class="line">spop k9 //随机取1个，并把这个值去除 可用于年会抽奖，一人一份的场景</span><br></pre></td></tr></table></figure>
-
-<p>  set是去重无序的.应用场景：随机抽奖</p>
-<h3 id="sorted-set"><a href="#sorted-set" class="headerlink" title="sorted_set"></a>sorted_set</h3><p>常用命令:zadd、zrange、zrevrange、zscore、zrank、zunionscore</p>
-<p>应用场景：排行榜</p>
-<p>排序之所以快是因为使用skip_list(跳跃表)实现的。skip_list是一个分层结构多级链表，最下层是原始链表，每个层级都是下一个层级的“高速跑道”.跳表具有如下性质：</p>
-<p>1)由很多层结构组成</p>
-<p>2)每一层都是一个有序链表</p>
-<p>3)最底层的链表包含所有元素</p>
-<p>4)如果一个元素出现在 i层，则它在i层之下的链表也都会出现</p>
-<p>5)每个节点包含两个指针，一个指向同一链表中的下一个元素，一个指向下面一层的元素。</p>
-<img src="/2019/10/05/redis基础/skip_list.png">
-
-<h2 id="IO模式及零拷贝"><a href="#IO模式及零拷贝" class="headerlink" title="IO模式及零拷贝"></a>IO模式及零拷贝</h2><p>bio 阻塞 </p>
-<p>nio 非阻塞 实现方式：select,poll,epoll 多路复用，同步非阻塞</p>
-<p>aio 异步非阻塞</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>进程连接数</th>
-<th>io效率</th>
-<th>消息传递</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>select</td>
-<td>有限</td>
-<td>采用轮询方式，遍历所有fd判断是否就绪</td>
-<td>用户态、内核态切换</td>
-</tr>
-<tr>
-<td>poll</td>
-<td>基于链表，没有限制</td>
-<td>采用轮询方式，遍历所有fd判断是否就绪</td>
-<td>用户态、内核态切换</td>
-</tr>
-<tr>
-<td>epoll</td>
-<td>有限，但是上限很大</td>
-<td>采用回调机制，返回就绪fd</td>
-<td>mmap内存共享空间</td>
-</tr>
-</tbody></table>
-<p>epoll详解：</p>
-<p>epoll的通俗解释是一种当文件描述符的内核缓冲区非空的时候，发出可读信号进行通知，当写缓冲区不满的时候，发出可写信号通知的机制。</p>
-<p>核心API:epoll_create,epoll_ctl,epoll_wait</p>
-<p>epoll_create生成epoll实例并返回一个文件描述符即epoll句柄，epoll_ctl,epoll_wait均以此为核心。</p>
-<p>epoll_ctl 将被监听的描述符添加到红黑树或从红黑树中删除或者对监听事件进行修改</p>
-<p>epoll_wait 向用户进程返回处于ready状态下的文件描述符列表</p>
-<p>采用回调机制，在执行add操作时，将文件描述符放到红黑树上，同时注册回调函数，内核在检测到某fd可读/写时会调用此回调函数，该回调函数将文件描述符放在就绪链表中。</p>
-<p>零拷贝sendfile</p>
-<p>零拷贝是指计算机在网络上发送文件时，不需要将文件内容拷贝到用户空间而直接在内核空间中传输到网络的方式，减少cpu的占用和内存带宽。</p>
-<img src="/2019/10/05/redis基础/send01.jpg">
-
-<p>1、发出sendfile系统调用，用户空间和内核空间上下文切换（第1次上下文切换）</p>
-<p>2、通过DMA将磁盘文件中的内容拷贝到内核空间缓冲区（第1次拷贝：hard driver-&gt;kernel buffer）</p>
-<p>3、DMA发出中断，CPU处理中断，将数据从内核缓冲区拷贝到socket缓冲区(第2次拷贝：kener buffer -&gt; socket buffer)</p>
-<p>4、sendfile系统调用返回，内核空间到用户空间上下文切换(第2次上下文切换)</p>
-<p>5、通过DMA将socket缓冲区中的数据传递到网卡(第3次拷贝：socket buffer -&gt;网卡)</p>
-<p>3次上下文切换，3次拷贝。</p>
-<img src="/2019/10/05/redis基础/send02.jpg">
-
-<p>1、调用read()，上下文切换到内核，DMA把磁盘数据复制到内核缓冲区</p>
-<p>2、read()返回，上下文切换到用户空间，CPU把数据复制到用户的缓存空间</p>
-<p>3、write()上下文切换到内核，CPU把数据复制到socket缓冲区</p>
-<p>4、write()返回，上下文切换到用户进程</p>
-<p>5、DMA把socket缓冲区数据复制到网卡</p>
-<p>4次上下文切换，4次拷贝。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-	<div>
-  
-</div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/10/05/redis进阶/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/05/redis进阶/" itemprop="url">redis进阶</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-05T14:26:00+08:00">
-                2019-10-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/05/redis进阶/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/05/redis进阶/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-
-          
-
-          
-
-		   
-
-
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="发布订阅-publish-subscribe"><a href="#发布订阅-publish-subscribe" class="headerlink" title="发布订阅 publish/subscribe"></a>发布订阅 publish/subscribe</h3><img src="/2019/10/05/redis进阶/publish.png">
-
-<p>1发布一条消息，2开始订阅，此时不会收到刚刚发布的消息 3 再次发布消息 此时订阅端才会收到发布的消息。订阅后不能看到订阅之前发布的消息。</p>
-<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">multi //开启事务</span><br><span class="line">set k1 123</span><br><span class="line">exec //执行事务</span><br></pre></td></tr></table></figure>
-
-<h3 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h3><p>布隆过滤器是一个bitmap,集合元素通过几种不同的哈希函数生成的哈希值映射到bit位设为1。只要有一个哈希值对应的bit位为0时就会认为不存在此元素。</p>
-<p>可以使用布隆过滤器预防穿透，但是布隆过滤器不会保证百分百准确同时也不支持删除。</p>
-<h3 id="redis缓存"><a href="#redis缓存" class="headerlink" title="redis缓存"></a>redis缓存</h3><p>缓存：1不是全量数据2缓存应该存放热数据3数据可以丢4 追求极速</p>
-<p>数据库：1全量数据2数据不能丢3追求速度+持久性</p>
-<p>回收策略:</p>
-<ul>
-<li><p>noeviction:返回错误当内存限制达到并且客户端尝试执行会让更多内存被使用的命令（大部分的写入指令，但DEL和几个例外）(做数据库时使用此策略)</p>
-</li>
-<li><p>allkeys-lru: 尝试回收最久使用的键（LRU），使得新添加的数据有空间存放。</p>
-</li>
-<li><p>volatile-lru: 尝试回收最久使用的键（LRU），但仅限于在过期集合的键,使得新添加的数据有空间存放。</p>
-</li>
-<li><p>allkeys-lfu:从所有键中驱逐使用频率最少的键。</p>
-</li>
-<li><p>volatile-lfu:从所有配置了过期时间的键中驱逐使用频率最少的键。</p>
-</li>
-<li><p>allkeys-random: 回收随机的键使得新添加的数据有空间存放。</p>
-</li>
-<li><p>volatile-random: 回收随机的键使得新添加的数据有空间存放，但仅限于在过期集合的键。</p>
-</li>
-<li><p>volatile-ttl: 回收在过期集合的键，并且优先回收存活时间（TTL）较短的键,使得新添加的数据有空间存放。</p>
-<p>根据业务来选择使用哪种策略，一般使用lru及lfu策略。</p>
-</li>
-</ul>
-<p>过期: 如果没有到达过期时间，发生写操作，那么过期时间会被剔除</p>
-<p>过期判断原理: 1如果key已经过期，那么当客户端尝试访问时，key会被发现并主动过期</p>
-<pre><code>2周期轮询判定，直到过期的key的百分比低于25%</code></pre><h3 id="redis持久化"><a href="#redis持久化" class="headerlink" title="redis持久化"></a>redis持久化</h3><h4 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h4><p>rdb持久化方式能够在指定时间间隔对数据进行快照，具有时点性,通过SAVE和BGSAVE对数据集进行保存。</p>
-<p>SAVE命令会阻塞redis的服务进程，直到rdb文件创建完毕为止。只有在目的明确时才使用，如关机等。</p>
-<p>BGSAVE命令则会fork出一个子进程，然后子进程负责RDB文件的创建，父进程继续处理请求。</p>
-<p>工作原理：</p>
-<ul>
-<li>Redis 调用forks. 同时拥有父进程和子进程。</li>
-<li>子进程将数据集写入到一个临时 RDB 文件中。</li>
-<li>当子进程完成对新 RDB 文件的写入时，Redis 用新 RDB 文件替换原来的 RDB 文件，并删除旧的 RDB 文件。</li>
-</ul>
-<p>这种工作方式使得 Redis 可以从写时复制（copy-on-write）机制中获益。</p>
-<p>rdb只有一个dump.rdb文件，如需历史数据需要手动维护。</p>
-<p>【管道】管道是阻塞的，会触发子进程。常规下linux进程间数据是隔离的。</p>
-<p>使用系统调用:fork()会产生一个新的子进程，子进程只会开辟一个虚拟空间，而物理空间(内核)是和父进程共享的（指向同一个指针），只有当进程的数据发生变化时才会在物理空间复制一份新的数据并在此空间进行写操作。这利用了copy on write（写时复制）,只有在数据变化写入时才会发生复制。</p>
-<h4 id="AOF（Append-only-file）"><a href="#AOF（Append-only-file）" class="headerlink" title="AOF（Append-only file）"></a>AOF（Append-only file）</h4><p>每当 Redis 执行一个改变数据集的命令时（比如 SET）， 这个命令就会被追加到 AOF 文件的末尾。</p>
-<p>工作原理：</p>
-<ul>
-<li>Redis 执行 fork() ，现在同时拥有父进程和子进程。</li>
-<li>子进程开始将新 AOF 文件的内容写入到临时文件。</li>
-<li>对于所有新执行的写入命令，父进程一边将它们累积到一个内存缓存中，一边将这些改动追加到现有 AOF 文件的末尾,这样即使在重写的中途发生停机，现有的 AOF 文件也还是安全的。</li>
-<li>当子进程完成重写工作时，它给父进程发送一个信号，父进程在接收到信号之后，将内存缓存中的所有数据追加到新 AOF 文件的末尾。</li>
-<li>现在 Redis 原子地用新文件替换旧文件，之后所有命令都会直接追加到新 AOF 文件的末尾。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>丢失数据</th>
-<th>恢复速度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>RDB</td>
-<td>会丢失一个时点的数据，相对较大</td>
-<td>体积相对小，恢复速度快</td>
-</tr>
-<tr>
-<td>AOF</td>
-<td>丢失数据少</td>
-<td>体积相对大，恢复速度慢</td>
-</tr>
-</tbody></table>
-<p>推荐使用AOF和RDB两种方式，配置文件修改属性aof-usr-rdb-preamble yes表示开启AOF、RDB混合模式。这种模式只会生成一个aof文件，aof文件包含rdb及增量指令。只有触发BGREWRITEAOF 时aof才会包含rdb.如下：</p>
-<img src="/2019/10/05/redis进阶/aofrewite.png">
-
-<h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><p>主备、主从、主主概念可参考<a href="https://www.cnblogs.com/tankblog/p/11190598.html" target="_blank" rel="noopener">https://www.cnblogs.com/tankblog/p/11190598.html</a></p>
-<p>主从和主备的区别是除了同步数据之外还得干活，对外提供读的操作。</p>
-<p>REPLICAOF  hostname port  当前服务器作为指定服务器的副本</p>
-<p> REPLICAOF NO ONE 设置当前服务器为主服务器</p>
-<h4 id="sentinel-哨兵"><a href="#sentinel-哨兵" class="headerlink" title="sentinel (哨兵)"></a>sentinel (哨兵)</h4><p>sentinel是解决redis高可用的方案,可以监视多个主服务器及主服务器的从服务器，可以在主服务器挂掉的时候指定新的主服务器。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//创建sentinel配置文件</span><br><span class="line">port 26379 //指定端口号</span><br><span class="line">//指定监听主服务器(本地6279端口)，2代表当有2个哨兵认为master失效时，master才算失效</span><br><span class="line">sentinel monitor mymaster localhost 6379 2 </span><br><span class="line"></span><br><span class="line">//启动哨兵</span><br><span class="line">redis-cli sentinel.conf --sentinel</span><br></pre></td></tr></table></figure>
-
-<p>如果主挂了哨兵会重新选一个主，然后让其他从跟随,哨兵(通过发布订阅)知道当前redis会有其他几个哨兵。</p>
-<h4 id="分区-分片"><a href="#分区-分片" class="headerlink" title="分区/分片"></a>分区/分片</h4><p>redis集群中内置了 16384个哈希槽,每个key通过CRC16校验后对16384取模来决定放置哪个槽.集群的每个节点负责一部分hash槽.</p>
-<p>使用哈希槽的好处就在于可以方便的添加或移除节点。</p>
-<p>当需要增加节点时，只需要把其他节点的某些哈希槽挪到新节点就可以了；</p>
-<p>当需要移除节点时，只需要把移除节点上的哈希槽挪到其他节点就行了；</p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>redis存在问题：单机故障，容量有量，压力</p>
-<h4 id="AKF"><a href="#AKF" class="headerlink" title="AKF"></a>AKF</h4><p>AKF扩展立方、分别从XYZ轴展开，可以解决redis存在的问题</p>
-<p>X轴:主从复制、高可用，通过克隆进行扩展</p>
-<p>Y轴:业务拆分，通过拆分不同的东西进行扩展</p>
-<p>Z轴:地域性划分，通过拆分相似的东西进行扩展</p>
-<h4 id="脑裂"><a href="#脑裂" class="headerlink" title="脑裂"></a>脑裂</h4><p>脑裂:高可用集群故障，由一个整体拆分成两部分都可以对外提供服务，导致数据不一致。搭建集群时设定的数量是奇数，可以防止脑裂。</p>
-<p>例：AB两机房由于网络中断，分别对外提供服务。则对A进行插入操作，从B读取不到数据。如果A中的机器数量占整个集群的一半以上，那么B会自动宕机，由A来对外提供服务。</p>
-<h4 id="CAP（分布式的三大特性）"><a href="#CAP（分布式的三大特性）" class="headerlink" title="CAP（分布式的三大特性）"></a>CAP（分布式的三大特性）</h4><p>Consistency(一致性): 读取的数据是写入的数据。</p>
-<p>Availability(可用性):只要收到用户的请求，服务器就必须给出回应。</p>
-<p>Partition tolerance(分区容忍性):必然存在网络故障断开的风险，这个网络断开的专业场景成为网络分区。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择。</p>
-<p>CAP 原则指的是，这三个要素最多只能同时实现两点，实际只能保证CP、AP。如果追求一致性，那么无法保证所有节点的可用性；如果追求所有节点的可用性，那就没法做到一致性。</p>
-<h4 id="一致性哈希算法"><a href="#一致性哈希算法" class="headerlink" title="一致性哈希算法"></a>一致性哈希算法</h4><p>将哈希值空间组织成一个虚拟的圆环，将每台机器通过哈希算法映射到圆环上(物理节点)，将数据通过哈希算法映射到圆环，按顺时针找到下一个物理节点存储此数据。但不能保证每台机器数据分布均匀，可能会集中在某台机器上。这时可为每台机器虚拟出几个节点，这样会缓解数据倾倒。</p>
-<h4 id="面试常问"><a href="#面试常问" class="headerlink" title="面试常问"></a>面试常问</h4><h5 id="击穿"><a href="#击穿" class="headerlink" title="击穿"></a>击穿</h5><p>一个key或少量的key过期造成并发访问数据库.可以在客户端异步访问redis,第一个访问到的调用setnx(key timeout)从数据库取值,其他客户端访问如果没有得到值可更改setnx(key)的过期时间。</p>
-<h5 id="穿透"><a href="#穿透" class="headerlink" title="穿透"></a>穿透</h5><p>查询数据是系统根本不存在的数据(黑客攻击)，可以使用布隆过滤器</p>
-<h5 id="雪崩"><a href="#雪崩" class="headerlink" title="雪崩"></a>雪崩</h5><p>大量的key同时失效.可以均匀设置过期时间，可以参考击穿方案使用分布式锁。</p>
-<p>vim命令小技巧:  .,$y  表示复制当前行到末行 Gp 从最后一行开始粘贴</p>
-<p><em>工欲善其事</em>，必先利其器。要学会利用官方网站、github。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-	<div>
-  
-</div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/09/26/线程1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="qar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/26/线程1/" itemprop="url">线程1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T11:24:25+08:00">
-                2019-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/09/26/线程1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/26/线程1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-
-          
-
-          
-
-		   
-
-
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h2><p> 1)继承Thread类   2)实现Runnable接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class TestThread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        T1 t1 = new T1();</span><br><span class="line">        t1.setName(&quot;t1,继承Thread类&quot;);</span><br><span class="line">        t1.start();//启动线程1</span><br><span class="line">        T2 t2 = new T2();</span><br><span class="line">        Thread thread = new Thread(t2);</span><br><span class="line">        t1.setName(&quot;t2,实现Runnable接口&quot;);</span><br><span class="line">        thread.start();//启动线程2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class T1 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        System.out.println(&quot;当前线程名称:&quot;+Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class T2 implements Runnable&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(&quot;当前线程名称:&quot;+Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><ol>
-<li>New</li>
-<li>Runnable,细分为ready和running,调用start()方法进入ready,获得使用权后进入running</li>
-<li>Block,分为等待阻塞，超时等待阻塞及其他阻塞。调用sleep,wait等方法会造成阻塞</li>
-<li>Teminated</li>
-</ol>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>join:暂停当前线程，执行join线程，等join线程执行完毕继续执行当前线程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class TestJoinThread &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Thread t1 = new T1();</span><br><span class="line">        t1.start();</span><br><span class="line">        try &#123;</span><br><span class="line">            t1.join();</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;主线程执行&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class T1 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        for (int i=0;i&lt;100;i++)&#123;</span><br><span class="line">            System.out.println(&quot;t1,第&quot;+i+&quot;次开始执行&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    //执行结果t1执行100次之后输出主线程执行，主线程要等到t1线程执行结束再执行</span><br></pre></td></tr></table></figure>
-
-<p>join方法可以使线程按自己定义的顺序执行</p>
-<p>sleep和wait方法的区别：</p>
-<ul>
-<li>sleep属于Thread类的静态方法；wait属于Object类的方法 </li>
-<li>sleep不释放锁，使用interrupt方法打断；wait释放锁，会造成阻塞，使用notify方法唤醒</li>
-</ul>
-<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>多个线程抢占同一资源需要加锁即synchronized，保证原子性。</p>
-<p>锁升级：偏向锁、轻量级锁、重量级锁</p>
-<p>有一个线程时会使用偏向锁，有线程竞争后会升级为轻量级锁，未获得锁的线程会自旋，当达到设定的自旋次数后依旧没有获得锁，会升级为重量级锁。</p>
-<p>线程少、方法执行时间短的时候会使用轻量级锁，会占用cpu资源</p>
-<p>线程多，执行时间长会使用重量级锁，不占用cpu资源，但会增加用户态和内核态的切换次数，系统开销比较大</p>
-<h2 id="生产者消费者案例"><a href="#生产者消费者案例" class="headerlink" title="生产者消费者案例"></a>生产者消费者案例</h2><p>篮子存放牛奶，生产者把牛奶放入篮子，消费者从篮子取出牛奶</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">public class TestSync &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Basket b = new Basket();</span><br><span class="line">        new Thread(new Producer(b)).start();</span><br><span class="line">        new Thread(new Consumer(b)).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//牛奶</span><br><span class="line">class Milk&#123;</span><br><span class="line">    int id;</span><br><span class="line">    Milk(int id)&#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Milk:&quot;+id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> *  篮子，篮子存放8盒牛奶，有放入和取出方法</span><br><span class="line"> *  涉及到同步，等待，唤醒,</span><br><span class="line"> *  第1，2处使用while不使用if是因为会反复确认条件是否成立再向下执行</span><br><span class="line"> */</span><br><span class="line">class Basket&#123;</span><br><span class="line">    Milk[] milks = new Milk[8];</span><br><span class="line">    int index = 0;</span><br><span class="line">    public synchronized void push(Milk m)&#123;</span><br><span class="line">        while(index == milks.length)&#123;  //第1处</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.notify();</span><br><span class="line">        System.out.println(&quot;生产了:&quot;+index);</span><br><span class="line">        milks[index] = m;</span><br><span class="line">        index++;</span><br><span class="line">    &#125;</span><br><span class="line">    public synchronized Milk pop()&#123;</span><br><span class="line">        while(index == 0)&#123; //第2处</span><br><span class="line">            try &#123;</span><br><span class="line">                this.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.notify();</span><br><span class="line">        index--;</span><br><span class="line">        System.out.println(&quot;消费了:&quot;+index);</span><br><span class="line">         return milks[index];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//生产者，生产牛奶放入篮子</span><br><span class="line">class Producer implements Runnable&#123;</span><br><span class="line">    Basket b = new Basket();</span><br><span class="line">    Producer(Basket basket)&#123;</span><br><span class="line">        this.b = basket;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">            b.push(new Milk(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//消费者，从篮子里拿出牛奶</span><br><span class="line">class Consumer implements Runnable&#123;</span><br><span class="line">    Basket b = new Basket();</span><br><span class="line">    Consumer(Basket basket)&#123;</span><br><span class="line">        this.b = basket;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">            b.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-	<div>
-  
-</div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2919,7 +2932,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2941,7 +2954,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

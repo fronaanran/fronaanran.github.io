@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,springboot,">
+  <meta name="keywords" content="java,多线程,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="[TOC] HDFS(Hadoop Distributed File System)介绍存储模型:把大文件切换成小的块扔到集群里散开，支持分治。 主从：master/slave，两者都是活动的，两者之间协作，hdfs属于主从 主备：高可用备用不处理业务， NameNode:只有一台,存放在内存里快速对外提供服务 DataNode:集群指的是DataNode有多少台 内存：1不可靠2大小限制 数据持">
-<meta name="keywords" content="java,springboot">
+<meta name="description" content="[TOC] 线程线程的几种状态new-&amp;gt;ready-&amp;gt;(blocked-&amp;gt;waiting-&amp;gt;timedwating)-&amp;gt;running-&amp;gt;terminated synchronized即保证原子性又保证可见性不能禁止重排序 volatile：即保证线程可见性又禁止指令重排序，但是不保证原子性 锁升级 偏向锁(只有一个线程的时候markword记录这个线程的ID实">
+<meta name="keywords" content="java,多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDFS">
-<meta property="og:url" content="https://fronaanran.github.io/2020/01/26/HDFS/index.html">
+<meta property="og:title" content="多线程与高并发">
+<meta property="og:url" content="https://fronaanran.github.io/2020/01/28/多线程与高并发/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="[TOC] HDFS(Hadoop Distributed File System)介绍存储模型:把大文件切换成小的块扔到集群里散开，支持分治。 主从：master/slave，两者都是活动的，两者之间协作，hdfs属于主从 主备：高可用备用不处理业务， NameNode:只有一台,存放在内存里快速对外提供服务 DataNode:集群指的是DataNode有多少台 内存：1不可靠2大小限制 数据持">
+<meta property="og:description" content="[TOC] 线程线程的几种状态new-&amp;gt;ready-&amp;gt;(blocked-&amp;gt;waiting-&amp;gt;timedwating)-&amp;gt;running-&amp;gt;terminated synchronized即保证原子性又保证可见性不能禁止重排序 volatile：即保证线程可见性又禁止指令重排序，但是不保证原子性 锁升级 偏向锁(只有一个线程的时候markword记录这个线程的ID实">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-27T05:38:36.958Z">
+<meta property="og:updated_time" content="2020-02-03T12:01:19.590Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDFS">
-<meta name="twitter:description" content="[TOC] HDFS(Hadoop Distributed File System)介绍存储模型:把大文件切换成小的块扔到集群里散开，支持分治。 主从：master/slave，两者都是活动的，两者之间协作，hdfs属于主从 主备：高可用备用不处理业务， NameNode:只有一台,存放在内存里快速对外提供服务 DataNode:集群指的是DataNode有多少台 内存：1不可靠2大小限制 数据持">
+<meta name="twitter:title" content="多线程与高并发">
+<meta name="twitter:description" content="[TOC] 线程线程的几种状态new-&amp;gt;ready-&amp;gt;(blocked-&amp;gt;waiting-&amp;gt;timedwating)-&amp;gt;running-&amp;gt;terminated synchronized即保证原子性又保证可见性不能禁止重排序 volatile：即保证线程可见性又禁止指令重排序，但是不保证原子性 锁升级 偏向锁(只有一个线程的时候markword记录这个线程的ID实">
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://fronaanran.github.io/2020/01/26/HDFS/">
+  <link rel="canonical" href="https://fronaanran.github.io/2020/01/28/多线程与高并发/">
 
 
 
@@ -142,7 +142,7 @@
     }
 </style>
 
-  <title>HDFS | Hexo</title>
+  <title>多线程与高并发 | Hexo</title>
   
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/26/HDFS/">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2020/01/28/多线程与高并发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qar">
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HDFS</h1>
+          <h1 class="post-title" itemprop="name headline">多线程与高并发</h1>
         
 
         <div class="post-meta">
@@ -341,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-26T14:19:01+08:00">
-                2020-01-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-28T17:49:07+08:00">
+                2020-01-28
               </time>
             
 
@@ -382,8 +382,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/26/HDFS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/26/HDFS/" itemprop="commentCount"></span>
+                <a href="/2020/01/28/多线程与高并发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/28/多线程与高并发/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,26 +422,44 @@
 
       
         <p>[TOC]</p>
-<h3 id="HDFS-Hadoop-Distributed-File-System-介绍"><a href="#HDFS-Hadoop-Distributed-File-System-介绍" class="headerlink" title="HDFS(Hadoop Distributed File System)介绍"></a>HDFS(Hadoop Distributed File System)介绍</h3><p>存储模型:把大文件切换成小的块扔到集群里散开，支持分治。</p>
-<p>主从：master/slave，两者都是活动的，两者之间协作，hdfs属于主从</p>
-<p>主备：高可用备用不处理业务，</p>
-<p>NameNode:只有一台,存放在内存里快速对外提供服务</p>
-<p>DataNode:集群指的是DataNode有多少台</p>
-<p>内存：1不可靠2大小限制</p>
-<p>数据持久化的两种方式：1日志文件2快照</p>
-<p>日志文件：记录实时发生的增删改操作，数据完整性比较好，但加载恢复数据慢。文本文件存储</p>
-<p>快照：二进制文件存储，恢复速度快但是因为间隔存储所以会丢失一部分数据。序列化到磁盘会有IO瓶颈</p>
-<p>HDFS:日志EditsLog,快照FsImage</p>
-<p>HDFS采用最近时点的FsImage+增量的EditsLog相结合</p>
-<p>例，现在10点</p>
-<p>FsImage存储9点的快照数据，EditsLog存储9点到10点的增量数据</p>
-<p>1）加载FI 2)加载EL 就得到了全量数据</p>
-<h3 id="CAP原则"><a href="#CAP原则" class="headerlink" title="CAP原则"></a>CAP原则</h3><p>Consistentcy:一致性 Availablility:可用性 Partition tolerance:分区容忍性</p>
-<p>CA:RDBMS单机关系型数据库满足此原则</p>
-<p>CP:MongoDB,HBase,Redis</p>
-<p>AP:CouchDB,Cassandra,DynamoDB,Rlak</p>
-<p>分布式：强一制性破坏可用性</p>
-<p>paxos算法</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><h4 id="线程的几种状态"><a href="#线程的几种状态" class="headerlink" title="线程的几种状态"></a>线程的几种状态</h4><p>new-&gt;ready-&gt;(blocked-&gt;waiting-&gt;timedwating)-&gt;running-&gt;terminated</p>
+<p>synchronized即保证原子性又保证可见性不能禁止重排序</p>
+<p>volatile：即保证线程可见性又禁止指令重排序，但是不保证原子性</p>
+<p>锁升级</p>
+<p>偏向锁(只有一个线程的时候markword记录这个线程的ID实际上不加锁)</p>
+<p>如果线程争用，升级为自旋锁。默认自旋10次,占用cpu资源</p>
+<p>10次后升级为重量级锁，进入操作系统等待队列，此时不占用cpu资源</p>
+<p>执行时间比较短，线程数少使用自旋锁</p>
+<p>执行时间长，线程数多使用重量级锁</p>
+<h3 id="CAS-Compare-And-Set"><a href="#CAS-Compare-And-Set" class="headerlink" title="CAS(Compare And Set)"></a>CAS(Compare And Set)</h3><p>cas(V,Excepted,NewValue),分别代表要更新的变量，预期值，新值</p>
+<p>如果V=E则将V值更改为N值，如果V！=E说明其他线程做了更新那么当前线程什么也不做</p>
+<p>cas会发生ABA问题，ABA即为值为2变为1又变为2</p>
+<p>ABA问题对于基础类型，无所谓，对于引用类型可能会有影响。可以使用加Version来判断处理。例：女朋友跟你复合，中间会经历N个男友</p>
+<p>CAS操作依赖于UnSafe类，UnSafe底层直接操作内存</p>
+<p>AtomicXXX:并发包中的原子操作类提供了许多基于CAS实现的原子操作类</p>
+<p>LongAdder分段锁</p>
+<p>ReentrantLock底层CAS,可以有公平锁，可以替代synchronized,而synchronized是非公平锁</p>
+<p>Volatile修饰引用类型，引用指向的对象改变，Volatile检测不到</p>
+<p>AQS(AbstractQueuedSynchronizer)</p>
+<p>主要包含:volatile state及线程队列(双向链表) CAS</p>
+<p>volatile state控制加锁次数，CAS用来控制向线程队列(Node结点)添加tail</p>
+<p>VarHandle句柄引用，普通类型也能完成原子性操作</p>
+<p>Long、Double在32位JVM上是非原子性的，因为占用8个字节，在32位JVM会分两组(4个字节一组)来操作</p>
+<h3 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h3><p>在多线程环境下，可以保证各个线程之间的变量互相隔离、相互独立</p>
+<p>适用场景：声明式事务、切换数据源</p>
+<p>强引用、软引用、弱引用、虚引用</p>
+<p>软引用当内存不足的时候会被清理，做缓存使用</p>
+<p>弱引用当进行垃圾回收时会被清理，当有强引用和弱引用指向同一个对象时，强引用消失后，此对象应该被清理，相应的弱引用也应该被清理。弱引用一般用在容器里。</p>
+<p>ThreadLocalMap的key指向当前对象即ThreadLocal,此为弱引用</p>
+<p>ThreadLocal使用完毕后必须要remove，因为ThreadLocalMap的key可以为null，但是value的值是一直会存在的，会发生内存泄漏，所以要手动remove</p>
+<p>虚引用管理堆外内存。</p>
+<p>copyonwrite写时加锁，读时不加锁，用于读多写少的情况</p>
+<p>Callable类似于Runnable但是有返回值，用Future来接收</p>
+<p>FutureTask=&gt;Future+Runnable</p>
+<p>CompletableFuture用于管理多个Future结果</p>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>running-&gt;shutdown-&gt;stop-&gt;tidying-&gt;terminated</p>
+<p>ThreadPoolExecutor</p>
+<p>ForkJoinPool 分解汇总的任务</p>
 
       
     </div>
@@ -500,7 +518,7 @@
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
-            <a href="/tags/springboot/" rel="tag"><i class="fa fa-tag"></i> springboot</a>
+            <a href="/tags/多线程/" rel="tag"><i class="fa fa-tag"></i> 多线程</a>
           
         </div>
       
@@ -513,8 +531,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/21/springboot入门/" rel="next" title="springboot入门">
-                <i class="fa fa-chevron-left"></i> springboot入门
+              <a href="/2020/01/26/HDFS/" rel="next" title="HDFS">
+                <i class="fa fa-chevron-left"></i> HDFS
               </a>
             
           </div>
@@ -522,10 +540,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/28/多线程与高并发/" rel="prev" title="多线程与高并发">
-                多线程与高并发 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -669,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS-Hadoop-Distributed-File-System-介绍"><span class="nav-text">HDFS(Hadoop Distributed File System)介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAP原则"><span class="nav-text">CAP原则</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的几种状态"><span class="nav-text">线程的几种状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAS-Compare-And-Set"><span class="nav-text">CAS(Compare And Set)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal"><span class="nav-text">ThreadLocal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池"><span class="nav-text">线程池</span></a></li></ol></div>
             
 
           </div>

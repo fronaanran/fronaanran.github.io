@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fronaanran.github.io/"/>
-  <updated>2020-02-03T12:01:19.590Z</updated>
+  <updated>2020-02-17T04:49:30.445Z</updated>
   <id>https://fronaanran.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>spring</title>
+    <link href="https://fronaanran.github.io/2020/02/17/spring/"/>
+    <id>https://fronaanran.github.io/2020/02/17/spring/</id>
+    <published>2020-02-17T03:55:53.000Z</published>
+    <updated>2020-02-17T04:49:30.445Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;动态代理&quot;&gt;&lt;a href=&quot;#动态代理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://fronaanran.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="java" scheme="https://fronaanran.github.io/tags/java/"/>
+    
+      <category term="spring" scheme="https://fronaanran.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
     <title>多线程与高并发</title>
     <link href="https://fronaanran.github.io/2020/01/28/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
     <id>https://fronaanran.github.io/2020/01/28/多线程与高并发/</id>
     <published>2020-01-28T09:49:07.000Z</published>
-    <updated>2020-02-03T12:01:19.590Z</updated>
+    <updated>2020-02-21T12:19:10.295Z</updated>
     
     <summary type="html">
     

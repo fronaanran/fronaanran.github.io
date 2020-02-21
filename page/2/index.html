@@ -311,6 +311,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/12/31/js士兵行走案例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/31/js士兵行走案例/" itemprop="url">js士兵行走案例</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-31T20:20:00+08:00">
+                2019-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/31/js士兵行走案例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/31/js士兵行走案例/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+
+          
+
+          
+
+		   
+
+
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    *&#123;</span><br><span class="line">        margin:0;</span><br><span class="line">        padding:0;</span><br><span class="line">    &#125;</span><br><span class="line">    div&#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        width: 50px;</span><br><span class="line">        height: 100px;</span><br><span class="line">        background-image: url(&quot;./js/sb.png&quot;);</span><br><span class="line">        background-position: 0px -200px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    //创建士兵</span><br><span class="line">    function Soldier()&#123;</span><br><span class="line">        this.x=0;</span><br><span class="line">        this.l=0;</span><br><span class="line">        this.top=parseInt(Math.random()*500);</span><br><span class="line">        this.isMove=true;</span><br><span class="line">        this.init();</span><br><span class="line">        arr.push(this);</span><br><span class="line">        this.click();</span><br><span class="line">    &#125;</span><br><span class="line">    //动态创建div</span><br><span class="line">    Soldier.prototype.init=function()&#123;</span><br><span class="line">        this.dom =document.createElement(&quot;div&quot;);</span><br><span class="line">        this.dom.style.top=this.top+&quot;px&quot;;</span><br><span class="line">        document.body.appendChild(this.dom)</span><br><span class="line">    &#125;</span><br><span class="line">    //士兵行走</span><br><span class="line">    Soldier.prototype.walk=function()&#123;</span><br><span class="line">        if(!this.isMove) return;</span><br><span class="line">        if(this.x++ &gt;3) this.x=0;</span><br><span class="line">        this.l+=10;</span><br><span class="line">        if(this.l&gt;500)&#123;</span><br><span class="line">            arr.splice(arr.indexOf(this),1);</span><br><span class="line">            document.body.removeChild(this.dom);</span><br><span class="line">        &#125;</span><br><span class="line">        this.dom.style.backgroundPosition=-this.x*50+&quot;px -200px&quot;;</span><br><span class="line">        this.dom.style.left=this.l+&quot;px&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    //定时行走</span><br><span class="line">    var time=0;</span><br><span class="line">    var arr=[];</span><br><span class="line">    setInterval(function()&#123;</span><br><span class="line">        if(time++ % 10 == 0)&#123;</span><br><span class="line">            new Soldier();</span><br><span class="line">        &#125;</span><br><span class="line">        for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">            arr[i].walk();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,100)</span><br><span class="line">    //点击事件</span><br><span class="line">    Soldier.prototype.click=function()&#123;</span><br><span class="line">        var self=this;</span><br><span class="line">        this.dom.onclick=function()&#123;</span><br><span class="line">            self.isMove=!self.isMove;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://fronaanran.github.io/2019/12/31/javase知识点总结(杂)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1589,7 +1751,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1611,7 +1773,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

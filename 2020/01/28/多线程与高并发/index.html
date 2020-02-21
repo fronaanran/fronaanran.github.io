@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] 线程线程的几种状态new-&amp;gt;ready-&amp;gt;(blocked-&amp;gt;waiting-&amp;gt;timedwating)-&amp;gt;running-&amp;gt;terminated synchronized即保证原子性又保证可见性不能禁止重排序 volatile：即保证线程可见性又禁止指令重排序，但是不保证原子性 锁升级 偏向锁(只有一个线程的时候markword记录这个线程的ID实">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-03T12:01:19.590Z">
+<meta property="og:updated_time" content="2020-02-21T12:19:10.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程与高并发">
 <meta name="twitter:description" content="[TOC] 线程线程的几种状态new-&amp;gt;ready-&amp;gt;(blocked-&amp;gt;waiting-&amp;gt;timedwating)-&amp;gt;running-&amp;gt;terminated synchronized即保证原子性又保证可见性不能禁止重排序 volatile：即保证线程可见性又禁止指令重排序，但是不保证原子性 锁升级 偏向锁(只有一个线程的时候markword记录这个线程的ID实">
@@ -460,7 +460,41 @@
 <h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>running-&gt;shutdown-&gt;stop-&gt;tidying-&gt;terminated</p>
 <p>ThreadPoolExecutor</p>
 <p>ForkJoinPool 分解汇总的任务</p>
-
+<h3 id="各种锁"><a href="#各种锁" class="headerlink" title="各种锁"></a>各种锁</h3><h4 id="CountDownLatch和Thread-join对比"><a href="#CountDownLatch和Thread-join对比" class="headerlink" title="CountDownLatch和Thread.join对比"></a>CountDownLatch和Thread.join对比</h4><p>相同：CountDownLatch 和 join都可以等待其他线程执行完毕再执行当前线程</p>
+<p>区别：CountDownLatch 可以在其他线程执行部分方法后就可以继续执行当前线程，join必须等待其他线程方法执行完之后才能继续。</p>
+<pre><code>public class TestCheck extends  Thread{
+    private String name;
+    private CountDownLatch countDownLatch;
+    TestCheck(String name,CountDownLatch countDownLatch){
+        this.name = name;
+        this.countDownLatch = countDownLatch;
+    }
+    @Override
+    public void run(){
+        try {
+            System.out.println(name+&quot;--开始排队&quot;);
+            Thread.sleep(1000);
+            System.out.println(name+&quot;--开始结账&quot;);
+            countDownLatch.countDown();
+            Thread.sleep(100);
+            System.out.println(name+&quot;--结账完毕&quot;);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+public static void main(String[] args) {
+    try {
+    CountDownLatch c = new CountDownLatch(2);
+    TestCheck t1 = new TestCheck(&quot;线程1&quot;,c);
+    TestCheck t2 = new TestCheck(&quot;线程2&quot;,c);
+    t1.start();
+    t2.start();
+    c.await();
+    System.out.println(&quot;t1,t2开始结账&quot;);
+    TestCheck t3 = new TestCheck(&quot;线程3&quot;,c);
+    t3.start();
+    t3.join();
+    System.out.println(&quot;钱已到手，关门大吉<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//执行结果</span><br><span class="line">线程1--开始排队</span><br><span class="line">线程2--开始排队</span><br><span class="line">线程2--开始结账</span><br><span class="line">线程1--开始结账</span><br><span class="line">t1,t2开始结账</span><br><span class="line">线程3--开始排队</span><br><span class="line">线程1--结账完毕</span><br><span class="line">线程2--结账完毕</span><br><span class="line">线程3--开始结账</span><br><span class="line">线程3--结账完毕</span><br><span class="line">钱已到手，关门大吉</span><br></pre></td></tr></table></figure></code></pre>
       
     </div>
     
@@ -540,6 +574,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/17/spring/" rel="prev" title="spring">
+                spring <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -621,7 +659,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -643,7 +681,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -683,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的几种状态"><span class="nav-text">线程的几种状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAS-Compare-And-Set"><span class="nav-text">CAS(Compare And Set)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal"><span class="nav-text">ThreadLocal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池"><span class="nav-text">线程池</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的几种状态"><span class="nav-text">线程的几种状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAS-Compare-And-Set"><span class="nav-text">CAS(Compare And Set)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal"><span class="nav-text">ThreadLocal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池"><span class="nav-text">线程池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种锁"><span class="nav-text">各种锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CountDownLatch和Thread-join对比"><span class="nav-text">CountDownLatch和Thread.join对比</span></a></li></ol></li></ol></div>
             
 
           </div>
